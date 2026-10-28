@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Batch Convert HEIC to JPG — Hundreds at Once, Free, No Cap</title>
+<meta name="description" content="How to convert hundreds of HEIC photos to JPG at once: getting them off your iPhone, zip versus individual saves, and why a 500-photo batch gets much bigger.">
+
+<!-- ==================== SITE ORIGIN ====================
+     The canonical domain appears in this block and NOWHERE else in this file.
+     Moving domains = edit the hrefs below, plus the same block in every other page.
+     The full list of files carrying an origin is in README.md ("Moving domains").
+     ===================================================== -->
+<link rel="canonical" href="https://heic.kostelinha.com/guides/batch-convert-heic-to-jpg/">
+<meta property="og:url" content="https://heic.kostelinha.com/guides/batch-convert-heic-to-jpg/">
+<meta property="og:image" content="https://heic.kostelinha.com/assets/og.png">
+<meta name="twitter:image" content="https://heic.kostelinha.com/assets/og.png">
+<!-- JSON-LD urls are inside the script at the end of this head. -->
+<!-- ==================== /SITE ORIGIN ==================== -->
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Safelight">
+<meta property="og:title" content="Batch Convert HEIC to JPG — Hundreds at Once, Free, No Cap">
+<meta property="og:description" content="Convert hundreds of HEIC photos to JPG in one go: getting them off the iPhone, zip versus individual saves, and why the batch comes out bigger.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Safelight — HEIC to JPG, without the upload.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Batch Convert HEIC to JPG — Hundreds at Once, Free, No Cap">
+<meta name="twitter:description" content="Convert hundreds of HEIC photos to JPG in one go, with no daily cap and no account.">
+<meta name="theme-color" content="#eceef1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131010" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23131010'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23f2913f'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23f2913f' stroke-opacity='.35' stroke-width='1.5'/%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="/css/app.css">
+<link rel="stylesheet" href="/css/pages.css">
+<script type="module" src="/js/pages.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Safelight", "item": "https://heic.kostelinha.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://heic.kostelinha.com/guides/" },
+        { "@type": "ListItem", "position": 3, "name": "Batch convert HEIC to JPG" }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://heic.kostelinha.com/guides/batch-convert-heic-to-jpg/#howto",
+      "name": "Batch convert HEIC photos to JPG",
+      "description": "Convert hundreds of HEIC photos to JPG at once, on your own device, with no daily cap and no account.",
+      "totalTime": "PT5M",
+      "tool": { "@type": "HowToTool", "name": "A web browser released after 2020" },
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Get the HEICs off your iPhone",
+          "text": "Plug the phone into a PC and copy the photos out of the DCIM folders in File Explorer, or export from the Photos app. Whether you get real HEICs or auto-converted JPGs depends on Settings, Photos, Transfer to Mac or PC — Keep Originals sends the HEIC, Automatic converts on the way out.",
+          "url": "https://heic.kostelinha.com/guides/batch-convert-heic-to-jpg/#step-export"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Select the whole batch at once",
+          "text": "Drag the folder onto the converter, or open the folder, press Ctrl+A or Cmd+A, and drag the selection in. Pasting works too. Hundreds of files in one go is normal.",
+          "url": "https://heic.kostelinha.com/guides/batch-convert-heic-to-jpg/#step-select"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Set quality and resize before you start",
+          "text": "The default quality is 0.85. The resize control caps the longest side at 4032, 2560, 1920, 1280 or 800 pixels and never enlarges. Both settings apply to the whole batch, so decide now rather than converting twice.",
+          "url": "https://heic.kostelinha.com/guides/batch-convert-heic-to-jpg/#step-settings"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Save the batch",
+          "text": "Small and medium batches come down fine as a single zip. Very large batches are more reliable saved individually, because a zip has to be held whole in the browser's memory. The app warns you before you reach that point.",
+          "url": "https://heic.kostelinha.com/guides/batch-convert-heic-to-jpg/#step-save"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to the guide</a>
+
+<header class="head">
+  <div class="wrap head__in">
+    <a class="brand" href="/">
+      <span class="lamp" aria-hidden="true"></span>
+      Safelight
+      <span class="brand__sub">HEIC&nbsp;→&nbsp;JPG, on your device</span>
+    </a>
+    <nav class="head__nav" aria-label="Sections">
+      <a class="head__link" href="/">Convert</a>
+      <a class="head__link" href="/compress/">Compress</a>
+      <a class="head__link" href="/guides/">Guides</a>
+    </nav>
+    <button type="button" class="room-toggle" id="room-toggle">Lightbox</button>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="wrap pagehead">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/">Safelight</a>
+      <span class="crumbs__sep" aria-hidden="true">/</span>
+      <a href="/guides/">Guides</a>
+      <span class="crumbs__sep" aria-hidden="true">/</span>
+      <span aria-current="page">Batch converting</span>
+    </nav>
+
+    <h1>Convert hundreds of HEICs<br><em>in one go</em>.</h1>
+    <p class="pagehead__lede">
+      Most online converters cap you at a handful of files a day. That cap isn't spite —
+      it's arithmetic, and it disappears the moment the conversion happens on your own
+      machine instead of on someone's rented CPU. Here's how to do a whole camera roll at
+      once, and what will actually bite you when you try.
+    </p>
+    <p class="pagehead__meta">
+      <span>Guide</span>
+      <span>Last checked: July 2026</span>
+      <span>Reading time: 6 min</span>
+    </p>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Why every server-based converter caps your batch</h2>
+        <p>
+          When a converter runs on a server, every file you send costs the company money:
+          CPU time to decode the HEVC, bandwidth up, storage while it sits there, bandwidth
+          back down. Their bill scales with your batch. A free tier with no cap would be an
+          invitation to bankrupt them, so they cap it. That is a rational design, not a
+          scam, and the companies doing it are being straightforward about the trade.
+        </p>
+        <p>
+          A converter that runs in your browser has a different cost structure: the
+          conversion runs on hardware you already paid for, so the marginal cost of your
+          five-hundredth photo is zero to whoever wrote the page. There's no bill to protect
+          and therefore no reason to invent a limit. <a href="/#tool">This one</a> has no
+          daily cap, no account and no file count — the only ceiling is your device's
+          memory, and we go into exactly where that ceiling sits below.
+        </p>
+      </div>
+
+      <div class="cta">
+        <div class="cta__text">
+          <p class="cta__title">Drop in the whole folder</p>
+          <p class="cta__sub">
+            No account, no daily cap, no file limit. A few hundred at once is normal, and
+            nothing is uploaded, so nothing has to finish before you can close the laptop.
+          </p>
+        </div>
+        <a class="btn btn--primary" href="/#tool">Open the converter</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>First: getting the photos off the iPhone</h2>
+        <p>
+          This is where most batch jobs go wrong before they start, because the iPhone may
+          quietly convert your photos on the way out and hand you JPGs you didn't ask for —
+          or hand you HEICs when you wanted JPGs. The setting that decides is
+          <strong>Settings &rarr; Photos &rarr; Transfer to Mac or PC</strong>:
+        </p>
+        <ul>
+          <li>
+            <strong>Keep Originals</strong> sends the real HEIC file, untouched. This is
+            what you want if you're going to convert deliberately, with a quality setting
+            you chose.
+          </li>
+          <li>
+            <strong>Automatic</strong> converts to JPG during the transfer. If your photos
+            arrive as JPGs and you never asked for that, this is why — and it also means
+            you never see the conversion settings.
+          </li>
+        </ul>
+        <p>
+          There are two ways to get the files across, and they behave differently:
+        </p>
+      </div>
+
+      <ol class="steps">
+        <li id="step-export">
+          <h3>USB and File Explorer (Windows)</h3>
+          <p>
+            Plug the phone in, unlock it, and tap <em>Trust</em>. The phone appears under
+            <em>This PC</em> as a portable device, with the camera roll inside a stack of
+            <code>DCIM\1xxAPPLE</code> folders. Copy the folders out to a real folder on your
+            drive first, then convert from there — dragging straight off a phone over MTP is
+            slow and drops connections, and you do not want to discover that at photo 300.
+          </p>
+          <p>
+            If the files land as <code>.JPG</code> when you expected <code>.HEIC</code>,
+            that's the <em>Automatic</em> setting above. Switch to Keep Originals and copy
+            again.
+          </p>
+        </li>
+        <li>
+          <h3>Photos app export (Mac)</h3>
+          <p>
+            Select the photos, then <em>File &rarr; Export &rarr; Export Unmodified
+            Original</em>. That gives you the HEIC as it was shot. The plain
+            <em>Export</em> command re-encodes and lets you choose a format there, which is
+            fine too — it's just a different tool doing the same job, with the same
+            size trade-off waiting at the end.
+          </p>
+        </li>
+        <li id="step-select">
+          <h3>Then select the lot</h3>
+          <p>
+            Three ways in, all of which take the whole batch:
+          </p>
+          <p>
+            <strong>Drag a folder</strong> onto the drop zone and the browser walks it for
+            you. <strong>Ctrl+A</strong> (or <strong>Cmd+A</strong>) inside the folder,
+            then drag the selection in. Or <strong>paste</strong> — copy files in your file
+            manager and press Ctrl+V on the page. There's no per-batch limit to work
+            around, so you don't need to chunk it into groups of twenty.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <aside class="ad wrap" id="ad-in-content" aria-label="Advertisement">
+    <p class="ad__label">Advertisement</p>
+    <div class="ad__box"></div>
+  </aside>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>The thing nobody warns you about: the batch gets bigger</h2>
+        <p>
+          Converting HEIC to JPG produces files around <strong>168%</strong> the size of the
+          originals at the default quality of 0.85. On one photo that's an academic point.
+          On a batch it's the whole story: <strong>500 photos at 2 MB each is about 1 GB of
+          HEIC, and roughly 1.7 GB of JPG.</strong> If you are converting a camera roll to
+          free up space, you are about to achieve the opposite with some vigour.
+        </p>
+        <p>
+          This isn't this converter being wasteful, and it isn't avoidable by picking a
+          different one. HEVC — the codec inside a HEIC — is from 2013. JPG's compression is
+          from 1992 and needs more bytes to describe the same picture. You are paying in
+          megabytes for files that open on everything, forever. Usually that's worth it. It
+          should just be a decision rather than a surprise.
+        </p>
+        <p>
+          Three honest ways to blunt it, in order of how much they cost you:
+        </p>
+        <ul>
+          <li>
+            <strong>Resize.</strong> The biggest lever by a distance, and the one people
+            forget. The resize control caps the longest side — 4032, 2560, 1920, 1280 or
+            800 px — and never enlarges anything. A 12 MP iPhone photo capped at 1920 px is
+            a fraction of the pixels and therefore a fraction of the bytes, and it is still
+            larger than any screen anyone will view it on. For a batch headed to email, a
+            website, or a shared album, this is almost always the right answer.
+          </li>
+          <li>
+            <strong>Drop the quality.</strong> Around <strong>0.6</strong> lands close to
+            the original HEIC's size. You will be able to see the difference — that's the
+            deal. Somewhere in the 0.7–0.8 range is a defensible compromise for a bulk
+            archive.
+          </li>
+          <li>
+            <strong>Pick WebP instead.</strong> Worth about 8%, and that's all. WebP comes
+            out at roughly 155% against JPG's 168%, because the encoder here is the one
+            built into your browser rather than a dedicated one. Still bigger than your
+            HEIC. Take it only if every recipient runs software from the last five years.
+          </li>
+        </ul>
+        <p>
+          PNG is 1186% — around twelve times the original — because it's lossless. On a
+          batch of any size it is essentially never what you want.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Zip or individual files?</h2>
+        <p>
+          One zip is obviously nicer. It's also the thing most likely to fail on a big
+          batch, and the reason is worth ten seconds of your attention.
+        </p>
+        <p>
+          To hand you a zip, the browser has to hold the finished archive in memory —
+          <em>and</em> keep every converted file alive while it's being packed. So a zip
+          costs roughly double its own size in RAM at the moment it's built, and browsers
+          cap how much a single blob can occupy. Saving files one at a time streams each one
+          to disk and forgets it, so it plateaus instead of climbing.
+        </p>
+        <p>
+          The practical rule: <strong>zip for tens of files, individual saves for
+          hundreds.</strong> The app watches the running total and warns you before you get
+          near the wall, rather than letting the tab die at 90%. If you want the tidiness of
+          a zip on a huge job, do it in a few passes of a couple of hundred and zip each —
+          it works, it's just manual.
+        </p>
+      </div>
+
+      <div class="prose">
+        <h2>Phone versus desktop, honestly</h2>
+        <p>
+          A batch runs on whatever device you opened the page on, so the device decides.
+        </p>
+        <p>
+          On a <strong>desktop or laptop</strong> with 8 GB or more, several hundred photos
+          is unremarkable. Leave the tab in the foreground — browsers throttle background
+          tabs and will make a long batch crawl for no visible reason.
+        </p>
+        <p>
+          On an <strong>iPhone or iPad</strong>, it's quick per photo, because Safari decodes
+          HEIC with the system decoder rather than the WebAssembly one. But iOS is
+          aggressive about reclaiming memory from tabs, so a batch of many hundreds is a
+          real risk of a reloaded page halfway through. Work in groups of fifty or so, save
+          each group, and stop switching apps mid-batch.
+        </p>
+        <p>
+          On an <strong>older Android with 3 GB of RAM</strong>: it works, and it will be
+          slower than you'd like. That's not a plan limit you could pay to remove — it's
+          just a phone with 3 GB of RAM. The limit here is your hardware, which is at least
+          a limit you can inspect.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>The caveats, all of them</h2>
+        <ul>
+          <li>
+            <strong>EXIF metadata is dropped</strong> — dates, camera model, GPS. Photos are
+            decoded to pixels and re-encoded, and the metadata doesn't survive. Rotation
+            <em>is</em> applied, so nothing comes out sideways. If a batch of family photos
+            needs its dates intact, this tool isn't the one for that job yet, and you should
+            know that before you convert four hundred of them.
+          </li>
+          <li>
+            <strong>Settings apply to the whole batch.</strong> One quality, one size, one
+            format. Choose before you start rather than converting twice.
+          </li>
+          <li>
+            <strong>The decoder is a 1.4 MB download</strong>, once, on first use. After
+            that the page needs nothing from the network — a batch will run happily in
+            airplane mode, which is also the fastest way to prove nothing is being uploaded.
+          </li>
+          <li>
+            <strong>Output formats are JPG, PNG, WebP and PDF.</strong> If you need a PDF of
+            your photos — one per photo, or a whole batch combined into a single file — the
+            <a href="/guides/heic-to-pdf/">HEIC to PDF guide</a> covers it. Video and more
+            exotic formats are still a job for a cloud converter, and we'd rather say so than
+            let you find out at file 200.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Questions people actually ask</h2>
+      </div>
+      <dl class="faq prose">
+        <dt>How many HEICs can I convert at once?</dt>
+        <dd>
+          There's no set number, because there's no cap to set. Hundreds at a time is
+          normal; the limit is your device's memory, not a plan. Very large batches save
+          more reliably file by file than as one zip.
+        </dd>
+
+        <dt id="step-settings">Can I convert a whole folder without selecting each file?</dt>
+        <dd>
+          Yes — drag the folder itself onto the page. Or open it, press Ctrl+A (Cmd+A on a
+          Mac) and drag the selection over. Pasting works as well.
+        </dd>
+
+        <dt id="step-save">Why did my zip fail on a huge batch?</dt>
+        <dd>
+          Browsers limit how much a single blob can hold in memory, and building a zip needs
+          the archive plus the source files alive at the same time. Save individually
+          instead, or split the job into a few passes. The app warns you before you reach
+          that point rather than after.
+        </dd>
+
+        <dt>Is a bulk HEIC converter with no limit actually free?</dt>
+        <dd>
+          This one is: no account, no daily cap, no watermark. It's paid for by the ads
+          marked on the page. Since your files never reach us, there's nothing else here to
+          monetise — which is also why the batch size can be your business rather than ours.
+        </dd>
+
+        <dt>Will converting 500 photos free up space on my drive?</dt>
+        <dd>
+          No — the opposite. JPGs come out around 168% of the HEICs at the default quality,
+          so a 1 GB batch becomes roughly 1.7 GB. Use the resize cap, or lower the quality
+          toward 0.6, if the size matters more than the fidelity.
+        </dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Keep reading</h2>
+        <ul>
+          <li><a href="/guides/heic-to-jpg-free-unlimited/">Why free converters have daily caps</a> — and why a local one doesn't need to.</li>
+          <li><a href="/guides/heic-to-jpg-without-uploading/">Converting without uploading</a> — and the ten-second test that proves it.</li>
+          <li><a href="/guides/open-heic-files-windows-11/">Why Windows won't open your HEICs</a> — the patent story, and four fixes.</li>
+        </ul>
+      </div>
+
+      <div class="cta">
+        <div class="cta__text">
+          <p class="cta__title">Bring the whole camera roll</p>
+          <p class="cta__sub">
+            No cap, no account, nothing uploaded — so the batch is limited by your machine
+            and not by our invoice. Set the resize cap first if space is the point.
+          </p>
+        </div>
+        <a class="btn btn--primary" href="/#tool">Open the converter</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p>
+      <strong>Safelight</strong> — HEIC to JPG that never uploads your photos.
+      Built on <a class="prose" href="https://github.com/strukturag/libheif" rel="noopener">libheif</a> (<a class="prose" href="/vendor/LICENSE.libheif-js.txt" rel="license">LGPL-3.0</a>).
+    </p>
+    <nav class="foot__nav" aria-label="Footer">
+      <a href="/">Converter</a>
+      <a href="/guides/">Guides</a>
+      <a href="/compare/">Comparisons</a>
+      <a href="/privacy/">Privacy</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

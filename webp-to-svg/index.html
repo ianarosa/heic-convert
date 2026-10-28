@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>WebP to SVG — Free Vector Tracer, No Upload</title>
+<meta name="description" content="Trace WebP to SVG in your browser — nothing uploads. Ideal for flat graphics, logos and icons; photographs vectorize poorly. Free, unlimited, works offline.">
+
+<!-- ==================== SITE ORIGIN ====================
+     The canonical domain appears in this block and NOWHERE else in this file.
+     Moving domains = edit the hrefs below, plus the same block in every other page.
+     The full list of files carrying an origin is in README.md ("Moving domains").
+     ===================================================== -->
+<link rel="canonical" href="https://heic.kostelinha.com/webp-to-svg/">
+<meta property="og:url" content="https://heic.kostelinha.com/webp-to-svg/">
+<meta property="og:image" content="https://heic.kostelinha.com/assets/og.png">
+<meta name="twitter:image" content="https://heic.kostelinha.com/assets/og.png">
+<!-- JSON-LD urls are inside the script at the end of this head. -->
+<!-- ==================== /SITE ORIGIN ==================== -->
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Safelight">
+<meta property="og:title" content="WebP to SVG — Free Vector Tracer, No Upload">
+<meta property="og:description" content="Trace a WebP graphic into a scalable vector SVG, in your browser. Best for flat art; photos trace poorly. Nothing uploads.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Safelight — convert images, without the upload.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="WebP to SVG — Free Vector Tracer, No Upload">
+<meta name="twitter:description" content="Trace a WebP graphic into a scalable vector SVG, in your browser. Nothing uploaded.">
+<meta name="theme-color" content="#eceef1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131010" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23131010'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23f2913f'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23f2913f' stroke-opacity='.35' stroke-width='1.5'/%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="/css/app.css">
+<link rel="stylesheet" href="/css/pages.css">
+<script type="module" src="/js/pages.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Safelight", "item": "https://heic.kostelinha.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Convert images", "item": "https://heic.kostelinha.com/" },
+        { "@type": "ListItem", "position": 3, "name": "WebP to SVG" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://heic.kostelinha.com/webp-to-svg/#app",
+      "name": "Safelight WebP to SVG Tracer",
+      "url": "https://heic.kostelinha.com/webp-to-svg/",
+      "applicationCategory": "MultimediaApplication",
+      "applicationSubCategory": "Vector tracer",
+      "operatingSystem": "Any browser: Windows, macOS, iOS, iPadOS, Android, Linux",
+      "browserRequirements": "Requires JavaScript.",
+      "description": "Traces a WebP into a real vector SVG entirely in the browser. Ideal for flat graphics, logos and icons; photographs trace poorly. Nothing is uploaded. Free with no file limit.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "permissions": "none"
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://heic.kostelinha.com/webp-to-svg/#howto",
+      "name": "How to convert WebP to SVG without uploading",
+      "totalTime": "PT30S",
+      "step": [
+        { "@type": "HowToStep", "position": 1, "name": "Open the converter", "text": "Open the Safelight converter with SVG already selected under Save as." },
+        { "@type": "HowToStep", "position": 2, "name": "Add your WebP", "text": "Drop your WebP onto the page, paste it, or choose a folder. Nothing is uploaded." },
+        { "@type": "HowToStep", "position": 3, "name": "Save the SVG", "text": "The image is traced into vector paths on your device. If it looks like a photo, the tool warns you first." }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://heic.kostelinha.com/webp-to-svg/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What WebP files trace well to SVG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Flat, sharp-edged art: logos, icons, symbols, line art and screenshots of simple graphics. WebP is used for both graphics and photos, so it depends on the picture — a few-colour graphic traces into a clean, scalable SVG."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I trace a WebP photo to SVG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can, but the result is poor. Tracing follows flat colour regions, and a photograph is continuous gradients, so the SVG comes out large, blurry and posterised — usually worse and heavier than the WebP. The converter warns you when the input looks like a photo; for photos, keep WebP or use JPG."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it a real vector trace?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — genuine <path> shapes, not the WebP embedded in an <image> tag. That is what lets it scale without blurring, and why flat art works and photos don't."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does WebP transparency survive tracing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Transparent regions are traced as their own areas rather than filled, so a WebP graphic with a transparent background stays usable as an SVG. Hard edges trace more cleanly than soft, feathered ones."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it free and private?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The tracer is pure JavaScript running in your browser — no upload, no account, no daily cap — and it keeps working with your Wi-Fi off."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to the content</a>
+
+<header class="head">
+  <div class="wrap head__in">
+    <a class="brand" href="/">
+      <span class="lamp" aria-hidden="true"></span>
+      Safelight
+      <span class="brand__sub">Convert&nbsp;images, on your device</span>
+    </a>
+    <nav class="head__nav" aria-label="Safelight tools">
+      <a class="head__link" href="/">Convert</a>
+      <a class="head__link" href="/compress/">Compress</a>
+      <a class="head__link" href="/guides/">Guides</a>
+    </nav>
+    <button type="button" class="room-toggle" id="room-toggle">Lightbox</button>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="wrap pagehead">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/">Safelight</a>
+      <span class="crumbs__sep" aria-hidden="true">/</span>
+      <a href="/">Convert images</a>
+      <span class="crumbs__sep" aria-hidden="true">/</span>
+      <span aria-current="page">WebP to SVG</span>
+    </nav>
+
+    <h1>WebP to SVG,<br><em>for graphics, not photos</em>.</h1>
+    <p class="pagehead__lede">
+      WebP shows up as both web graphics and web photos, so the answer to "WebP to SVG?"
+      depends entirely on which yours is. A flat WebP graphic — a logo, an icon, a symbol —
+      traces into a crisp, scalable vector. A WebP photo does not. This traces in your browser,
+      warns you if it spots a photo, and never uploads anything.
+    </p>
+    <p class="pagehead__meta">
+      <span>Vector tracer</span>
+      <span>Last checked: July 2026</span>
+    </p>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>The short version</h2>
+        <p>
+          Tracing rebuilds an image out of <strong>flat vector shapes</strong>. When the WebP
+          is already made of shapes — a logo, an icon, line art, a screenshot of a simple
+          interface — that rebuild is clean, and the SVG scales to any size without blurring,
+          usually at a tiny file size.
+        </p>
+        <p>
+          When the WebP is a <strong>photograph</strong>, there are no shapes to find, only
+          gradients, so the tracer approximates it with thousands of paths: the SVG is
+          <strong>blurry, posterised and often heavier than the WebP</strong>. That's not a
+          quirk to tune around — it's what tracing a photo is. Keep the WebP, or
+          <a href="/webp-to-jpg/">convert it to JPG</a>, for anything photographic.
+        </p>
+      </div>
+
+      <div class="cta">
+        <div class="cta__text">
+          <p class="cta__title">Trace WebP to SVG now</p>
+          <p class="cta__sub">
+            Opens with SVG already chosen under "Save as". Free, no account, no daily cap. It
+            runs on your machine and flags photo-like inputs before you save.
+          </p>
+        </div>
+        <a class="btn btn--primary" href="/?to=svg">Open the converter</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Trace a WebP to SVG in three steps</h2>
+        <ol>
+          <li><strong>Open the converter.</strong> The button above lands on the tool with SVG already selected under "Save as".</li>
+          <li><strong>Add your WebP.</strong> Drop, paste, or choose a folder. It's read into the tab, never uploaded.</li>
+          <li><strong>Save the SVG.</strong> The image is traced into vector paths on your device — and if it looks like a photo, you'll be warned before you save.</li>
+        </ol>
+
+        <h2>The graphics that shine</h2>
+        <ul>
+          <li><strong>Logos and wordmarks.</strong> A flat WebP logo becomes a scalable SVG for print, favicons or big banners.</li>
+          <li><strong>Icons and symbols.</strong> Few colours and hard edges are ideal for tracing.</li>
+          <li><strong>Line art and diagrams.</strong> Outlines survive as editable vector paths.</li>
+          <li><strong>Screenshots of flat UI.</strong> Solid-fill interface elements trace cleanly.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <aside class="ad wrap" id="ad-in-content" aria-label="Advertisement">
+    <p class="ad__label">Advertisement</p>
+    <div class="ad__box"></div>
+  </aside>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>The honest caveats</h2>
+        <ul>
+          <li>
+            <strong>Photos vectorize badly.</strong> The main thing to know: a traced WebP
+            photo is blurry, posterised and frequently larger than the WebP. The converter's
+            photo-guard warns you when it detects one. It still lets you proceed — but it won't
+            dress the result up as good.
+          </li>
+          <li>
+            <strong>Tracing is a re-drawing.</strong> Even flat art is approximated, so very
+            fine detail and soft edges get simplified. For a clean logo that's the point; for
+            something busy, check the output.
+          </li>
+          <li>
+            <strong>Detail vs size.</strong> The quality slider controls how many colours the
+            trace follows — higher for fidelity and a bigger file, lower for a smaller,
+            posterised one.
+          </li>
+          <li>
+            <strong>Nothing uploads, and you can check it.</strong> The tracer is pure
+            JavaScript on your device. Watch the Network tab, or cut your Wi-Fi and trace
+            anyway — it still works.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Questions people actually ask</h2>
+      </div>
+      <dl class="faq prose">
+        <dt>My WebP is a photo — should I trace it?</dt>
+        <dd>
+          No. A photo has no flat shapes to trace, so you get a large, soft, posterised file.
+          Keep the WebP, or <a href="/webp-to-jpg/">convert it to JPG</a>. SVG is for graphics.
+        </dd>
+
+        <dt>My WebP is a logo — will it trace well?</dt>
+        <dd>
+          Yes. A flat, few-colour graphic traces into a crisp, scalable SVG with editable paths.
+        </dd>
+
+        <dt>Is it a genuine vector?</dt>
+        <dd>
+          Yes — real <code>&lt;path&gt;</code> shapes, not the WebP wrapped in an
+          <code>&lt;image&gt;</code> tag, which is why it scales without blurring.
+        </dd>
+
+        <dt>Does transparency survive?</dt>
+        <dd>
+          Transparent regions are traced as their own areas, so a graphic on a transparent
+          background stays usable. Hard edges trace more cleanly than feathered ones.
+        </dd>
+
+        <dt>Is WebP to SVG free, with no limit?</dt>
+        <dd>
+          Yes — no account, no daily cap, no file limit. It runs entirely on your device.
+        </dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Convert between other formats</h2>
+      </div>
+      <ul class="cards">
+        <li>
+          <a class="card-link" href="/png-to-svg/">
+            <p class="card-link__kick">Vector tracer</p>
+            <p class="card-link__title">PNG to SVG</p>
+            <p class="card-link__sub">The best-fit trace — PNG logos and icons vectorize cleanly.</p>
+          </a>
+        </li>
+        <li>
+          <a class="card-link" href="/jpg-to-svg/">
+            <p class="card-link__kick">Vector tracer</p>
+            <p class="card-link__title">JPG to SVG</p>
+            <p class="card-link__sub">Great for a JPG logo or screenshot — but most JPGs are photos.</p>
+          </a>
+        </li>
+        <li>
+          <a class="card-link" href="/webp-to-jpg/">
+            <p class="card-link__kick">Converter</p>
+            <p class="card-link__title">WebP to JPG</p>
+            <p class="card-link__sub">For a WebP photo, or software that can't open WebP.</p>
+          </a>
+        </li>
+        <li>
+          <a class="card-link" href="/webp-to-png/">
+            <p class="card-link__kick">Converter</p>
+            <p class="card-link__title">WebP to PNG</p>
+            <p class="card-link__sub">Lossless PNG that keeps a WebP's transparency.</p>
+          </a>
+        </li>
+        <li>
+          <a class="card-link" href="/png-to-webp/">
+            <p class="card-link__kick">Converter</p>
+            <p class="card-link__title">PNG to WebP</p>
+            <p class="card-link__sub">Smaller than PNG and keeps transparency — modern software.</p>
+          </a>
+        </li>
+      </ul>
+
+      <div class="cta">
+        <div class="cta__text">
+          <p class="cta__title">Ready when you are</p>
+          <p class="cta__sub">
+            If your WebP is flat art, trace it and keep the scalable vector. If it's a photo, the
+            tool will say so. Free, unlimited, nothing leaves your device.
+          </p>
+        </div>
+        <a class="btn btn--primary" href="/?to=svg">Open the converter</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p>
+      <strong>Safelight</strong> — image conversion that never uploads your files.
+      Built on <a class="prose" href="https://github.com/strukturag/libheif" rel="noopener">libheif</a> (<a class="prose" href="/vendor/LICENSE.libheif-js.txt" rel="license">LGPL-3.0</a>)
+      and <a class="prose" href="https://github.com/jankovicsandras/imagetracerjs" rel="noopener">ImageTracer.js</a> (<a class="prose" href="/vendor/LICENSE.imagetracer.txt" rel="license">public domain</a>) for vector tracing.
+    </p>
+    <nav class="foot__nav" aria-label="Convert between formats">
+      <a href="/png-to-jpg/">PNG to JPG</a>
+      <a href="/webp-to-jpg/">WebP to JPG</a>
+      <a href="/jpg-to-webp/">JPG to WebP</a>
+      <a href="/webp-to-png/">WebP to PNG</a>
+      <a href="/png-to-webp/">PNG to WebP</a>
+      <a href="/jpg-to-png/">JPG to PNG</a>
+      <a href="/png-to-svg/">PNG to SVG</a>
+      <a href="/jpg-to-svg/">JPG to SVG</a>
+      <a href="/webp-to-svg/">WebP to SVG</a>
+    </nav>
+    <nav class="foot__nav" aria-label="Footer">
+      <a href="/">Convert</a>
+      <a href="/compress/">Compress</a>
+      <a href="/guides/">Guides</a>
+      <a href="/privacy/">Privacy</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

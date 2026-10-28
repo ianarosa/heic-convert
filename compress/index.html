@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Image Compressor — Compress JPG, PNG &amp; WebP, No Upload</title>
+<meta name="description" content="Compress JPG, PNG and WebP images in your browser — nothing is uploaded. See the exact bytes saved per file. Free, unlimited, batch, and it works offline.">
+
+<!-- ==================== SITE ORIGIN ====================
+     The canonical domain appears in this block and NOWHERE else in this file.
+     This is the compressor's own page: canonical is origin + /compress/.
+     Moving domains = edit the five hrefs below (and SITE.origin in js/config.js).
+     ===================================================== -->
+<link rel="canonical" href="https://heic.kostelinha.com/compress/">
+<meta property="og:url" content="https://heic.kostelinha.com/compress/">
+<meta property="og:image" content="https://heic.kostelinha.com/assets/compress-og.png">
+<meta name="twitter:image" content="https://heic.kostelinha.com/assets/compress-og.png">
+<!-- JSON-LD urls are inside the script at the end of this head. -->
+<!-- ==================== /SITE ORIGIN ==================== -->
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Safelight">
+<meta property="og:title" content="Image Compressor — Compress JPG, PNG & WebP, Nothing Uploaded">
+<meta property="og:description" content="Compress JPG, PNG and WebP in your browser. Nothing is uploaded. See the exact bytes saved per file. Free, unlimited, and it works offline.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Safelight — compress images, without the upload.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Image Compressor — Compress JPG, PNG & WebP, Nothing Uploaded">
+<meta name="twitter:description" content="Compress JPG, PNG and WebP in your browser. Nothing is uploaded. See the exact bytes saved per file.">
+<meta name="theme-color" content="#eceef1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131010" media="(prefers-color-scheme: dark)">
+
+<!-- Inline, so the icon costs no request and the "no network calls" claim stays true. -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23131010'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23f2913f'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23f2913f' stroke-opacity='.35' stroke-width='1.5'/%3E%3C/svg%3E">
+
+<!-- PWA: installable + offline. The manifest and its icons are same-origin, so they cost
+     nothing against the "no third-party requests" claim. apple-touch-icon is the home-screen
+     icon on iOS, which ignores the manifest's icons. -->
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Safelight">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+
+<link rel="stylesheet" href="/css/app.css">
+<link rel="stylesheet" href="/css/pages.css">
+<link rel="stylesheet" href="/css/compress.css">
+
+<!-- No 1.4 MB decoder here on purpose: the compressor's inputs are already web formats,
+     so the browser decodes them natively with createImageBitmap. The whole tool is a few
+     KB of vanilla JS. See js/compress.js. -->
+<script type="module" src="/js/compress.js"></script>
+
+<!-- PWA: register the offline app-shell worker. Deferred to `load` so it never blocks
+     first paint, guarded so a failure can't break the page, and same-origin only —
+     sw.js never touches another origin. update() checks for a fresh build each visit. -->
+<script>
+  if ('serviceWorker' in navigator) {
+    addEventListener('load', () => {
+      try {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' })
+          .then((reg) => { try { reg.update(); } catch (_) {} })
+          .catch(() => { /* the app works fine without the worker */ });
+      } catch (_) { /* no-op */ }
+    });
+  }
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://heic.kostelinha.com/compress/#app",
+      "name": "Safelight Image Compressor",
+      "url": "https://heic.kostelinha.com/compress/",
+      "applicationCategory": "MultimediaApplication",
+      "applicationSubCategory": "Image compressor",
+      "operatingSystem": "Any browser: Windows, macOS, iOS, iPadOS, Android, Linux",
+      "browserRequirements": "Requires JavaScript.",
+      "description": "Compresses JPG, PNG and WebP images entirely inside the browser. Files are never uploaded to a server, so the tool also works offline. Shows the exact bytes saved per file. Free with no file limit.",
+      "featureList": [
+        "Compresses JPG, PNG and WebP",
+        "Runs 100% in the browser — no upload",
+        "Shows original vs compressed size and the percentage saved, per file",
+        "Keeps the original when re-compressing would enlarge a file",
+        "Unlimited batch compression",
+        "Works offline after first load",
+        "Resize while compressing; keeps each image's original format",
+        "Download individually or as a zip"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "isAccessibleForFree": true,
+      "permissions": "none"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://heic.kostelinha.com/compress/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Are my images uploaded anywhere?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The compression runs in your browser. Your images are read from disk into the page and never sent over the network. You can check this yourself: open DevTools, go to the Network tab, and compress a file — there are no requests. You can also turn off your internet connection and the tool keeps working."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much smaller will my images get?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on the image. A photo saved at high quality often drops 60–80% at the default quality of 0.8 with no visible difference at normal sizes. A screenshot or a flat graphic that is already small may not shrink at all — and when re-compressing would make a file bigger, the tool keeps your original and says so rather than handing back a larger file."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does compressing lose quality?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "JPG and WebP are lossy, so re-compressing removes some detail — at the default 0.8 it is not visible at normal viewing sizes. Drag the quality slider up toward 1.0 for a near-identical file that saves less, or down for smaller files with visible loss. PNG is lossless and only helps flat graphics."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I change the format while compressing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No — the compressor keeps each image in its own format on purpose: a JPG stays a JPG, a PNG stays a PNG, a WebP stays a WebP. If you want to change the file type, use the converter, which turns HEIC, JPG, PNG or WebP into JPG, PNG, WebP or PDF, also entirely in your browser with nothing uploaded."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a limit on how many images I can compress?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. There is no daily cap and no account. Since the work happens on your own device, the only limit is your device's memory. Hundreds of files at once is normal. For very large batches, saving files individually is more reliable than one big zip."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use it offline?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Once the page has loaded, cut the connection and it keeps compressing. A fresh load with no connection needs the page itself first."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip" href="#tool">Skip to the compressor</a>
+
+<header class="head">
+  <div class="wrap head__in">
+    <a class="brand" href="/">
+      <span class="lamp" aria-hidden="true"></span>
+      Safelight
+      <span class="brand__sub">Image&nbsp;compressor</span>
+    </a>
+    <nav class="head__nav" aria-label="Safelight tools">
+      <a class="head__link" href="/">Convert</a>
+      <a class="head__link" href="/compress/">Compress</a>
+      <a class="head__link" href="/guides/">Guides</a>
+    </nav>
+    <button type="button" class="room-toggle" id="room-toggle">Lightbox</button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ── The stage: the claim, the instrument that checks it, and the tool. One grid, so
+       the running order can change with the viewport — on a phone the tool comes second
+       and the wire tap follows it. Identical structure to the HEIC tool, on purpose:
+       this is the same product. ── -->
+  <section class="stage">
+    <div class="wrap stage__grid">
+      <div class="hero">
+        <p class="eyebrow">Free · Unlimited · No account</p>
+        <h1>Compress JPG &amp; PNG,<br><em>without the upload</em>.</h1>
+        <p class="hero__lede">
+          Drop in your images and get smaller ones back. The compressing happens inside
+          this page, on your machine — the files never travel. You see the exact bytes
+          saved on every file, and if one can't be shrunk, it's handed back untouched.
+        </p>
+      </div>
+
+      <!-- The wire tap. Reads zero. Says so itself, and tells you to check. Same instrument
+           as the HEIC tool — the privacy claim is identical, so the proof is too. -->
+      <div class="tap">
+        <div class="tap__top">
+          <span>Wire tap</span>
+          <span class="tap__live"><span class="tap__pulse" aria-hidden="true"></span>Live</span>
+        </div>
+        <dl class="tap__rows">
+          <div class="tap__row">
+            <dt class="tap__label">Uploaded from this page</dt>
+            <dd class="tap__val" id="tap-uploaded">0 B</dd>
+          </div>
+          <div class="tap__row">
+            <dt class="tap__label">Requests to other domains</dt>
+            <dd class="tap__val" id="tap-thirdparty">0</dd>
+          </div>
+          <div class="tap__row">
+            <dt class="tap__label">Images compressed on this device</dt>
+            <dd class="tap__val" id="tap-local">0</dd>
+          </div>
+          <div class="tap__row">
+            <dt class="tap__label">Connection</dt>
+            <dd class="mono" id="tap-connection">Online</dd>
+          </div>
+        </dl>
+        <div class="tap__foot">
+          <p>
+            This counter watches the network live, and it reads zero. Prove it in ten
+            seconds: <kbd>F12</kbd> → <kbd>Network</kbd>, compress an image, and watch
+            nothing leave.
+          </p>
+          <p id="tap-connection-note">Turn on airplane mode and compress anyway. Nothing changes.</p>
+        </div>
+      </div>
+
+      <!-- The tool. tabindex=-1 so the skip link actually moves focus here. -->
+      <div class="tool" id="tool" tabindex="-1" aria-label="Image compressor" role="group">
+
+      <div class="drop card" id="drop">
+        <!-- Compression, drawn: a photo frame with two arrows squeezing inward. -->
+        <svg class="drop__squeeze" viewBox="0 0 104 60" aria-hidden="true" focusable="false">
+          <rect x="30" y="10" width="44" height="40" rx="2" fill="var(--surface)"
+                stroke="currentColor" stroke-width="2"/>
+          <rect x="36" y="16" width="32" height="28" rx="1" fill="var(--safelight)" opacity=".85"/>
+          <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 30 h16 M14 24 l6 6 -6 6"/>
+            <path d="M100 30 h-16 M90 24 l-6 6 6 6"/>
+          </g>
+        </svg>
+        <p class="drop__title">Drop JPG, PNG or WebP here</p>
+        <button type="button" class="btn btn--primary" id="pick">Choose images</button>
+        <input class="drop__input" type="file" id="file-input" multiple
+               accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"
+               tabindex="-1" aria-hidden="true">
+        <p class="drop__hint">
+          Or paste them. Whole folders work too. There's no file limit and no daily cap —
+          a few hundred at once is normal.
+        </p>
+      </div>
+
+      <div class="controls card">
+        <div class="field">
+          <label class="eyebrow" for="quality" id="quality-label">Quality</label>
+          <div class="slider">
+            <input type="range" id="quality" min="0.4" max="1" step="0.01" value="0.8"
+                   aria-describedby="quality-hint">
+            <output for="quality" id="quality-out">0.80</output>
+          </div>
+          <p class="field__hint" id="quality-hint">Lower quality means smaller files.</p>
+        </div>
+
+        <div class="field">
+          <label class="eyebrow" for="resize">Resize</label>
+          <select class="select" id="resize"></select>
+          <p class="field__hint">Caps the longest side. Never enlarges.</p>
+        </div>
+      </div>
+
+      <div class="note note--fail" id="global-error" hidden role="alert"></div>
+      <div class="note note--warn" id="zip-warning" hidden></div>
+      <div class="note" id="size-note" hidden></div>
+
+      <section class="queue card" id="queue" hidden aria-label="Compression queue">
+        <div class="queue__bar">
+          <span class="queue__count" id="queue-count">0 files</span>
+          <span class="meter" role="img" aria-label="Batch progress" id="meter-wrap">
+            <span class="meter__fill" id="meter"></span>
+          </span>
+          <span class="queue__spacer"></span>
+          <button type="button" class="btn btn--sm" id="reconvert" disabled>Re-compress all</button>
+          <button type="button" class="btn btn--sm btn--primary" id="save-all" disabled>Save all as zip</button>
+          <button type="button" class="btn btn--sm" id="stop-all" hidden>Stop</button>
+          <button type="button" class="btn btn--sm btn--quiet" id="clear-all">Clear</button>
+        </div>
+
+        <!-- SIGNATURE: the reclaim readout. The loudest, greenest thing here — and the
+             most honest. It only shows a saving that actually happened. -->
+        <div class="reclaim" id="reclaim" data-state="idle">
+          <div class="reclaim__figure">
+            <span class="reclaim__label" id="reclaim-label">Reclaimed</span>
+            <span class="reclaim__big" id="reclaim-big">—</span>
+          </div>
+          <div class="reclaim__io">
+            <span>In <b id="reclaim-in">0 B</b></span>
+            <span aria-hidden="true">→</span>
+            <span>Out <b id="reclaim-out">0 B</b></span>
+            <button type="button" class="ledger__why" id="ledger-why">How is this measured?</button>
+          </div>
+        </div>
+
+        <!-- Stated, permanently, whenever rows on screen were made with settings that are no
+             longer selected — same discipline as the HEIC tool. -->
+        <p class="mismatch" id="mismatch" hidden></p>
+
+        <div class="queue__scroll" id="queue-scroll">
+          <ul class="queue__spacerbox" id="queue-box" role="list"></ul>
+        </div>
+        <p class="queue__more" id="queue-more" hidden></p>
+
+        <p class="queue__status" id="queue-status" role="status" aria-live="polite"></p>
+      </section>
+
+      </div><!-- /.tool -->
+    </div>
+  </section>
+
+  <!-- AD SLOT — reserved and sized in css/app.css. Empty until a publisher ID is added.
+       The box already reserves its height, so filling it will not move the page. -->
+  <aside class="ad wrap" id="ad-below-tool" aria-label="Advertisement">
+    <p class="ad__label">Advertisement</p>
+    <div class="ad__box"></div>
+  </aside>
+
+  <!-- ── Content ───────────────────────────────────────────────────────────── -->
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>What compressing an image actually does</h2>
+        <p>
+          Most photos and graphics carry more data than the picture needs. Compressing an
+          image re-encodes it: the tool decodes your file to pixels and writes it back out
+          with the encoder tuned to spend fewer bytes on detail your eye won't miss. The
+          picture stays the same size on screen — the <em>file</em> gets smaller.
+        </p>
+        <p>
+          How much smaller depends entirely on the image and the quality you pick. A
+          high-quality photograph off a camera or phone often loses 60–80% of its bytes at
+          the default quality of 0.8 with no difference you can see at normal viewing sizes.
+          A screenshot, an icon, or a graphic that is already small may not shrink at all.
+        </p>
+
+        <div class="facets">
+          <div class="facet">
+            <p class="facet__kick">Quality</p>
+            <h3>The slider is the real lever</h3>
+            <p>
+              Format choice matters less than quality. 0.8 is a safe default; drop toward
+              0.6 for much smaller files with visible loss, or push to 0.95 when the image
+              has to stay pristine.
+            </p>
+          </div>
+          <div class="facet">
+            <p class="facet__kick">Dimensions</p>
+            <h3>Resizing beats every codec</h3>
+            <p>
+              A 4000-pixel photo shown at 1000 pixels wide is carrying four times the pixels
+              it needs. Capping the longest side is the single biggest saving available, and
+              it's lossless in the ways that matter.
+            </p>
+          </div>
+          <div class="facet">
+            <p class="facet__kick">Honesty</p>
+            <h3>No bigger files, ever</h3>
+            <p>
+              If re-compressing an image would make it larger — already-optimised JPEGs and
+              tiny PNGs both do this — the tool keeps your original bytes and marks the row
+              "kept original". You never get a heavier file handed back.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Same format in, same format out</h2>
+        <p>
+          This tool does one job: make a file <strong>smaller</strong>. It keeps each image
+          in its own format — a JPG stays a JPG, a PNG stays a PNG, a WebP stays a WebP — and
+          spends the quality slider and the resize cap on shedding bytes, never on changing
+          the file type. That's deliberate: it means the output drops straight back into
+          wherever the original came from, no surprises.
+        </p>
+        <p>
+          The two levers that actually move the needle: <strong>quality</strong> (0.8 is a
+          safe default; lower for smaller files, higher to stay pristine) and
+          <strong>resize</strong> (a 4000&nbsp;px photo shown at 1000&nbsp;px is carrying four
+          times the pixels it needs). And the guarantee underneath both: if re-compressing
+          would make a file larger, you get your original back untouched — never a heavier
+          file than you brought.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Need to change the format instead?</h2>
+        <p>
+          That's a different job, and it has its own tool: the
+          <a href="/">converter</a> turns HEIC, JPG, PNG or WebP into JPG, PNG, WebP or PDF —
+          same page, nothing uploaded. These open it with the right output already chosen,
+          each honest about the trade you're making.
+        </p>
+      </div>
+      <ul class="cards">
+        <li>
+          <a class="card-link" href="/png-to-jpg/">
+            <p class="card-link__kick">Converter</p>
+            <p class="card-link__title">PNG to JPG</p>
+            <p class="card-link__sub">Shrink a heavy PNG photo into a JPG that opens anywhere.</p>
+          </a>
+        </li>
+        <li>
+          <a class="card-link" href="/webp-to-jpg/">
+            <p class="card-link__kick">Converter</p>
+            <p class="card-link__title">WebP to JPG</p>
+            <p class="card-link__sub">For software that can't open WebP yet — JPG opens on everything.</p>
+          </a>
+        </li>
+        <li>
+          <a class="card-link" href="/jpg-to-webp/">
+            <p class="card-link__kick">Converter</p>
+            <p class="card-link__title">JPG to WebP</p>
+            <p class="card-link__sub">Smaller files for the web at the same quality, modern software only.</p>
+          </a>
+        </li>
+        <li>
+          <a class="card-link" href="/png-to-webp/">
+            <p class="card-link__kick">Converter</p>
+            <p class="card-link__title">PNG to WebP</p>
+            <p class="card-link__sub">Far smaller than PNG and keeps transparency — modern software.</p>
+          </a>
+        </li>
+        <li>
+          <a class="card-link" href="/webp-to-png/">
+            <p class="card-link__kick">Converter</p>
+            <p class="card-link__title">WebP to PNG</p>
+            <p class="card-link__sub">Lossless PNG for editors and tools that won't take WebP.</p>
+          </a>
+        </li>
+        <li>
+          <a class="card-link" href="/jpg-to-png/">
+            <p class="card-link__kick">Converter</p>
+            <p class="card-link__title">JPG to PNG</p>
+            <p class="card-link__sub">When a tool demands PNG — honest about what it can't restore.</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap grid-2">
+      <div class="prose">
+        <h2>Why this one doesn't upload anything</h2>
+        <p>
+          Most image compressors are a web form in front of a server. Your files get sent to
+          a company you've never heard of, compressed there, and stored for "up to 24 hours".
+          For a marketing image that's merely rude. For a photo of a document, a whiteboard,
+          a receipt, or your family, it's a genuinely bad idea — you've handed a stranger a
+          copy to get a smaller file back.
+        </p>
+        <p>
+          This page doesn't have a server to send anything to. Your browser already knows how
+          to read JPG, PNG and WebP, so the whole thing runs on your machine: the image is
+          read from disk into a tab, re-encoded there, and never touches the network. That's
+          also why it keeps working with the Wi-Fi off.
+        </p>
+      </div>
+
+      <div class="prose">
+        <h2>Don't believe us. Check.</h2>
+        <p>
+          A privacy promise you can't verify is just marketing. This one takes about fifteen
+          seconds to check, and you don't have to trust a word on this page:
+        </p>
+        <p>
+          Press <code>F12</code> to open DevTools and click <strong>Network</strong>. Now
+          compress an image. Nothing appears — no upload, no request, not even an analytics
+          ping. Then try the blunter version: <strong>turn off your Wi-Fi</strong> and
+          compress another one. It works exactly the same, because after the page has loaded
+          there's nothing left to talk to.
+        </p>
+        <p>
+          Try that on any compressor that uploads. It'll stop dead.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <aside class="ad wrap" id="ad-in-content" aria-label="In-content advertisement">
+    <p class="ad__label">Advertisement</p>
+    <div class="ad__box"></div>
+  </aside>
+
+  <section class="section">
+    <div class="wrap">
+      <h2 class="prose" style="font-size:var(--step-2);letter-spacing:-.02em;line-height:1.15">
+        Questions people actually ask
+      </h2>
+      <dl class="faq prose">
+        <dt>Is it really free, and is there a catch?</dt>
+        <dd>
+          Free, no account, no daily limit. There are ad slots on the page for once there's
+          enough traffic to sell against them — right now they're empty and nothing is served.
+          Since your files never reach us, there's nothing else here to monetise.
+        </dd>
+
+        <dt>Why didn't my image get smaller?</dt>
+        <dd>
+          Because it was already about as small as it gets. Already-optimised JPEGs, tiny
+          PNGs and most screenshots can't be re-compressed to a smaller file — and rather
+          than hand you back a bigger one, the tool keeps your original and marks the row
+          "kept original". That's the tool doing its job: you never leave with a heavier file
+          than you brought.
+        </dd>
+
+        <dt>How many images can I compress at once?</dt>
+        <dd>
+          As many as your device can hold. Hundreds is normal. Very large batches are
+          steadier saved file by file than as one zip — the browser caps how much data a
+          single zip can hold in memory, and the app will warn you before you hit it.
+        </dd>
+
+        <dt>What happens to EXIF data — dates, camera, location?</dt>
+        <dd>
+          It's dropped. The image is decoded to pixels and re-encoded, and the metadata
+          doesn't come along. Rotation is applied, so photos come out the right way up. If
+          you need location and date preserved, this tool isn't the one for that job yet.
+        </dd>
+
+        <dt>Do you also convert iPhone HEIC photos, or change formats?</dt>
+        <dd>
+          That's the sibling tool. The <a href="/">converter</a> turns HEIC, JPG, PNG or WebP
+          into JPG, PNG, WebP or PDF; this page is for images that already have the right
+          format and just want to be smaller.
+        </dd>
+
+        <dt>Can I use it offline?</dt>
+        <dd>
+          Once the page has loaded, yes — cut the connection and it keeps compressing. A
+          fresh load with no connection needs the page itself first.
+        </dd>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p>
+      <strong>Safelight</strong> — image compression that never uploads your files.
+    </p>
+    <nav class="foot__nav" aria-label="Convert between formats">
+      <a href="/png-to-jpg/">PNG to JPG</a>
+      <a href="/webp-to-jpg/">WebP to JPG</a>
+      <a href="/jpg-to-webp/">JPG to WebP</a>
+      <a href="/webp-to-png/">WebP to PNG</a>
+      <a href="/png-to-webp/">PNG to WebP</a>
+      <a href="/jpg-to-png/">JPG to PNG</a>
+      <a href="/png-to-svg/">PNG to SVG</a>
+      <a href="/jpg-to-svg/">JPG to SVG</a>
+      <a href="/webp-to-svg/">WebP to SVG</a>
+    </nav>
+    <nav class="foot__nav" aria-label="Footer">
+      <a href="/">Convert</a>
+      <a href="/compress/">Compress</a>
+      <a href="/guides/">Guides</a>
+      <a href="/compare/">Compare converters</a>
+      <a href="/privacy/">Privacy</a>
+    </nav>
+    <p class="mono">No accounts · No uploads · No tracking</p>
+  </div>
+</footer>
+</body>
+</html>

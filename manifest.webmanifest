@@ -1,0 +1,44 @@
+{
+  "id": "/",
+  "name": "Safelight — HEIC to JPG",
+  "short_name": "Safelight",
+  "description": "Convert HEIC to JPG and compress images entirely in your browser. Your photos are never uploaded, so it works with your Wi-Fi off. Free, unlimited, no account.",
+  "lang": "en",
+  "dir": "ltr",
+  "start_url": "/?src=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "any",
+  "theme_color": "#131010",
+  "background_color": "#131010",
+  "categories": ["photo", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "/assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Compress images",
+      "short_name": "Compress",
+      "description": "Compress JPG, PNG and WebP in your browser.",
+      "url": "/compress/?src=pwa"
+    }
+  ]
+}

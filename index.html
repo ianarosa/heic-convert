@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>HEIC to JPG Converter — Free, Unlimited, Nothing Uploaded</title>
+<meta name="description" content="Convert HEIC to JPG in your browser — your photos are never uploaded. Batch convert hundreds of iPhone photos at once. Free, unlimited, and it works offline.">
+
+<!-- ==================== SITE ORIGIN ====================
+     The canonical domain appears in this block and NOWHERE else in this file.
+     Moving domains = edit the five hrefs below, and SITE.origin in js/config.js.
+     (No build step by design, so these can't be generated from one constant.)
+     ===================================================== -->
+<link rel="canonical" href="https://heic.kostelinha.com/">
+<meta property="og:url" content="https://heic.kostelinha.com/">
+<meta property="og:image" content="https://heic.kostelinha.com/assets/og.png">
+<meta name="twitter:image" content="https://heic.kostelinha.com/assets/og.png">
+<!-- JSON-LD urls are inside the script at the end of this head. -->
+<!-- ==================== /SITE ORIGIN ==================== -->
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Safelight">
+<meta property="og:title" content="HEIC to JPG Converter — Free, Unlimited, Nothing Uploaded">
+<meta property="og:description" content="Convert HEIC to JPG in your browser. Your photos are never uploaded. Free, unlimited, and it works offline.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Safelight — HEIC to JPG, without the upload.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HEIC to JPG Converter — Free, Unlimited, Nothing Uploaded">
+<meta name="twitter:description" content="Convert HEIC to JPG in your browser. Your photos are never uploaded. Free, unlimited, and it works offline.">
+<meta name="theme-color" content="#eceef1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131010" media="(prefers-color-scheme: dark)">
+
+<!-- Inline, so the icon costs no request and the "no network calls" claim stays true. -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23131010'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23f2913f'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23f2913f' stroke-opacity='.35' stroke-width='1.5'/%3E%3C/svg%3E">
+
+<!-- PWA: installable + offline. The manifest and its icons are same-origin, so they cost
+     nothing against the "no third-party requests" claim. apple-touch-icon is the home-screen
+     icon on iOS, which ignores the manifest's icons. -->
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Safelight">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+
+<link rel="stylesheet" href="/css/app.css">
+
+<!-- The 1.4 MB decoder is NOT referenced here on purpose. It is imported only once you
+     show intent to convert something (hover/focus/drag the drop zone), so first paint
+     never waits on it. See js/main.js. -->
+<script type="module" src="/js/main.js"></script>
+
+<!-- PWA: register the offline app-shell worker. Deferred to `load` so it never blocks
+     first paint, guarded so a failure can't break the page, and same-origin only —
+     sw.js never touches another origin. update() checks for a fresh build each visit. -->
+<script>
+  if ('serviceWorker' in navigator) {
+    addEventListener('load', () => {
+      try {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' })
+          .then((reg) => { try { reg.update(); } catch (_) {} })
+          .catch(() => { /* the app works fine without the worker */ });
+      } catch (_) { /* no-op */ }
+    });
+  }
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://heic.kostelinha.com/#app",
+      "name": "Safelight HEIC to JPG Converter",
+      "url": "https://heic.kostelinha.com/",
+      "applicationCategory": "MultimediaApplication",
+      "applicationSubCategory": "Image converter",
+      "operatingSystem": "Any browser: Windows, macOS, iOS, iPadOS, Android, Linux",
+      "browserRequirements": "Requires JavaScript and WebAssembly.",
+      "description": "Converts HEIC photos to JPG, PNG or WebP entirely inside the browser — and converts between JPG, PNG and WebP too, or into a PDF. Files are never uploaded to a server, so the tool also works offline. Free with no file limit.",
+      "featureList": [
+        "Converts HEIC, JPG, PNG and WebP",
+        "Outputs JPG, PNG, WebP or PDF",
+        "Runs 100% in the browser — no upload",
+        "Unlimited batch conversion",
+        "Works offline after first load",
+        "Adjustable quality and resizing",
+        "Download individually or as a zip"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "isAccessibleForFree": true,
+      "permissions": "none"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://heic.kostelinha.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Are my photos uploaded anywhere?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The conversion runs in your browser using WebAssembly. Your photos are read from disk into the page and never sent over the network. You can check this yourself: open DevTools, go to the Network tab, and convert a file — there are no requests. You can also turn off your internet connection and the converter keeps working."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is my JPG bigger than the HEIC it came from?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because HEIC is a newer, more efficient format. HEIC compresses photos with HEVC, which stores the same picture in far fewer bytes than JPG's 1992-era compression. Converting to JPG typically produces a file around 168% the size of the original HEIC. That is the cost of a format that opens everywhere, and every HEIC to JPG converter does it. WebP saves about 8% against JPG but is still larger than the HEIC. The only way to get files smaller than your originals is to lower the quality setting."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why can't Windows open HEIC files?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "HEIC uses HEVC compression, which is covered by patents that require licence payments. Microsoft ships Windows without the HEVC decoder and sells the HEVC Video Extensions separately, so a fresh Windows install shows HEIC photos as blank icons in Photos and File Explorer. Converting to JPG sidesteps the issue entirely."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a limit on how many files I can convert?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. There is no daily cap and no account. Since the work happens on your own device, the only limit is your device's memory. Hundreds of files at once is normal. For very large batches, saving files individually is more reliable than one big zip."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does converting to JPG lose quality?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Slightly, at the default quality of 0.85 — JPG is a lossy format and the photo is re-encoded once. At 0.85 the difference is not visible at normal viewing sizes. Raise the quality slider toward 1.0 for a near-identical result at a larger file size, or pick PNG for a lossless copy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a HEIC file?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "HEIC is the image format iPhones have used by default since iOS 11 (2017). It is a HEIF container holding a photo compressed with HEVC. It stores the same image quality in roughly half the space of JPG, and can hold extras like depth maps and Live Photo frames."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip" href="#tool">Skip to the converter</a>
+
+<header class="head">
+  <div class="wrap head__in">
+    <a class="brand" href="/">
+      <span class="lamp" aria-hidden="true"></span>
+      Safelight
+      <span class="brand__sub">HEIC&nbsp;→&nbsp;JPG, on your device</span>
+    </a>
+    <nav class="head__nav" aria-label="Safelight tools">
+      <a class="head__link" href="/">Convert</a>
+      <a class="head__link" href="/compress/">Compress</a>
+      <a class="head__link" href="/guides/">Guides</a>
+    </nav>
+    <button type="button" class="room-toggle" id="room-toggle">Lightbox</button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ── The stage: the claim, the instrument that checks it, and the tool.
+       One grid, so the running order can change with the viewport: on a phone the
+       tool comes second and the wire tap follows it, because on a phone the point is
+       to convert a photo, not to read. On a desktop the tap sits beside the claim. ── -->
+  <section class="stage">
+    <div class="wrap stage__grid">
+      <div class="hero">
+        <p class="eyebrow">Free · Unlimited · No account</p>
+        <h1>HEIC to JPG,<br><em>without the upload</em>.</h1>
+        <p class="hero__lede">
+          Drop in your iPhone photos and get JPGs back. The converting happens inside this
+          page, on your machine — the files never travel. The panel counts what actually
+          goes over the wire, live, while you work.
+        </p>
+      </div>
+
+      <!-- The wire tap. Reads zero, live — and invites you to prove it yourself. -->
+      <div class="tap">
+        <div class="tap__top">
+          <span>Wire tap</span>
+          <span class="tap__live"><span class="tap__pulse" aria-hidden="true"></span>Live</span>
+        </div>
+        <dl class="tap__rows">
+          <div class="tap__row">
+            <dt class="tap__label">Uploaded from this page</dt>
+            <dd class="tap__val" id="tap-uploaded">0 B</dd>
+          </div>
+          <div class="tap__row">
+            <dt class="tap__label">Requests to other domains</dt>
+            <dd class="tap__val" id="tap-thirdparty">0</dd>
+          </div>
+          <div class="tap__row">
+            <dt class="tap__label">Photos converted on this device</dt>
+            <dd class="tap__val" id="tap-local">0</dd>
+          </div>
+          <div class="tap__row">
+            <dt class="tap__label">Connection</dt>
+            <dd class="mono" id="tap-connection">Online</dd>
+          </div>
+        </dl>
+        <div class="tap__foot">
+          <p>
+            It reads zero because nothing leaves your device. So sure? Go check —
+            <kbd>F12</kbd> → <kbd>Network</kbd>, convert a photo, and watch nothing happen.
+          </p>
+          <p id="tap-connection-note">Turn on airplane mode and convert anyway. Nothing changes.</p>
+        </div>
+      </div>
+
+      <!-- The tool. tabindex=-1 so the skip link actually moves focus here, rather than
+           just scrolling and leaving focus back at the top. -->
+      <div class="tool" id="tool" tabindex="-1" aria-label="HEIC converter" role="group">
+
+      <div class="drop card" id="drop">
+        <!-- Slide mounts. The thing you're about to drop, in the vernacular of the
+             room this design lives in. Decorative — the text says everything. -->
+        <svg class="drop__mounts" viewBox="0 0 108 64" aria-hidden="true" focusable="false">
+          <g fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="7" y="13" width="40" height="40" rx="2" opacity=".35"
+                  transform="rotate(-9 27 33)"/>
+            <rect x="34" y="9" width="40" height="40" rx="2" opacity=".55"
+                  transform="rotate(5 54 29)"/>
+          </g>
+          <g transform="rotate(-2 81 35)">
+            <rect x="61" y="15" width="40" height="40" rx="2" fill="var(--surface)"
+                  stroke="currentColor" stroke-width="2"/>
+            <rect x="66" y="20" width="30" height="30" rx="1" fill="var(--safelight)" opacity=".9"/>
+          </g>
+        </svg>
+        <p class="drop__title">Drop HEIC, JPG, PNG or WebP here</p>
+        <button type="button" class="btn btn--primary" id="pick">Choose images</button>
+        <input class="drop__input" type="file" id="file-input" multiple
+               accept=".heic,.heif,.jpg,.jpeg,.png,.webp,image/heic,image/heif,image/jpeg,image/png,image/webp"
+               tabindex="-1" aria-hidden="true">
+        <p class="drop__hint">
+          <strong>Any image in — pick the output.</strong>
+          HEIC, JPG, PNG or WebP&nbsp;→&nbsp;JPG, PNG, WebP or PDF.
+        </p>
+        <p class="drop__hint">
+          Or paste them. Whole folders work too. There's no file limit and no daily cap —
+          a few hundred at once is normal.
+        </p>
+      </div>
+
+      <div class="controls card">
+        <div class="field">
+          <p class="eyebrow" id="format-label">Save as</p>
+          <div class="seg" role="radiogroup" aria-labelledby="format-label" id="format"></div>
+          <p class="field__hint" id="format-hint"></p>
+        </div>
+
+        <div class="field">
+          <label class="eyebrow" for="quality" id="quality-label">Quality</label>
+          <div class="slider">
+            <input type="range" id="quality" min="0.4" max="1" step="0.01" value="0.85"
+                   aria-describedby="quality-hint">
+            <output for="quality" id="quality-out">0.85</output>
+          </div>
+          <p class="field__hint" id="quality-hint">Higher quality means bigger files.</p>
+        </div>
+
+        <div class="field">
+          <label class="eyebrow" for="resize">Resize</label>
+          <select class="select" id="resize"></select>
+          <p class="field__hint">Caps the longest side. Never enlarges.</p>
+        </div>
+      </div>
+
+      <div class="note note--fail" id="global-error" hidden role="alert"></div>
+      <div class="note note--warn" id="zip-warning" hidden></div>
+      <!-- SVG photo-guard: shown when SVG output is chosen and the batch looks like photos.
+           Honest, never blocking — see paintSvgWarning() in js/main.js. -->
+      <div class="note note--warn" id="svg-warning" hidden></div>
+      <!-- Pre-action heads-up (managed by update()) vs. the result of a finished combine
+           (managed only by the combine action). Two elements, because update() runs in
+           the action's finally{} and would otherwise wipe the result the instant it lands. -->
+      <div class="note note--warn" id="combine-note" hidden></div>
+      <div class="note" id="combine-result" hidden></div>
+      <div class="note" id="size-note" hidden></div>
+
+      <section class="queue card" id="queue" hidden aria-label="Conversion queue">
+        <div class="queue__bar">
+          <span class="queue__count" id="queue-count">0 files</span>
+          <span class="meter" role="img" aria-label="Batch progress" id="meter-wrap">
+            <span class="meter__fill" id="meter"></span>
+          </span>
+          <span class="queue__spacer"></span>
+          <!-- Always here, never revealed by a state change you'd have to notice. It goes
+               disabled — not hidden — when there is genuinely nothing to re-convert. -->
+          <button type="button" class="btn btn--sm" id="reconvert" disabled>Re-convert all as JPG</button>
+          <!-- Operates on the SOURCE files, so it works whatever the batch was converted
+               as. Removed at runtime by js/main.js if the build lacks combineFilesToPdf. -->
+          <button type="button" class="btn btn--sm" id="combine-pdf" disabled hidden>Combine into one PDF</button>
+          <button type="button" class="btn btn--sm btn--primary" id="save-all" disabled>Save all as zip</button>
+          <button type="button" class="btn btn--sm" id="stop-all" hidden>Stop</button>
+          <button type="button" class="btn btn--sm btn--quiet" id="clear-all">Clear</button>
+        </div>
+
+        <!-- The honest bit. Always on, never spun. -->
+        <div class="ledger" id="ledger">
+          <span>In <b id="ledger-in">0 B</b></span>
+          <span aria-hidden="true">→</span>
+          <span>Out <b id="ledger-out">0 B</b></span>
+          <span class="ledger__delta" id="ledger-delta"></span>
+          <button type="button" class="ledger__why" id="ledger-why">Why bigger?</button>
+        </div>
+
+        <!-- Stated, permanently, whenever the rows on screen were made with settings that
+             are no longer selected. This sentence is what makes "settings apply to new
+             files only" honest instead of baffling. -->
+        <p class="mismatch" id="mismatch" hidden></p>
+
+        <div class="queue__scroll" id="queue-scroll">
+          <ul class="queue__spacerbox" id="queue-box" role="list"></ul>
+        </div>
+        <p class="queue__more" id="queue-more" hidden></p>
+
+        <p class="queue__status" id="queue-status" role="status" aria-live="polite"></p>
+      </section>
+
+      </div><!-- /.tool -->
+    </div>
+  </section>
+
+  <!-- AD SLOT — reserved and sized in css/app.css. IDs live in js/config.js.
+       OWNER: paste your AdSense publisher ID into AD_CLIENT in js/config.js, add the
+       AdSense script tag to this file's <head>, then put the <ins class="adsbygoogle">
+       inside .ad__box below. The box already reserves its height, so filling it will
+       not move the page (no layout shift). -->
+  <aside class="ad wrap" id="ad-below-tool" aria-label="Advertisement">
+    <p class="ad__label">Advertisement</p>
+    <div class="ad__box"></div>
+  </aside>
+
+  <!-- ── Content ───────────────────────────────────────────────────────────── -->
+
+  <section class="section">
+    <div class="wrap grid-2">
+      <div class="prose">
+        <h2>What a HEIC file actually is</h2>
+        <p>
+          HEIC is the photo format your iPhone has used by default since iOS 11 landed in
+          2017. The file is a HEIF container, and the picture inside it is compressed with
+          <strong>HEVC</strong> — the same codec used for 4K video. It's good: HEVC stores
+          the same photo at the same quality in roughly half the bytes of a JPG, which is
+          why Apple switched.
+        </p>
+        <p>
+          A HEIC can also hold things a JPG can't — a depth map from Portrait mode, the
+          frames of a Live Photo, an alpha channel, several images at once. When you convert
+          to JPG you keep the main photo and those extras are dropped, because JPG has
+          nowhere to put them.
+        </p>
+      </div>
+
+      <div class="prose">
+        <h2>Why Windows shows you a blank icon</h2>
+        <p>
+          This is the reason most people end up here, and it isn't Apple's fault or yours.
+          HEVC is patented, and shipping a decoder means paying licence fees per machine.
+          Microsoft chose not to: Windows comes without HEVC support and sells the
+          <em>HEVC Video Extensions</em> in the Microsoft Store instead. So Photos and File
+          Explorer hand you a blank thumbnail and a shrug.
+        </p>
+        <p>
+          The same wall shows up when you email a photo to someone on an older Android,
+          upload to a site that only takes JPG, or open a file in software that stopped
+          getting updates. Converting to JPG is the way around all of it at once — JPG is
+          thirty years old and there is nothing left that can't read it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Your JPGs will be bigger than your HEICs. Here's why.</h2>
+        <p>
+          Nobody tells you this, so: converting HEIC to JPG makes your files
+          <strong>bigger</strong> — typically around <strong>168%</strong> of what you
+          started with. A 2 MB photo off your phone lands at about 3.4 MB. That's not this
+          converter being wasteful. Every HEIC-to-JPG converter does this, including the
+          ones that upload your photos to do it.
+        </p>
+        <p>
+          It's the codecs. JPG's compression was finalised in 1992. HEVC, inside your HEIC,
+          arrived in 2013 with twenty years of research behind it, and it simply describes
+          the same image in fewer bytes. Asking for JPG means asking for the older, less
+          efficient format on purpose — you're paying in megabytes for a file that opens on
+          everything, everywhere, forever. Usually that's a good trade. It should just be
+          a trade you know you're making.
+        </p>
+
+        <figure class="compare" aria-label="Output size of the same photo in each format, as a share of the HEIC original">
+          <div class="compare__row compare__row--head">
+            <span>Format</span><span>Size vs the HEIC you started with</span><span class="compare__size">Ratio</span>
+          </div>
+          <div class="compare__row">
+            <span>HEIC in</span>
+            <span><span class="compare__bar" style="width:50%"></span></span>
+            <span class="compare__size">100%</span>
+          </div>
+          <div class="compare__row" data-self="true">
+            <span>JPG out</span>
+            <span><span class="compare__bar" style="width:84%"></span></span>
+            <span class="compare__size">168%</span>
+          </div>
+          <div class="compare__row">
+            <span>WebP out</span>
+            <span><span class="compare__bar" style="width:78%"></span></span>
+            <span class="compare__size">155%</span>
+          </div>
+          <div class="compare__row">
+            <span>PNG out</span>
+            <span><span class="compare__bar compare__bar--over" style="width:100%"></span></span>
+            <span class="compare__size">1186%</span>
+          </div>
+        </figure>
+        <p class="compare__note">
+          Measured in a browser at quality 0.85, on the 1440 × 960 test photo this app is
+          built against — not on your photo, and not on a 12 MP one. Your files will
+          differ; busy photos compress worse than plain ones. The JPG figure matches the
+          ~168% average reported for real iPhone photos, which is why we quote it.
+          <a href="#tool">Convert something</a> and the ledger will tell you the truth for
+          your own files.
+        </p>
+
+        <h3>WebP saves you about 8%. That's all.</h3>
+        <p>
+          You'll read that WebP is far more efficient than JPG and lands near HEIC. With a
+          good encoder, that's fair. With <em>the one built into your browser</em> — which
+          is what this page uses, because it isn't sending your photo anywhere to be
+          converted — it isn't: at the same quality setting WebP came out at 155% against
+          JPG's 168%. Still bigger than your HEIC.
+        </p>
+        <p>
+          So pick WebP if you want that 8% and the files only need to open in software from
+          the last five years. Pick JPG if they have to open anywhere at all. And if you
+          genuinely need files <strong>smaller</strong> than your originals, no format
+          choice will do it — drag the quality slider down instead. Around 0.6 lands close
+          to the original size, and you will be able to see the difference.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap grid-2">
+      <div class="prose">
+        <h2>Why this one doesn't upload anything</h2>
+        <p>
+          Most HEIC converters are a web form in front of a server. Your photos get sent to
+          a company you've never heard of, converted there, and stored for "up to 24 hours"
+          — and the terms of service on the biggest one of them claims the right to make
+          derivative works of what you send. For holiday snaps that's rude. For a photo of
+          your passport, a document, a whiteboard, or your kids, it's a genuinely bad idea.
+        </p>
+        <p>
+          This page doesn't have a server to send anything to. It carries a WebAssembly
+          build of <a href="https://github.com/strukturag/libheif" rel="noopener">libheif</a>,
+          the open-source HEIC decoder, and runs it in your browser. Your photo is read from
+          disk into a tab and never touches the network.
+        </p>
+      </div>
+
+      <div class="prose">
+        <h2>Don't believe us. Check.</h2>
+        <p>
+          A privacy promise you can't verify is just marketing. This one takes about fifteen
+          seconds to check, and you don't have to trust a word on this page:
+        </p>
+        <p>
+          Press <code>F12</code> to open DevTools and click <strong>Network</strong>. Now
+          convert a photo. Nothing appears — no upload, no request, not even an analytics
+          ping. Then try the blunter version: <strong>turn off your Wi-Fi</strong> and
+          convert another one. It works exactly the same, because after the page has loaded
+          there's nothing left to talk to.
+        </p>
+        <p>
+          Try that on any converter that uploads. It'll stop dead.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <aside class="ad wrap" id="ad-in-content" aria-label="In-content advertisement">
+    <p class="ad__label">Advertisement</p>
+    <div class="ad__box"></div>
+  </aside>
+
+  <section class="section">
+    <div class="wrap">
+      <h2 class="prose" style="font-size:var(--step-2);letter-spacing:-.02em;line-height:1.15">
+        Questions people actually ask
+      </h2>
+      <dl class="faq prose">
+        <dt>Is it really free, and is there a catch?</dt>
+        <dd>
+          Free, no account, no daily limit. There are ad slots on the page for once there's
+          enough traffic to sell against them — right now they're empty and nothing is served.
+          Since your files never reach us, there's nothing else here to monetise.
+        </dd>
+
+        <dt>How many files can I convert at once?</dt>
+        <dd>
+          As many as your device can hold. Hundreds is normal. Very large batches are
+          steadier saved file by file than as one zip — the browser caps how much data a
+          single zip can hold in memory, and the app will warn you before you hit it.
+        </dd>
+
+        <dt>Does the conversion lose quality?</dt>
+        <dd>
+          A little, at the default 0.85 — JPG is lossy and the photo is re-encoded once.
+          You won't see it at normal viewing sizes. Push the slider toward 1.0 for a
+          near-identical file that's larger, or choose PNG for a lossless copy.
+        </dd>
+
+        <dt>What happens to EXIF data — dates, camera, location?</dt>
+        <dd>
+          It's dropped. The photo is decoded to pixels and re-encoded, and the metadata
+          doesn't come along. Rotation is applied, so your photos come out the right way up.
+          If you need the location and date preserved, this tool isn't the one for the job
+          yet.
+        </dd>
+
+        <dt>Does it work on an iPhone or iPad?</dt>
+        <dd>
+          Yes, and it's fast there — Safari can decode HEIC natively, so the converter uses
+          the system decoder instead of the WebAssembly one.
+        </dd>
+
+        <dt>Can I use it offline?</dt>
+        <dd>
+          Once the page has loaded, yes — cut the connection and it keeps converting. A
+          fresh load with no connection needs the page itself first.
+        </dd>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p>
+      <strong>Safelight</strong> — HEIC to JPG that never uploads your photos.
+      Built on <a class="prose" href="https://github.com/strukturag/libheif" rel="noopener">libheif</a> (<a class="prose" href="/vendor/LICENSE.libheif-js.txt" rel="license">LGPL-3.0</a>)
+      and <a class="prose" href="https://github.com/jankovicsandras/imagetracerjs" rel="noopener">ImageTracer.js</a> (<a class="prose" href="/vendor/LICENSE.imagetracer.txt" rel="license">public domain</a>) for vector tracing.
+    </p>
+    <nav class="foot__nav" aria-label="Footer">
+      <a href="/">Convert</a>
+      <a href="/compress/">Compress</a>
+      <a href="/guides/">Guides</a>
+      <a href="/compare/">Compare converters</a>
+      <a href="/privacy/">Privacy</a>
+    </nav>
+    <p class="mono">No accounts · No uploads · No tracking</p>
+  </div>
+</footer>
+</body>
+</html>

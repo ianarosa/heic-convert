@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Is CloudConvert Safe? A Fair Read of Its Security Page</title>
+<meta name="description" content="CloudConvert states immediate deletion, no permanent storage, isolated containers and SSL. On its own account, a well-run cloud service. Quoted and sourced.">
+
+<!-- ==================== SITE ORIGIN ====================
+     The canonical domain appears in this block and NOWHERE else in this file.
+     Moving domains = edit the hrefs below, plus the same block in every other page.
+     The full list of files carrying an origin is in README.md ("Moving domains").
+     ===================================================== -->
+<link rel="canonical" href="https://heic.kostelinha.com/compare/is-cloudconvert-safe/">
+<meta property="og:url" content="https://heic.kostelinha.com/compare/is-cloudconvert-safe/">
+<meta property="og:image" content="https://heic.kostelinha.com/assets/og.png">
+<meta name="twitter:image" content="https://heic.kostelinha.com/assets/og.png">
+<!-- JSON-LD urls are inside the script at the end of this head. -->
+<!-- ==================== /SITE ORIGIN ==================== -->
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Safelight">
+<meta property="og:title" content="Is CloudConvert Safe? A Fair Read of Its Security Page">
+<meta property="og:description" content="Immediate deletion, no permanent storage, isolated containers, SSL. What CloudConvert states, quoted and sourced.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Safelight — HEIC to JPG, without the upload.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Is CloudConvert Safe? A Fair Read of Its Security Page">
+<meta name="twitter:description" content="What CloudConvert states about deletion, storage and isolation — quoted and sourced.">
+<meta name="theme-color" content="#eceef1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131010" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23131010'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23f2913f'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23f2913f' stroke-opacity='.35' stroke-width='1.5'/%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="/css/app.css">
+<link rel="stylesheet" href="/css/pages.css">
+<script type="module" src="/js/pages.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Safelight", "item": "https://heic.kostelinha.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Comparisons", "item": "https://heic.kostelinha.com/compare/" },
+        { "@type": "ListItem", "position": 3, "name": "Is CloudConvert safe?" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://heic.kostelinha.com/compare/is-cloudconvert-safe/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is CloudConvert safe to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On its own published account, its practices are notably strong. Its security page states that files are kept only for processing and deleted immediately afterwards, that CloudConvert intentionally does not provide any permanent storage, that each conversion runs in a separate, isolated container, and that all transfers from and to CloudConvert are SSL encrypted. Those are better commitments than most converters make. It is still a cloud converter by design, so your file does travel to a server."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does CloudConvert delete my files?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Its security page says: Files are kept only for processing and deleted immediately afterwards. CloudConvert intentionally does not provide any permanent storage. Immediately is a stronger commitment than the hours-long windows other converters publish."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can CloudConvert staff see my files?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Its security page states: Each conversion runs in a separate, isolated container. This means that even the CloudConvert team technically can't access your files. That is a claim about their architecture, published by them. Like every such claim it rests on their word, because you cannot inspect someone else's servers from your browser."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where does CloudConvert process my files?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Its security page says: Our cloud services are hosted in the selected geographical processing region exclusively. It also says it uses trusted cloud service providers with the highest security standards such as AWS. If data residency matters to you, a stated exclusive processing region is a meaningful thing to have in writing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are CloudConvert's free limits?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We could not verify current free-tier limits, so we are not going to state a number. Check their pricing page for the figures that apply today."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I use CloudConvert or a browser-based converter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If you need the breadth of formats a cloud service offers, use CloudConvert. Its stated practices are strong and the tool is capable. If the question is simply whether you want a particular photo on someone else's machine at all, then no amount of good server hygiene answers it, and converting on your own device does. That is an architectural preference, not a criticism of them."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to the answer</a>
+
+<header class="head">
+  <div class="wrap head__in">
+    <a class="brand" href="/">
+      <span class="lamp" aria-hidden="true"></span>
+      Safelight
+      <span class="brand__sub">HEIC&nbsp;→&nbsp;JPG, on your device</span>
+    </a>
+    <nav class="head__nav" aria-label="Sections">
+      <a class="head__link" href="/">Convert</a>
+      <a class="head__link" href="/compress/">Compress</a>
+      <a class="head__link" href="/guides/">Guides</a>
+    </nav>
+    <button type="button" class="room-toggle" id="room-toggle">Lightbox</button>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="wrap pagehead">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/">Safelight</a>
+      <span class="crumbs__sep" aria-hidden="true">/</span>
+      <a href="/compare/">Comparisons</a>
+      <span class="crumbs__sep" aria-hidden="true">/</span>
+      <span aria-current="page">Is CloudConvert safe?</span>
+    </nav>
+
+    <h1>Is CloudConvert<br><em>safe</em>?</h1>
+    <p class="pagehead__lede">
+      This is a page about a competitor on a site that sells the opposite architecture, and
+      the honest answer is that their published practices are stronger than most. So that's
+      what this page says. The only question left is a question about you, not about them.
+    </p>
+    <p class="pagehead__meta">
+      <span>Comparison</span>
+      <span>Last checked: July 2026</span>
+      <span>Reading time: 4 min</span>
+    </p>
+
+    <div class="verdict">
+      <p class="verdict__q">The answer, first</p>
+      <p class="verdict__a">
+        <strong>On its own published account, yes — it looks like a well-run cloud
+        service.</strong> CloudConvert states that files are deleted immediately after
+        processing, that it keeps no permanent storage, that each conversion runs in an
+        isolated container, and that transfers are SSL encrypted. Those are stronger
+        commitments than most converters make.
+      </p>
+      <p class="verdict__a">
+        The remaining question isn't about how well they run the server. It's whether you
+        want your file on a server at all — which, for some photos, you might not, however
+        good the server is.
+      </p>
+      <p class="verdict__note">
+        We make a browser-based converter that competes with them, which makes this the page
+        where our bias would show if it were going to. Every claim below is a verbatim quote
+        from CloudConvert's own security page with a link to it, our downsides are listed
+        further down, and we've refused to state their free-tier limits because we couldn't
+        verify them. Check the source yourself.
+      </p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>What CloudConvert states, in its own words</h2>
+        <p>
+          On transport:
+        </p>
+
+        <figure class="cite">
+          <blockquote>
+            "All transfers from and to CloudConvert are SSL encrypted. We ensure the use of
+            up-to-date ciphers."
+          </blockquote>
+          <figcaption>
+            <a href="https://cloudconvert.com/security" rel="noopener nofollow">cloudconvert.com security</a>
+            <span class="cite__read">Read 15 July 2026</span>
+          </figcaption>
+        </figure>
+
+        <p>
+          On retention — and this is the one worth reading twice, because it is a stronger
+          promise than the hours-long windows elsewhere in this category:
+        </p>
+
+        <figure class="cite">
+          <blockquote>
+            "Files are kept only for processing and deleted immediately afterwards.
+            CloudConvert intentionally does not provide any permanent storage."
+          </blockquote>
+          <figcaption>
+            <a href="https://cloudconvert.com/security" rel="noopener nofollow">cloudconvert.com security</a>
+            <span class="cite__read">Read 15 July 2026</span>
+          </figcaption>
+        </figure>
+
+        <p>
+          On isolation:
+        </p>
+
+        <figure class="cite">
+          <blockquote>
+            "Each conversion runs in a separate, isolated container. This means that even the
+            CloudConvert team technically can't access your files."
+          </blockquote>
+          <figcaption>
+            <a href="https://cloudconvert.com/security" rel="noopener nofollow">cloudconvert.com security</a>
+            <span class="cite__read">Read 15 July 2026</span>
+          </figcaption>
+        </figure>
+
+        <p>
+          On where the processing happens:
+        </p>
+
+        <figure class="cite">
+          <blockquote>
+            "Our cloud services are hosted in the selected geographical processing region
+            exclusively."
+          </blockquote>
+          <figcaption>
+            <a href="https://cloudconvert.com/security" rel="noopener nofollow">cloudconvert.com security</a>
+            <span class="cite__read">Read 15 July 2026</span>
+          </figcaption>
+        </figure>
+
+        <p>
+          The same page says it uses <code>trusted cloud service providers with the highest
+          security standards such as AWS</code>. Its HEIC-to-JPG page describes the product
+          exactly as what it is: <code>CloudConvert converts your image files online</code>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Taking that seriously</h2>
+        <p>
+          It would be easy for a site like this one to skip past those quotes and hurry to
+          the part where we say "but it's still an upload". That would be a cheap trick, so
+          instead: <strong>those are good commitments, and they are better than the
+          alternatives we've read.</strong>
+        </p>
+        <ul>
+          <li>
+            <strong>"Deleted immediately afterwards"</strong> is materially stronger than a
+            48-hour window or "a few hours". It's the difference between a file existing for
+            the length of a job and a file existing for two days.
+          </li>
+          <li>
+            <strong>"Intentionally does not provide any permanent storage"</strong> is a
+            design decision stated as a design decision. A company that doesn't build storage
+            can't accumulate what it doesn't keep.
+          </li>
+          <li>
+            <strong>Isolated containers per conversion</strong> is the architecture you'd
+            actually want if you were building this responsibly, and the claim that even
+            their own team can't reach your files is a specific, falsifiable one rather than
+            a vague reassurance.
+          </li>
+          <li>
+            <strong>An exclusive processing region</strong> matters if you have data
+            residency obligations, and most converters don't offer the concept at all.
+          </li>
+          <li>
+            <strong>They publish a security page.</strong> This whole section exists because
+            they wrote it down in public.
+          </li>
+        </ul>
+        <p>
+          We aren't going to manufacture a problem here. There isn't one to manufacture.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <aside class="ad wrap" id="ad-in-content" aria-label="Advertisement">
+    <p class="ad__label">Advertisement</p>
+    <div class="ad__box"></div>
+  </aside>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>The one question that's left</h2>
+        <p>
+          Every claim above is a claim CloudConvert makes about its own systems. That isn't a
+          criticism — it's just the nature of the thing. You cannot inspect someone else's
+          servers from your browser, so any server-side promise, however specific and however
+          sincerely made, is something you accept on trust. That's true of them, of everyone
+          in this category, and of any statement we'd make about a server if we had one.
+        </p>
+        <p>
+          So the remaining question is architectural, and it's about you rather than them:
+          <strong>do you want this particular file to leave your device at all?</strong>
+        </p>
+        <p>
+          For most photos, the answer is obviously "don't care" — and CloudConvert is a good
+          tool for that job, with more formats than we'll ever support. For a photo of a
+          passport, a medical form, a contract, a whiteboard covered in someone else's
+          confidential work, you might answer differently. Not because there's anything wrong
+          with a well-run server, but because the simplest file to reason about is the one
+          that never went anywhere — and that's an option you should get to take knowingly.
+        </p>
+        <p>
+          That's the entire argument this site makes. It isn't "they're bad". It's "you
+          should know which one you're choosing".
+        </p>
+
+        <h3>What we won't tell you</h3>
+        <p>
+          We couldn't verify CloudConvert's current free-tier limits, so this page doesn't
+          state them. Check their pricing page for the numbers that apply today. Publishing a
+          figure we hadn't confirmed would make every other number on this page worth less.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Our bias, and our own downsides</h2>
+        <p>
+          We build <a href="/#tool">a converter that competes with theirs</a>. Read this page
+          with that in front of you. Here's what's wrong with ours:
+        </p>
+        <ul>
+          <li>
+            <strong>Far fewer formats.</strong> JPG, PNG, WebP and PDF. No video, no OCR,
+            nothing exotic. CloudConvert converts things we have never even considered. If you
+            need that, they are the right tool and we are not.
+          </li>
+          <li>
+            <strong>Our JPGs are ~168% the size of your HEICs</strong> — same as theirs, same
+            as everyone's. It's the codecs.
+          </li>
+          <li>
+            <strong>EXIF metadata is dropped</strong> — dates, camera, GPS. Rotation is
+            applied so photos come out upright; the rest doesn't survive.
+          </li>
+          <li>
+            <strong>Very large zips are capped by your browser's memory.</strong> We warn you
+            first. A server has no such limit.
+          </li>
+          <li>
+            <strong>A ~1.4 MB decoder downloads once</strong> the first time you convert.
+          </li>
+          <li>
+            <strong>We're a small independent project</strong>, not an audited company with a
+            security page and a compliance process. CloudConvert is an established business
+            with real infrastructure.
+          </li>
+        </ul>
+        <p>
+          The one thing we can offer that no server can is that you don't have to believe
+          us. Press <code>F12</code>, open <strong>Network</strong>, convert a photo, and
+          watch nothing leave. Or turn off Wi-Fi and convert anyway. That's your browser
+          reporting on our page, not our page reporting on itself — the
+          <a href="/guides/heic-to-jpg-without-uploading/">full test takes ten seconds</a>.
+        </p>
+      </div>
+
+      <div class="cta">
+        <div class="cta__text">
+          <p class="cta__title">For the files you'd rather not upload</p>
+          <p class="cta__sub">
+            Free, no account, no daily cap. JPG, PNG, WebP and PDF. If you need a format we
+            don't do, use a cloud converter — we'd rather you had the right tool than ours.
+          </p>
+        </div>
+        <a class="btn btn--primary" href="/#tool">Open the converter</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Questions people actually ask</h2>
+      </div>
+      <dl class="faq prose">
+        <dt>Is CloudConvert safe to use?</dt>
+        <dd>
+          On its own published account, its practices are notably strong: immediate deletion
+          after processing, no permanent storage, isolated containers per conversion, SSL
+          transfers. That's better than most of this category manages. It's still a cloud
+          converter by design, so your file goes to a server — that's the trade, and it's a
+          reasonable one for most photos.
+        </dd>
+
+        <dt>Do they delete my files?</dt>
+        <dd>
+          Their security page says files are "kept only for processing and deleted
+          immediately afterwards", and that they intentionally provide no permanent storage.
+          "Immediately" is a stronger word than anyone else in this comparison uses.
+        </dd>
+
+        <dt>Can their staff see my files?</dt>
+        <dd>
+          They state that each conversion runs in a separate, isolated container and that
+          even the CloudConvert team technically can't access your files. That's a specific
+          architectural claim, published by them. Like all such claims, you're taking their
+          word — not because they're untrustworthy, but because nobody can audit a server
+          from a browser tab.
+        </dd>
+
+        <dt>What are their free limits?</dt>
+        <dd>
+          We couldn't verify them, so we won't state a number. Check their pricing page.
+        </dd>
+
+        <dt>So why would I use your converter instead?</dt>
+        <dd>
+          If you need a format we don't support, or OCR, use them. Use us when the file is
+          one you'd rather not copy anywhere at all — because then the question of how well
+          the server behaves never has to be asked, and you can prove it in ten seconds with
+          your Wi-Fi off.
+        </dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Keep reading</h2>
+        <ul>
+          <li><a href="/compare/heictojpg-alternative/">Alternatives to heictojpg.com</a> — including the ones that aren't us.</li>
+          <li><a href="/compare/is-freeconvert-safe/">Is FreeConvert safe?</a> — HTTPS uploads and a metered free tier, quoted.</li>
+          <li><a href="/compare/is-heictojpg-com-safe/">Is heictojpg.com safe?</a> — the terms nobody reads, quoted fairly.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p>
+      <strong>Safelight</strong> — HEIC to JPG that never uploads your photos.
+      Built on <a class="prose" href="https://github.com/strukturag/libheif" rel="noopener">libheif</a> (<a class="prose" href="/vendor/LICENSE.libheif-js.txt" rel="license">LGPL-3.0</a>).
+    </p>
+    <nav class="foot__nav" aria-label="Footer">
+      <a href="/">Converter</a>
+      <a href="/guides/">Guides</a>
+      <a href="/compare/">Comparisons</a>
+      <a href="/privacy/">Privacy</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

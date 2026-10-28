@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>JPG to WebP — Free Converter, No Upload</title>
+<meta name="description" content="Convert JPG to WebP in your browser — nothing uploads. WebP is usually smaller at the same quality, but opens in modern software only. Free, unlimited, offline.">
+
+<!-- ==================== SITE ORIGIN ====================
+     The canonical domain appears in this block and NOWHERE else in this file.
+     Moving domains = edit the hrefs below, plus the same block in every other page.
+     The full list of files carrying an origin is in README.md ("Moving domains").
+     ===================================================== -->
+<link rel="canonical" href="https://heic.kostelinha.com/jpg-to-webp/">
+<meta property="og:url" content="https://heic.kostelinha.com/jpg-to-webp/">
+<meta property="og:image" content="https://heic.kostelinha.com/assets/compress-og.png">
+<meta name="twitter:image" content="https://heic.kostelinha.com/assets/compress-og.png">
+<!-- JSON-LD urls are inside the script at the end of this head. -->
+<!-- ==================== /SITE ORIGIN ==================== -->
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Safelight">
+<meta property="og:title" content="JPG to WebP — Free Converter, No Upload">
+<meta property="og:description" content="JPG to WebP in your browser. Smaller files for the web at the same quality. Nothing uploads. Free, no account.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Safelight — convert images, without the upload.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="JPG to WebP — Free Converter, No Upload">
+<meta name="twitter:description" content="JPG to WebP in your browser. Smaller for the web, nothing uploaded.">
+<meta name="theme-color" content="#eceef1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131010" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23131010'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23f2913f'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23f2913f' stroke-opacity='.35' stroke-width='1.5'/%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="/css/app.css">
+<link rel="stylesheet" href="/css/pages.css">
+<script type="module" src="/js/pages.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Safelight", "item": "https://heic.kostelinha.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Convert images", "item": "https://heic.kostelinha.com/compress/" },
+        { "@type": "ListItem", "position": 3, "name": "JPG to WebP" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://heic.kostelinha.com/jpg-to-webp/#app",
+      "name": "Safelight JPG to WebP Converter",
+      "url": "https://heic.kostelinha.com/jpg-to-webp/",
+      "applicationCategory": "MultimediaApplication",
+      "applicationSubCategory": "Image converter",
+      "operatingSystem": "Any browser: Windows, macOS, iOS, iPadOS, Android, Linux",
+      "browserRequirements": "Requires JavaScript.",
+      "description": "Converts JPG images to WebP entirely inside the browser, usually producing smaller files at the same quality. Nothing is uploaded. Free with no file limit.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "permissions": "none"
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://heic.kostelinha.com/jpg-to-webp/#howto",
+      "name": "How to convert JPG to WebP without uploading",
+      "totalTime": "PT30S",
+      "step": [
+        { "@type": "HowToStep", "position": 1, "name": "Open the converter", "text": "Open the Safelight converter with WebP already selected under Save as." },
+        { "@type": "HowToStep", "position": 2, "name": "Add your JPG files", "text": "Drop your JPG files onto the page, paste them, or choose a whole folder. Nothing is uploaded." },
+        { "@type": "HowToStep", "position": 3, "name": "Save the WebP files", "text": "Each JPG is re-encoded to WebP on your device. Save them one by one or all at once as a zip." }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://heic.kostelinha.com/jpg-to-webp/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is JPG to WebP actually smaller?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Usually yes. At a matched quality WebP tends to produce a smaller file than JPG, which is why it is popular for the web. The exact saving depends on the image; the tool shows you the real bytes for your file, and if a re-encode would be larger it keeps your original instead."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the catch with WebP?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Reach. WebP opens in current browsers and modern image apps, but some older software still cannot read it. Pick it for websites and storage, not for a file someone on ancient software has to open."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does converting JPG to WebP restore quality?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. A JPG has already discarded detail, and converting to WebP cannot bring it back. You get a smaller file of the same picture, not a better one. Both formats are lossy, so keep the quality slider high if the JPG was already heavily compressed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it free and private?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The conversion runs inside your browser, so the JPG is read from disk into the page and never uploaded. There is no account and no daily cap, and it keeps working with your Wi-Fi off."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I convert a whole folder of JPGs at once?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Drop in a folder and hundreds convert in one pass. The only limit is your device's memory. Save them individually or download the batch as a single zip."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to the content</a>
+
+<header class="head">
+  <div class="wrap head__in">
+    <a class="brand" href="/">
+      <span class="lamp" aria-hidden="true"></span>
+      Safelight
+      <span class="brand__sub">Convert&nbsp;images, on your device</span>
+    </a>
+    <nav class="head__nav" aria-label="Safelight tools">
+      <a class="head__link" href="/">Convert</a>
+      <a class="head__link" href="/compress/">Compress</a>
+      <a class="head__link" href="/guides/">Guides</a>
+    </nav>
+    <button type="button" class="room-toggle" id="room-toggle">Lightbox</button>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="wrap pagehead">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/">Safelight</a>
+      <span class="crumbs__sep" aria-hidden="true">/</span>
+      <a href="/compress/">Convert images</a>
+      <span class="crumbs__sep" aria-hidden="true">/</span>
+      <span aria-current="page">JPG to WebP</span>
+    </nav>
+
+    <h1>JPG to WebP,<br><em>smaller files for the web</em>.</h1>
+    <p class="pagehead__lede">
+      WebP is the format built for the modern web: at the same quality it usually squeezes
+      a JPG into fewer bytes, which means faster pages and lighter storage. The trade is
+      reach — WebP opens in current software, not ancient software. This converts your JPGs
+      to WebP inside the page, on your machine, with nothing uploaded.
+    </p>
+    <p class="pagehead__meta">
+      <span>Converter</span>
+      <span>Last checked: July 2026</span>
+    </p>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>The short version</h2>
+        <p>
+          If a file is bound for a <strong>website</strong>, a fast-loading gallery, or just
+          storage where every megabyte counts, WebP is a smart move. At a matched quality it
+          usually beats JPG on size — sometimes by a lot, sometimes only a little, depending
+          on the picture — and it supports transparency that JPG never could.
+        </p>
+        <p>
+          The one thing to weigh: <strong>modern software only</strong>. Today's browsers and
+          image apps read WebP happily, but some older desktop tools and a few upload forms
+          still don't. If the file needs to open on something ancient, JPG is the safer
+          format and WebP isn't worth the risk.
+        </p>
+      </div>
+
+      <div class="cta">
+        <div class="cta__text">
+          <p class="cta__title">Convert JPG to WebP now</p>
+          <p class="cta__sub">
+            Opens with WebP already chosen under "Save as". Free, no account, no daily cap.
+            Nothing uploads — the ledger shows the exact bytes saved per file.
+          </p>
+        </div>
+        <a class="btn btn--primary" href="/?to=webp">Open the converter</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Convert a JPG to WebP in three steps</h2>
+        <ol>
+          <li><strong>Open the converter.</strong> The button above lands on the tool with WebP already selected under "Save as".</li>
+          <li><strong>Add your JPGs.</strong> Drop, paste, or choose a folder. Read into the tab, never uploaded.</li>
+          <li><strong>Save the WebP files.</strong> Each is re-encoded on your device — save individually or as one zip.</li>
+        </ol>
+
+        <h2>When JPG to WebP pays off</h2>
+        <ul>
+          <li>
+            <strong>Images for a website.</strong> Smaller files at the same quality mean
+            pages that load faster and cost less bandwidth. This is WebP's home turf.
+          </li>
+          <li>
+            <strong>Bulk storage.</strong> A folder of WebPs takes noticeably less room than
+            the same folder of JPGs, with no visible quality drop at sensible settings.
+          </li>
+          <li>
+            <strong>Anything staying inside modern tools.</strong> If everything that will
+            ever open the file is recent, there's little reason not to take the saving.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <aside class="ad wrap" id="ad-in-content" aria-label="Advertisement">
+    <p class="ad__label">Advertisement</p>
+    <div class="ad__box"></div>
+  </aside>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>The honest caveats</h2>
+        <ul>
+          <li>
+            <strong>WebP can't un-lose what the JPG dropped.</strong> Your JPG already threw
+            away detail when it was first saved. Converting to WebP makes a smaller copy of
+            that picture, not a sharper one — no format recovers detail that's gone.
+          </li>
+          <li>
+            <strong>Two lossy hops.</strong> JPG is lossy and WebP is lossy, so this is a
+            second round of compression. At the default quality it's invisible; if the source
+            JPG was already rough, nudge the quality slider up to avoid stacking artefacts.
+          </li>
+          <li>
+            <strong>Not every program opens WebP.</strong> That's the whole trade. Keep a JPG
+            copy for anyone on older software, or <a href="/webp-to-jpg/">convert back to JPG</a>
+            when you need maximum compatibility.
+          </li>
+          <li>
+            <strong>Nothing uploads, and you can check it.</strong> Watch the Network tab, or
+            switch off your Wi-Fi and convert anyway. EXIF metadata is dropped in the
+            re-encode; rotation is applied so images stay upright.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Questions people actually ask</h2>
+      </div>
+      <dl class="faq prose">
+        <dt>How much smaller will the WebP be?</dt>
+        <dd>
+          It depends entirely on the image, so we won't promise a number. At a matched
+          quality WebP usually wins, sometimes by a wide margin. The tool measures the real
+          bytes for your file — and if a re-encode would be larger, it keeps your original.
+        </dd>
+
+        <dt>Will everyone be able to open a WebP?</dt>
+        <dd>
+          Every current browser and most modern image apps, yes. Some older desktop software
+          still can't. If that's a risk, stick with JPG for that particular file.
+        </dd>
+
+        <dt>Is JPG to WebP free, with no limit?</dt>
+        <dd>
+          Yes — no account, no daily cap, no file limit. It runs on your device, so a whole
+          folder at once is normal.
+        </dd>
+
+        <dt>Does converting make the picture look worse?</dt>
+        <dd>
+          Not at the default quality on a normal photo. Because both formats are lossy,
+          re-encoding a very compressed JPG can add faint artefacts — raise the quality
+          slider if you're worried.
+        </dd>
+
+        <dt>Are my files uploaded?</dt>
+        <dd>
+          No. Turn off your Wi-Fi and convert one; it works, because the whole thing runs in
+          this page and there's nowhere to send anything.
+        </dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Convert between other formats</h2>
+      </div>
+      <ul class="cards">
+        <li>
+          <a class="card-link" href="/png-to-webp/">
+            <p class="card-link__kick">Converter</p>
+            <p class="card-link__title">PNG to WebP</p>
+            <p class="card-link__sub">Smaller than PNG and keeps transparency — modern software.</p>
+          </a>
+        </li>
+        <li>
+          <a class="card-link" href="/webp-to-jpg/">
+            <p class="card-link__kick">Converter</p>
+            <p class="card-link__title">WebP to JPG</p>
+            <p class="card-link__sub">Go the other way when old software won't open WebP.</p>
+          </a>
+        </li>
+        <li>
+          <a class="card-link" href="/png-to-jpg/">
+            <p class="card-link__kick">Converter</p>
+            <p class="card-link__title">PNG to JPG</p>
+            <p class="card-link__sub">Shrink a heavy PNG photo into a JPG that opens anywhere.</p>
+          </a>
+        </li>
+        <li>
+          <a class="card-link" href="/webp-to-png/">
+            <p class="card-link__kick">Converter</p>
+            <p class="card-link__title">WebP to PNG</p>
+            <p class="card-link__sub">Lossless PNG for editors and tools that won't take WebP.</p>
+          </a>
+        </li>
+        <li>
+          <a class="card-link" href="/jpg-to-png/">
+            <p class="card-link__kick">Converter</p>
+            <p class="card-link__title">JPG to PNG</p>
+            <p class="card-link__sub">When a tool demands PNG — honest about what it can't restore.</p>
+          </a>
+        </li>
+      </ul>
+
+      <div class="cta">
+        <div class="cta__text">
+          <p class="cta__title">Ready when you are</p>
+          <p class="cta__sub">
+            Convert one JPG and watch the ledger report the real saving for your file. Free,
+            unlimited, and nothing leaves your device.
+          </p>
+        </div>
+        <a class="btn btn--primary" href="/?to=webp">Open the converter</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p>
+      <strong>Safelight</strong> — image conversion that never uploads your files.
+      Built on <a class="prose" href="https://github.com/strukturag/libheif" rel="noopener">libheif</a> (<a class="prose" href="/vendor/LICENSE.libheif-js.txt" rel="license">LGPL-3.0</a>).
+    </p>
+    <nav class="foot__nav" aria-label="Convert between formats">
+      <a href="/png-to-jpg/">PNG to JPG</a>
+      <a href="/webp-to-jpg/">WebP to JPG</a>
+      <a href="/jpg-to-webp/">JPG to WebP</a>
+      <a href="/webp-to-png/">WebP to PNG</a>
+      <a href="/png-to-webp/">PNG to WebP</a>
+      <a href="/jpg-to-png/">JPG to PNG</a>
+      <a href="/png-to-svg/">PNG to SVG</a>
+      <a href="/jpg-to-svg/">JPG to SVG</a>
+      <a href="/webp-to-svg/">WebP to SVG</a>
+    </nav>
+    <nav class="foot__nav" aria-label="Footer">
+      <a href="/">Convert</a>
+      <a href="/compress/">Compress</a>
+      <a href="/guides/">Guides</a>
+      <a href="/privacy/">Privacy</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

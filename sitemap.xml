@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Every URL here must exist, and every page that exists must be here.
+  test/verify.seo.mjs walks the filesystem and fails the build if the two lists differ,
+  so this file cannot rot quietly.
+
+  Not listed, on purpose:
+    /404.html   — an error page; it carries <meta name="robots" content="noindex">.
+
+  /compress/ is owned by a separate agent (the image-compressor tool). It is listed
+  here so it is crawled from launch; its index.html may land after this file.
+
+  SITE ORIGIN: this file hardcodes the domain 15 times (sitemaps require absolute URLs).
+  Moving domains means find-and-replacing it here too — see README.md, "Moving domains".
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://heic.kostelinha.com/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <!-- The image-compressor tool page, owned by a separate agent, served from
+       /compress/index.html. Listed here so it's crawled from launch. -->
+  <url>
+    <loc>https://heic.kostelinha.com/compress/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Format-conversion landing pages. These route into the compressor with the output
+       format preselected (/compress/?to=jpg etc). png-to-jpg is the highest-volume term. -->
+  <url>
+    <loc>https://heic.kostelinha.com/png-to-jpg/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://heic.kostelinha.com/webp-to-jpg/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://heic.kostelinha.com/jpg-to-webp/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://heic.kostelinha.com/webp-to-png/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://heic.kostelinha.com/png-to-webp/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://heic.kostelinha.com/jpg-to-png/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Vector-tracing landing pages (→ /?to=svg). png-to-svg is the best-fit / highest value;
+       jpg & webp are included for coverage but steer photo-havers away honestly. -->
+  <url>
+    <loc>https://heic.kostelinha.com/png-to-svg/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://heic.kostelinha.com/jpg-to-svg/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://heic.kostelinha.com/webp-to-svg/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://heic.kostelinha.com/guides/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://heic.kostelinha.com/guides/heic-to-jpg-without-uploading/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://heic.kostelinha.com/guides/batch-convert-heic-to-jpg/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://heic.kostelinha.com/guides/open-heic-files-windows-11/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://heic.kostelinha.com/guides/heic-to-jpg-free-unlimited/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://heic.kostelinha.com/guides/heic-to-png/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://heic.kostelinha.com/guides/heic-to-pdf/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://heic.kostelinha.com/compare/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://heic.kostelinha.com/compare/is-heictojpg-com-safe/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://heic.kostelinha.com/compare/is-freeconvert-safe/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://heic.kostelinha.com/compare/is-cloudconvert-safe/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://heic.kostelinha.com/compare/heictojpg-alternative/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://heic.kostelinha.com/privacy/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>

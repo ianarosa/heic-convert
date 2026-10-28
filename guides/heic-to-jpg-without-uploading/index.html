@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>HEIC to JPG Without Uploading — Offline, In Your Browser</title>
+<meta name="description" content="How to convert HEIC to JPG without uploading your photos to anyone's server — and how to verify, in ten seconds, that a converter really isn't uploading them.">
+
+<!-- ==================== SITE ORIGIN ====================
+     The canonical domain appears in this block and NOWHERE else in this file.
+     Moving domains = edit the hrefs below, plus the same block in every other page.
+     The full list of files carrying an origin is in README.md ("Moving domains").
+     ===================================================== -->
+<link rel="canonical" href="https://heic.kostelinha.com/guides/heic-to-jpg-without-uploading/">
+<meta property="og:url" content="https://heic.kostelinha.com/guides/heic-to-jpg-without-uploading/">
+<meta property="og:image" content="https://heic.kostelinha.com/assets/og.png">
+<meta name="twitter:image" content="https://heic.kostelinha.com/assets/og.png">
+<!-- JSON-LD urls are inside the script at the end of this head. -->
+<!-- ==================== /SITE ORIGIN ==================== -->
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Safelight">
+<meta property="og:title" content="HEIC to JPG Without Uploading — Convert Offline, In Your Browser">
+<meta property="og:description" content="How to convert HEIC to JPG without uploading your photos anywhere — and how to check that a converter really isn't uploading them.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Safelight — HEIC to JPG, without the upload.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HEIC to JPG Without Uploading — Convert Offline, In Your Browser">
+<meta name="twitter:description" content="How to convert HEIC to JPG without uploading your photos anywhere — and how to check.">
+<meta name="theme-color" content="#eceef1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131010" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23131010'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23f2913f'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23f2913f' stroke-opacity='.35' stroke-width='1.5'/%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="/css/app.css">
+<link rel="stylesheet" href="/css/pages.css">
+<script type="module" src="/js/pages.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Safelight", "item": "https://heic.kostelinha.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://heic.kostelinha.com/guides/" },
+        { "@type": "ListItem", "position": 3, "name": "HEIC to JPG without uploading" }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://heic.kostelinha.com/guides/heic-to-jpg-without-uploading/#howto",
+      "name": "Convert HEIC to JPG without uploading your photos",
+      "description": "Convert HEIC photos to JPG entirely on your own device, and verify that nothing was uploaded.",
+      "totalTime": "PT1M",
+      "tool": { "@type": "HowToTool", "name": "A web browser released after 2020" },
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Open the converter",
+          "text": "Open a converter that runs in the browser rather than on a server. The page loads its decoder once and then has nothing left to talk to.",
+          "url": "https://heic.kostelinha.com/guides/heic-to-jpg-without-uploading/#step-open"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Turn off your internet connection",
+          "text": "Switch on airplane mode or turn off Wi-Fi. A converter that processes files locally keeps working. One that uploads stops dead.",
+          "url": "https://heic.kostelinha.com/guides/heic-to-jpg-without-uploading/#step-offline"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Drop in your HEIC photos",
+          "text": "Drag the photos onto the page, or paste them, or pick a whole folder. The files are read from disk into the tab.",
+          "url": "https://heic.kostelinha.com/guides/heic-to-jpg-without-uploading/#step-drop"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Save the JPGs",
+          "text": "Download the converted files individually or as a zip. Reconnect afterwards if you like — the work is already done.",
+          "url": "https://heic.kostelinha.com/guides/heic-to-jpg-without-uploading/#step-save"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://heic.kostelinha.com/guides/heic-to-jpg-without-uploading/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can you convert HEIC to JPG without uploading the photos anywhere?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Browsers can decode and re-encode images themselves using WebAssembly, so a converter can do all of the work inside the page. Nothing is sent to a server, and the tool keeps working with the internet switched off. Most online converters do not work this way — they are a web form in front of a server — but the browser has been capable of this since roughly 2018."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I tell whether a HEIC converter uploads my photos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Two checks. First, open DevTools with F12, click the Network tab, and convert a photo: an uploader shows a POST request carrying megabytes; a local converter shows nothing. Second, and simpler: turn off your Wi-Fi and convert a photo anyway. If it still works, the photo never left your device, because there was nowhere for it to go."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is an offline HEIC converter slower than an online one?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Usually it is faster, because the slow part of an online converter is not the conversion — it is uploading your photos and downloading them back. A local converter skips both. It costs one download of the decoder, around 1.4 MB, on first use."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to install anything to convert HEIC without uploading?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. A browser-based converter needs no installation, no account and no admin rights, which matters on a work laptop where you cannot install software. Desktop apps also keep your files local, but they are a bigger commitment for a one-off job."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to the guide</a>
+
+<header class="head">
+  <div class="wrap head__in">
+    <a class="brand" href="/">
+      <span class="lamp" aria-hidden="true"></span>
+      Safelight
+      <span class="brand__sub">HEIC&nbsp;→&nbsp;JPG, on your device</span>
+    </a>
+    <nav class="head__nav" aria-label="Sections">
+      <a class="head__link" href="/">Convert</a>
+      <a class="head__link" href="/compress/">Compress</a>
+      <a class="head__link" href="/guides/">Guides</a>
+    </nav>
+    <button type="button" class="room-toggle" id="room-toggle">Lightbox</button>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="wrap pagehead">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/">Safelight</a>
+      <span class="crumbs__sep" aria-hidden="true">/</span>
+      <a href="/guides/">Guides</a>
+      <span class="crumbs__sep" aria-hidden="true">/</span>
+      <span aria-current="page">Without uploading</span>
+    </nav>
+
+    <h1>HEIC to JPG,<br><em>without uploading anything</em>.</h1>
+    <p class="pagehead__lede">
+      Almost every "free online HEIC converter" is a web form in front of a server: your
+      photos get sent to a company, converted there, and stored for a while. It doesn't
+      have to work that way, and you can prove which kind you're using in about ten
+      seconds.
+    </p>
+    <p class="pagehead__meta">
+      <span>Guide</span>
+      <span>Last checked: July 2026</span>
+      <span>Reading time: 4 min</span>
+    </p>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>The short version</h2>
+        <p>
+          Your browser can do this itself. It has been able to since about 2018, when
+          <strong>WebAssembly</strong> shipped everywhere — that's a way to run real,
+          compiled C code at close to native speed inside a tab. The standard open-source
+          HEIC decoder, <a href="https://github.com/strukturag/libheif" rel="noopener">libheif</a>,
+          compiles to WebAssembly. So a converter can download the decoder once and then do
+          every conversion on your own machine, with your photos never touching the network.
+        </p>
+        <p>
+          That's what <a href="/#tool">this converter</a> does. It is not a claim you have
+          to take on faith, which is the entire point of the rest of this page.
+        </p>
+      </div>
+
+      <div class="cta">
+        <div class="cta__text">
+          <p class="cta__title">Convert HEIC to JPG right now, without uploading</p>
+          <p class="cta__sub">
+            Free, no account, no daily cap, no file limit. Then come back and check it with
+            the test below — it takes ten seconds and it's the only thing that counts.
+          </p>
+        </div>
+        <a class="btn btn--primary" href="/#tool">Open the converter</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Why "we delete your files after an hour" isn't the reassurance it sounds like</h2>
+        <p>
+          Server-side conversion is a legitimate way to build software. It is how most
+          converters work, it is often the only way to support exotic formats, and the
+          companies doing it are not villains. But it does mean a copy of your photo sat on
+          a machine you don't control, and you are being asked to trust a promise about what
+          happened to it there.
+        </p>
+        <p>
+          Sometimes that promise is generous. Sometimes it isn't, and the only way to find
+          out is to read the terms of service — which nobody does. Here is the one attached
+          to <code>heictojpg.com</code>, the first result most people click:
+        </p>
+
+        <figure class="cite">
+          <blockquote>
+            "Beamr hereby is and shall be granted a nonexclusive, worldwide, royalty free,
+            perpetual, irrevocable, sub licensable and transferable right to use, process,
+            store, copy, reproduce, reformat, translate, modify and create derivative works
+            of your Content"
+          </blockquote>
+          <figcaption>
+            <a href="https://heictojpg.com/tou.html" rel="noopener nofollow">heictojpg.com Terms of Use</a>
+            <span class="cite__read">Read 15 July 2026</span>
+          </figcaption>
+        </figure>
+
+        <p>
+          The same document also says your content is removed within 48 hours of upload, so
+          the picture is more nuanced than the quote alone suggests — and we've written the
+          <a href="/compare/is-heictojpg-com-safe/">full, fair version of that story separately</a>.
+          The point here is narrower: those are the terms you accepted when you dragged a
+          photo of your passport onto that page, and you accepted them without reading them,
+          because the page never asked you to.
+        </p>
+        <p>
+          None of this is an argument that uploading is evil. It's an argument that it should
+          be <strong>a choice you make knowingly</strong>. For holiday snaps, who cares. For a
+          photo of a document, a whiteboard, a medical form, or your kids, you might care
+          quite a lot — and right now most people making that trade don't know they're making
+          it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>How to check any converter in ten seconds</h2>
+        <p>
+          You don't need to trust this page, or any page. Both of these tests work on any
+          converter you like, including this one, and neither needs any technical knowledge.
+        </p>
+      </div>
+
+      <ol class="steps">
+        <li id="step-offline">
+          <h3>Test one: pull the plug</h3>
+          <p>
+            Load the converter. Now turn off your Wi-Fi, or switch on airplane mode. Then
+            convert a photo.
+          </p>
+          <p>
+            A converter that works on your device carries on exactly as before — there was
+            never anything on the other end of the wire. A converter that uploads stops
+            dead, usually with an error about the network. This test cannot be faked: you
+            have physically removed the network, so there is no upload that could be
+            happening quietly.
+          </p>
+        </li>
+        <li id="step-open">
+          <h3>Test two: watch the wire</h3>
+          <p>
+            Press <code>F12</code> to open your browser's developer tools and click the
+            <strong>Network</strong> tab. Leave it open and convert a photo.
+          </p>
+          <p>
+            An uploader shows you a request — usually a <code>POST</code> — carrying
+            megabytes of data, and you can watch the size tick up as your photo goes out. A
+            local converter shows nothing at all: no upload, no download, not even an
+            analytics ping. This is your browser reporting on the page, not the page
+            reporting on itself, so a page cannot lie to you here.
+          </p>
+        </li>
+        <li id="step-drop">
+          <h3>Then do the actual job</h3>
+          <p>
+            Drag your HEICs onto the page, paste them, or pick a folder. On this converter
+            there's no file limit and no daily cap, because there's no server whose bill
+            grows with your batch — a few hundred photos at once is normal.
+          </p>
+        </li>
+        <li id="step-save">
+          <h3>Save, and reconnect whenever</h3>
+          <p>
+            Download the JPGs one by one or as a single zip. You can turn your connection
+            back on at any point; the work already happened.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <aside class="ad wrap" id="ad-in-content" aria-label="Advertisement">
+    <p class="ad__label">Advertisement</p>
+    <div class="ad__box"></div>
+  </aside>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>The honest caveats</h2>
+        <p>
+          A page that only listed advantages would be doing the same thing it's complaining
+          about. So:
+        </p>
+        <ul>
+          <li>
+            <strong>You do download a decoder.</strong> About 1.4 MB, once, the first time
+            you convert something. That's a network request — just not one containing your
+            photo. After it lands, the page needs nothing else.
+          </li>
+          <li>
+            <strong>Your JPGs will be bigger than your HEICs.</strong> Typically around
+            168%. That's true of every HEIC-to-JPG converter, uploading or not: HEVC (inside
+            the HEIC) is a 2013 codec, JPG's compression is from 1992. You're paying in
+            megabytes for a file that opens everywhere.
+          </li>
+          <li>
+            <strong>Very large batches are limited by your device</strong>, not by a plan.
+            That's usually far more generous than a free tier, but a phone with 3 GB of RAM
+            is still a phone with 3 GB of RAM.
+          </li>
+          <li>
+            <strong>EXIF metadata is dropped</strong> — dates, camera model, GPS. The photo
+            is decoded to pixels and re-encoded, and the metadata doesn't survive the trip.
+            Rotation is applied, so photos come out the right way up. If you need the
+            location and timestamp preserved, this tool isn't the one for that job yet.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Questions people actually ask</h2>
+      </div>
+      <dl class="faq prose">
+        <dt>Can you really convert HEIC to JPG without uploading?</dt>
+        <dd>
+          Yes. The browser decodes and re-encodes the image itself using WebAssembly. The
+          proof is that it works offline — see the airplane-mode test above.
+        </dd>
+
+        <dt>Is a local converter slower than an online one?</dt>
+        <dd>
+          Usually it's faster. The slow part of an online converter isn't the conversion,
+          it's uploading your photos and downloading them back again. Skipping both wins
+          easily, especially on a batch.
+        </dd>
+
+        <dt>Do I have to install anything?</dt>
+        <dd>
+          No. No install, no account, no admin rights — which matters on a work laptop where
+          you can't install software. A desktop app keeps your files local too, but that's a
+          bigger commitment for a one-off job.
+        </dd>
+
+        <dt>Does it work on iPhone, iPad, Android and Windows?</dt>
+        <dd>
+          Yes, in any browser from the last few years. On an iPhone or iPad it's especially
+          quick, because Safari can decode HEIC natively and the converter uses the system
+          decoder instead of the WebAssembly one.
+        </dd>
+
+        <dt>What about photos I've already run through an uploading converter?</dt>
+        <dd>
+          They were uploaded; that can't be undone. What you can do is read the terms of the
+          service you used, and check whether it offers a deletion request. Going forward,
+          the airplane-mode test tells you which kind of tool you're about to use before you
+          hand it anything.
+        </dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Keep reading</h2>
+        <ul>
+          <li><a href="/guides/batch-convert-heic-to-jpg/">Batch converting hundreds of HEICs at once</a> — and why there's no daily cap here.</li>
+          <li><a href="/compare/is-heictojpg-com-safe/">Is heictojpg.com safe?</a> — the fair, sourced answer.</li>
+          <li><a href="/guides/open-heic-files-windows-11/">Why Windows won't open your HEIC files</a> — the patent story, and four fixes.</li>
+        </ul>
+      </div>
+
+      <div class="cta">
+        <div class="cta__text">
+          <p class="cta__title">Ready when you are</p>
+          <p class="cta__sub">
+            Drop in a few hundred iPhone photos. Nothing uploads, nothing is capped, and the
+            wire tap on the front page counts the bytes leaving — live, while you work.
+          </p>
+        </div>
+        <a class="btn btn--primary" href="/#tool">Open the converter</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p>
+      <strong>Safelight</strong> — HEIC to JPG that never uploads your photos.
+      Built on <a class="prose" href="https://github.com/strukturag/libheif" rel="noopener">libheif</a> (<a class="prose" href="/vendor/LICENSE.libheif-js.txt" rel="license">LGPL-3.0</a>).
+    </p>
+    <nav class="foot__nav" aria-label="Footer">
+      <a href="/">Converter</a>
+      <a href="/guides/">Guides</a>
+      <a href="/compare/">Comparisons</a>
+      <a href="/privacy/">Privacy</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

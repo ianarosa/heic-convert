@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Page not found — Safelight</title>
+<meta name="description" content="That page isn't here. The converter is, and it still doesn't upload your photos.">
+<meta name="robots" content="noindex">
+
+<!-- No SITE ORIGIN block, on purpose. This file is served from arbitrary URLs, so
+     there is no one canonical address for it and nothing here to point at a domain.
+     That is also why every asset below is an absolute path: a relative href would
+     resolve against whatever wrong URL the reader arrived at, and the page would
+     load without its stylesheet. -->
+
+<meta name="theme-color" content="#eceef1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131010" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23131010'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23f2913f'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23f2913f' stroke-opacity='.35' stroke-width='1.5'/%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="/css/app.css">
+<link rel="stylesheet" href="/css/pages.css">
+<script type="module" src="/js/pages.js"></script>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to the content</a>
+
+<header class="head">
+  <div class="wrap head__in">
+    <a class="brand" href="/">
+      <span class="lamp" aria-hidden="true"></span>
+      Safelight
+      <span class="brand__sub">HEIC&nbsp;→&nbsp;JPG, on your device</span>
+    </a>
+    <nav class="head__nav" aria-label="Sections">
+      <a class="head__link" href="/">Convert</a>
+      <a class="head__link" href="/compress/">Compress</a>
+      <a class="head__link" href="/guides/">Guides</a>
+    </nav>
+    <button type="button" class="room-toggle" id="room-toggle">Lightbox</button>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap lost">
+    <p class="lost__code">404</p>
+    <h1>This one came out blank.</h1>
+    <p class="lost__lede">
+      There's no page at that address — either the link was wrong, or it used to be here
+      and isn't any more. The converter is still where you left it, and it still doesn't
+      upload your photos.
+    </p>
+    <div class="lost__acts">
+      <a class="btn btn--primary" href="/">Open the converter</a>
+      <a class="btn" href="/guides/">Read the guides</a>
+    </div>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p>
+      <strong>Safelight</strong> — HEIC to JPG that never uploads your photos.
+      Built on <a class="prose" href="https://github.com/strukturag/libheif" rel="noopener">libheif</a> (<a class="prose" href="/vendor/LICENSE.libheif-js.txt" rel="license">LGPL-3.0</a>).
+    </p>
+    <nav class="foot__nav" aria-label="Footer">
+      <a href="/">Converter</a>
+      <a href="/guides/">Guides</a>
+      <a href="/compare/">Comparisons</a>
+      <a href="/privacy/">Privacy</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

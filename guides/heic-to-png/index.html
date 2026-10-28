@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Convert HEIC to PNG Free — and When You Actually Want It</title>
+<meta name="description" content="Convert HEIC to PNG in your browser, free, without uploading. PNG is lossless but roughly 12x the size — when that trade is worth making, and when it isn't.">
+
+<!-- ==================== SITE ORIGIN ====================
+     The canonical domain appears in this block and NOWHERE else in this file.
+     Moving domains = edit the hrefs below, plus the same block in every other page.
+     The full list of files carrying an origin is in README.md ("Moving domains").
+     ===================================================== -->
+<link rel="canonical" href="https://heic.kostelinha.com/guides/heic-to-png/">
+<meta property="og:url" content="https://heic.kostelinha.com/guides/heic-to-png/">
+<meta property="og:image" content="https://heic.kostelinha.com/assets/og.png">
+<meta name="twitter:image" content="https://heic.kostelinha.com/assets/og.png">
+<!-- JSON-LD urls are inside the script at the end of this head. -->
+<!-- ==================== /SITE ORIGIN ==================== -->
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Safelight">
+<meta property="og:title" content="Convert HEIC to PNG Free — and When You Actually Want It">
+<meta property="og:description" content="PNG is lossless and about 12x the size of your HEIC. Here is when that is the right answer, and when JPG is.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Safelight — HEIC to JPG, without the upload.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Convert HEIC to PNG Free — and When You Actually Want It">
+<meta name="twitter:description" content="PNG is lossless and about 12x the size of your HEIC. When that is right, and when JPG is.">
+<meta name="theme-color" content="#eceef1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131010" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23131010'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23f2913f'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23f2913f' stroke-opacity='.35' stroke-width='1.5'/%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="/css/app.css">
+<link rel="stylesheet" href="/css/pages.css">
+<script type="module" src="/js/pages.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Safelight", "item": "https://heic.kostelinha.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://heic.kostelinha.com/guides/" },
+        { "@type": "ListItem", "position": 3, "name": "HEIC to PNG" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://heic.kostelinha.com/guides/heic-to-png/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I convert HEIC to PNG for free without uploading?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The conversion runs inside your browser using a WebAssembly build of libheif, so the photo is read from disk into the page and never sent over the network. It is free, there is no account and no daily cap, and it keeps working with your Wi-Fi switched off."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is my PNG so much bigger than the HEIC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because PNG is lossless. It stores every pixel exactly, with no photographic compression at all, while HEIC compresses with HEVC. Measured in Chrome on a 1440x960 test photo at quality 0.85, PNG came out at about 1186% of the HEIC input — roughly twelve times the size. A 2 MB HEIC becomes about a 24 MB PNG."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I convert my iPhone photos to PNG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Usually not. For ordinary photographs PNG is around twelve times larger than the HEIC for a difference you cannot see. JPG, at about 168%, or WebP, at about 155%, are the honest answers there. PNG earns its size on screenshots, sharp text and line art, images you will edit and re-save repeatedly, images that need transparency, or when you need an exact pixel-for-pixel copy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does PNG keep the transparency in a HEIC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PNG supports an alpha channel and HEIC can carry one, so PNG is the format to pick when the image has genuine transparency you need to keep. JPG has no alpha channel at all and will flatten it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is EXIF metadata kept when converting HEIC to PNG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The photo is decoded to pixels and re-encoded, and the metadata does not survive the trip — dates, camera model and GPS are dropped. Rotation is applied, so images come out the right way up."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to the guide</a>
+
+<header class="head">
+  <div class="wrap head__in">
+    <a class="brand" href="/">
+      <span class="lamp" aria-hidden="true"></span>
+      Safelight
+      <span class="brand__sub">HEIC&nbsp;→&nbsp;JPG, on your device</span>
+    </a>
+    <nav class="head__nav" aria-label="Sections">
+      <a class="head__link" href="/">Convert</a>
+      <a class="head__link" href="/compress/">Compress</a>
+      <a class="head__link" href="/guides/">Guides</a>
+    </nav>
+    <button type="button" class="room-toggle" id="room-toggle">Lightbox</button>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="wrap pagehead">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/">Safelight</a>
+      <span class="crumbs__sep" aria-hidden="true">/</span>
+      <a href="/guides/">Guides</a>
+      <span class="crumbs__sep" aria-hidden="true">/</span>
+      <span aria-current="page">HEIC to PNG</span>
+    </nav>
+
+    <h1>HEIC to PNG,<br><em>and when you actually want it</em>.</h1>
+    <p class="pagehead__lede">
+      This converter does PNG, free and without uploading anything. It is also, for most
+      of the photos people bring here, the wrong choice — about twelve times the file
+      size for a difference you cannot see. There is a short list of jobs where that
+      trade is worth making, and it is worth knowing whether you're on it.
+    </p>
+    <p class="pagehead__meta">
+      <span>Guide</span>
+      <span>Last checked: July 2026</span>
+      <span>Reading time: 4 min</span>
+    </p>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>The short version</h2>
+        <p>
+          PNG is <strong>lossless</strong>. It stores every pixel exactly as it was, with
+          no photographic compression and nothing thrown away. That is a real property
+          with real uses, and it has a price: on the test photo this app is built
+          against, PNG came out at <strong>1186%</strong> of the HEIC that went in.
+          Roughly twelve times. A 2 MB photo off your phone lands at about 24 MB.
+        </p>
+        <p>
+          If you're here because Windows won't open your holiday photos, that price buys
+          you nothing — the pixels JPG discards at quality 0.85 are ones you cannot see,
+          and you'd be paying twelve times over for the privilege of not discarding them.
+          <a href="/guides/heic-to-jpg-without-uploading/">Use JPG instead</a>; it opens
+          everywhere and it's a fifth of a PNG's weight.
+        </p>
+        <p>
+          If you're here because you have a screenshot, a scan of a document, an image
+          you're about to edit and re-save four times, or something with transparency in
+          it, then PNG is exactly right and the rest of this page explains why.
+        </p>
+      </div>
+
+      <div class="cta">
+        <div class="cta__text">
+          <p class="cta__title">Convert HEIC to PNG now</p>
+          <p class="cta__sub">
+            Pick PNG under "Save as". Free, no account, no daily cap. Nothing uploads —
+            the ledger shows you the size you're paying before you save anything.
+          </p>
+        </div>
+        <a class="btn btn--primary" href="/#tool">Open the converter</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>What twelve times actually looks like</h2>
+        <p>
+          These are measured, not estimated: Chrome, quality 0.85, on the 1440 × 960 test
+          photo this app is built against. Your files will differ; busy photos compress
+          worse than plain ones.
+        </p>
+      </div>
+
+      <div class="facts">
+        <table>
+          <caption class="vh">Output size and compression type for each format, as a share of the HEIC input</caption>
+          <thead>
+            <tr>
+              <th scope="col">Format</th>
+              <th scope="col">Size vs HEIC in</th>
+              <th scope="col">Compression</th>
+              <th scope="col">Pick it when</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-self="true">
+              <th scope="row">JPG</th>
+              <td>168%</td>
+              <td>Lossy</td>
+              <td>Ordinary photographs. Opens on everything ever made.</td>
+            </tr>
+            <tr>
+              <th scope="row">WebP</th>
+              <td>155%</td>
+              <td>Lossy</td>
+              <td>Photographs, if the files only need modern software.</td>
+            </tr>
+            <tr>
+              <th scope="row">PNG</th>
+              <td>1186%</td>
+              <td>Lossless</td>
+              <td>Screenshots, text, line art, transparency, repeat editing.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="prose">
+        <p>
+          The gap is not PNG being badly made. It is PNG doing a different job. JPG and
+          WebP look at a photograph and decide which detail your eye will not miss, then
+          delete it. PNG refuses to delete anything, and a photograph — thousands of
+          slightly different greens in a hedge, gentle noise across a sky — is the worst
+          possible input for a format that refuses to delete anything. The same PNG
+          encoder applied to a screenshot, which is mostly flat blocks of identical
+          colour, produces a small file. The format isn't heavy; photographs are.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>When PNG is genuinely the right answer</h2>
+        <ul>
+          <li>
+            <strong>Screenshots, and anything with sharp text or line art.</strong> Lossy
+            compression smears the edges where black text meets white background — the
+            artefacts JPG hides well in a hedge are painfully visible around a letter.
+            PNG keeps the edge exact, and compresses flat colour well, so the file is
+            often smaller than the JPG would have been.
+          </li>
+          <li>
+            <strong>Images you'll edit and re-save repeatedly.</strong> Every save of a
+            JPG re-encodes and loses a little more, and the losses compound across a
+            session. PNG re-saves are free of that: the tenth save is identical to the
+            first. Work in PNG, export to JPG once at the end.
+          </li>
+          <li>
+            <strong>Transparency.</strong> HEIC can carry an alpha channel, and PNG
+            supports one. JPG has no alpha channel at all and will flatten what's there.
+            If the image genuinely has transparency you need to keep, PNG is the only one
+            of these three that keeps it.
+          </li>
+          <li>
+            <strong>An exact pixel-for-pixel copy.</strong> Archival work, evidence, a
+            source file for someone else's pipeline, anything where "close enough that
+            you can't see it" isn't the standard. PNG re-compression artefacts don't exist
+            because PNG re-compression doesn't discard anything.
+          </li>
+        </ul>
+
+        <h2>When it isn't</h2>
+        <p>
+          Everything else. Photographs of people, places, food, pets, documents you only
+          need to read rather than archive — for all of these, PNG costs you twelve times
+          the bytes and returns a difference you cannot perceive at any normal viewing
+          size. That's not a marginal call. That's a 24 MB file where 3.4 MB would have
+          been indistinguishable.
+        </p>
+        <p>
+          It also fails at the practical job most people came for: a 24 MB PNG is too big
+          to email, too big for most upload forms, and slow on a phone. JPG at 168% is
+          the format that opens everywhere and travels. WebP at 155% is a little smaller
+          again, if the files only need to open in software from the last few years.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <aside class="ad wrap" id="ad-in-content" aria-label="Advertisement">
+    <p class="ad__label">Advertisement</p>
+    <div class="ad__box"></div>
+  </aside>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>The honest caveats</h2>
+        <ul>
+          <li>
+            <strong>Nothing uploads, and you can check that.</strong> The conversion runs
+            in this page on your machine. Press <code>F12</code>, open the
+            <strong>Network</strong> tab and convert a PNG: no request, no upload. Or turn
+            off your Wi-Fi and convert anyway — it works, because there is nothing on the
+            other end of the wire. That test is
+            <a href="/guides/heic-to-jpg-without-uploading/">explained in full here</a>.
+          </li>
+          <li>
+            <strong>No cap, no account.</strong> There's no server whose bill grows with
+            your batch, so there is no daily limit to enforce. The
+            <a href="/guides/heic-to-jpg-free-unlimited/">reason other converters cap you</a>
+            is that their costs scale with your files and ours don't.
+          </li>
+          <li>
+            <strong>PNG batches are heavy on memory.</strong> The limit is your device,
+            not a plan — but twelve times the output size means you reach that limit
+            twelve times sooner. For large PNG batches, save file by file rather than as
+            one zip. The app will warn you before you hit the wall.
+          </li>
+          <li>
+            <strong>EXIF metadata is dropped</strong> — dates, camera model, GPS. The
+            photo is decoded to pixels and re-encoded, and the metadata doesn't come
+            along. This is true of PNG output here exactly as it is of JPG. Rotation is
+            applied, so images come out the right way up.
+          </li>
+          <li>
+            <strong>Lossless doesn't mean "better".</strong> A PNG made from a HEIC is a
+            perfect copy of what the HEIC decoded to — not a recovery of anything the
+            HEIC itself already discarded. HEIC is lossy too. PNG preserves; it cannot
+            restore.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Questions people actually ask</h2>
+      </div>
+      <dl class="faq prose">
+        <dt>Can I convert HEIC to PNG free, with no limit?</dt>
+        <dd>
+          Yes. No account, no daily cap, no file limit. The work happens on your device,
+          so the only ceiling is your device's memory — which, for PNG, arrives sooner
+          than it would for JPG.
+        </dd>
+
+        <dt>Why is my PNG twelve times bigger than my HEIC?</dt>
+        <dd>
+          Because it's lossless and your HEIC isn't. PNG stores every pixel exactly; HEIC
+          compresses with HEVC, a 2013 codec built to throw away what you won't miss. The
+          measured figure is 1186% on our test photo — that's the honest cost of the
+          word "lossless" on a photograph.
+        </dd>
+
+        <dt>Is PNG better quality than JPG?</dt>
+        <dd>
+          Technically yes, visibly no — not on a photograph at quality 0.85. You are
+          paying twelve times the size for a difference your eye cannot find. On a
+          screenshot or anything with sharp text the answer flips, and PNG is visibly
+          better as well as often smaller.
+        </dd>
+
+        <dt>Does PNG keep transparency from a HEIC?</dt>
+        <dd>
+          Yes. HEIC can carry an alpha channel and PNG supports one, so if your image has
+          real transparency, PNG is the format that keeps it. JPG has no alpha channel and
+          will flatten it.
+        </dd>
+
+        <dt>I just want to open my iPhone photos on Windows. PNG or JPG?</dt>
+        <dd>
+          JPG. It opens everywhere, it's a fifth of the size, and you will not see the
+          difference. If Windows is the problem, the
+          <a href="/guides/open-heic-files-windows-11/">reason it won't open HEIC</a> is
+          worth two minutes as well — there are fixes that don't involve converting at all.
+        </dd>
+
+        <dt>Are my photos uploaded to convert them to PNG?</dt>
+        <dd>
+          No, and you don't have to take that on faith. Turn off your Wi-Fi and convert
+          one. It works, because there was never anywhere for the file to go.
+        </dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Keep reading</h2>
+        <ul>
+          <li><a href="/guides/heic-to-jpg-without-uploading/">HEIC to JPG without uploading</a> — the format most people actually want, and how to verify nothing left your device.</li>
+          <li><a href="/guides/batch-convert-heic-to-jpg/">Batch converting hundreds at once</a> — worth reading before you queue up 400 PNGs.</li>
+          <li><a href="/guides/heic-to-jpg-free-unlimited/">Free, with no daily cap</a> — and why every other converter has one.</li>
+        </ul>
+
+        <h2>Already have PNGs?</h2>
+        <p>
+          If your files are PNG already and you've decided that was the wrong call for a
+          photo, <a href="/png-to-jpg/">convert PNG to JPG</a> for a file a fraction of the
+          size that opens everywhere — or <a href="/png-to-webp/">convert PNG to WebP</a> to
+          shrink it for the web while keeping any transparency. Both the
+          <a href="/">converter</a> and the <a href="/compress/">compressor</a> run in your
+          browser, nothing uploaded, exactly like this page.
+        </p>
+      </div>
+
+      <div class="cta">
+        <div class="cta__text">
+          <p class="cta__title">Try it and watch the ledger</p>
+          <p class="cta__sub">
+            Convert one photo to PNG and the ledger reports the real bytes in and out for
+            your file, not our test photo. If the number horrifies you, switch to JPG and
+            convert the batch again.
+          </p>
+        </div>
+        <a class="btn btn--primary" href="/#tool">Open the converter</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p>
+      <strong>Safelight</strong> — HEIC to JPG that never uploads your photos.
+      Built on <a class="prose" href="https://github.com/strukturag/libheif" rel="noopener">libheif</a> (<a class="prose" href="/vendor/LICENSE.libheif-js.txt" rel="license">LGPL-3.0</a>).
+    </p>
+    <nav class="foot__nav" aria-label="Footer">
+      <a href="/">Converter</a>
+      <a href="/guides/">Guides</a>
+      <a href="/compare/">Comparisons</a>
+      <a href="/privacy/">Privacy</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

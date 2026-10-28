@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Is FreeConvert Safe? What It Says It Does With Your Files</title>
+<meta name="description" content="FreeConvert uploads your HEICs over HTTPS and says it deletes them after a few hours. What its own pages state about retention and the metered free tier.">
+
+<!-- ==================== SITE ORIGIN ====================
+     The canonical domain appears in this block and NOWHERE else in this file.
+     Moving domains = edit the hrefs below, plus the same block in every other page.
+     The full list of files carrying an origin is in README.md ("Moving domains").
+     ===================================================== -->
+<link rel="canonical" href="https://heic.kostelinha.com/compare/is-freeconvert-safe/">
+<meta property="og:url" content="https://heic.kostelinha.com/compare/is-freeconvert-safe/">
+<meta property="og:image" content="https://heic.kostelinha.com/assets/og.png">
+<meta name="twitter:image" content="https://heic.kostelinha.com/assets/og.png">
+<!-- JSON-LD urls are inside the script at the end of this head. -->
+<!-- ==================== /SITE ORIGIN ==================== -->
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Safelight">
+<meta property="og:title" content="Is FreeConvert Safe? What It Says It Does With Your Files">
+<meta property="og:description" content="What FreeConvert's own pages state about uploads, deletion and its metered free tier — quoted and sourced.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Safelight — HEIC to JPG, without the upload.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Is FreeConvert Safe? What It Says It Does With Your Files">
+<meta name="twitter:description" content="Uploads over HTTPS, deletion after a few hours, and a metered free tier. Quoted and sourced.">
+<meta name="theme-color" content="#eceef1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131010" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23131010'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23f2913f'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23f2913f' stroke-opacity='.35' stroke-width='1.5'/%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="/css/app.css">
+<link rel="stylesheet" href="/css/pages.css">
+<script type="module" src="/js/pages.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Safelight", "item": "https://heic.kostelinha.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Comparisons", "item": "https://heic.kostelinha.com/compare/" },
+        { "@type": "ListItem", "position": 3, "name": "Is FreeConvert safe?" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://heic.kostelinha.com/compare/is-freeconvert-safe/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does FreeConvert upload my files?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Its HEIC to JPG page says: we upload your files over a secure HTTPS connection. That is a server-side converter, which is the ordinary way to build one and is not in itself a problem. It does mean a copy of your photo exists on a machine you do not control for a period."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does FreeConvert keep my files?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Its HEIC to JPG page states that it will delete them automatically after a few hours. That is a published commitment, though a few hours is less precise than a stated number of hours. As with any retention promise, it cannot be verified from outside."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is FreeConvert really free, or is there a limit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is free with a metered allowance. Its pricing page states: Free users get 20 conversion minutes per day for both Web and API use, and explains that this means up to 20 files per day can be converted for free, with a limit of 5 conversion minutes per file for free usage. The pricing page also says you do not need to create an account to get these benefits on our website."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does FreeConvert limit the free tier at all?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because their costs scale with your files. Every conversion consumes CPU time, bandwidth and storage on machines they rent and pay for, so a free tier with no ceiling would be a bill with no ceiling. Metering is the rational design of a server-based free tier, not a trick. A converter that runs in your browser has no such bill, which is the only reason it can skip the cap."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How big a file can FreeConvert take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Its HEIC to JPG page lists a maximum file size of 1GB. For photo conversion that ceiling is far above anything a phone camera produces."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to the answer</a>
+
+<header class="head">
+  <div class="wrap head__in">
+    <a class="brand" href="/">
+      <span class="lamp" aria-hidden="true"></span>
+      Safelight
+      <span class="brand__sub">HEIC&nbsp;→&nbsp;JPG, on your device</span>
+    </a>
+    <nav class="head__nav" aria-label="Sections">
+      <a class="head__link" href="/">Convert</a>
+      <a class="head__link" href="/compress/">Compress</a>
+      <a class="head__link" href="/guides/">Guides</a>
+    </nav>
+    <button type="button" class="room-toggle" id="room-toggle">Lightbox</button>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="wrap pagehead">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/">Safelight</a>
+      <span class="crumbs__sep" aria-hidden="true">/</span>
+      <a href="/compare/">Comparisons</a>
+      <span class="crumbs__sep" aria-hidden="true">/</span>
+      <span aria-current="page">Is FreeConvert safe?</span>
+    </nav>
+
+    <h1>Is FreeConvert<br><em>safe</em>?</h1>
+    <p class="pagehead__lede">
+      By its own account it uploads your files over HTTPS and deletes them after a few
+      hours, which is an ordinary and reasonable arrangement. Its free tier is metered, and
+      that turns out to be the most interesting thing about it.
+    </p>
+    <p class="pagehead__meta">
+      <span>Comparison</span>
+      <span>Last checked: July 2026</span>
+      <span>Reading time: 4 min</span>
+    </p>
+
+    <div class="verdict">
+      <p class="verdict__q">The answer, first</p>
+      <p class="verdict__a">
+        <strong>By its own published account, yes — with the usual cloud caveat.</strong>
+        FreeConvert says it uploads your files over a secure HTTPS connection and deletes
+        them automatically after a few hours. That's a normal, reasonable arrangement. The
+        only real question is whether you want a copy of the photo on someone else's machine
+        for those hours at all.
+      </p>
+      <p class="verdict__note">
+        We build a converter that competes with theirs, so read this with that in mind. Every
+        fact here is quoted from FreeConvert's own pages and linked, our own downsides are
+        listed below, and you can check all of it yourself in a couple of minutes. Don't take
+        our word for any of it.
+      </p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>What FreeConvert says about your files</h2>
+        <p>
+          Its HEIC-to-JPG page is straightforward about the mechanics, which is more than
+          many converters bother with:
+        </p>
+
+        <figure class="cite">
+          <blockquote>
+            "we upload your files over a secure HTTPS connection"
+          </blockquote>
+          <figcaption>
+            <a href="https://www.freeconvert.com/heic-to-jpg" rel="noopener nofollow">freeconvert.com HEIC to JPG</a>
+            <span class="cite__read">Read 15 July 2026</span>
+          </figcaption>
+        </figure>
+
+        <p>
+          And about what happens afterwards:
+        </p>
+
+        <figure class="cite">
+          <blockquote>
+            "delete them automatically after a few hours"
+          </blockquote>
+          <figcaption>
+            <a href="https://www.freeconvert.com/heic-to-jpg" rel="noopener nofollow">freeconvert.com HEIC to JPG</a>
+            <span class="cite__read">Read 15 July 2026</span>
+          </figcaption>
+        </figure>
+
+        <p>
+          The same page lists <code>Max file size 1GB</code> — a ceiling far above anything
+          your phone's camera will ever hand you.
+        </p>
+        <p>
+          Two honest observations about those quotes. First: saying plainly "we upload your
+          files" is a point in their favour. A converter that uploads and doesn't mention it
+          is worse than one that uploads and says so on the page you're standing on. Second:
+          "a few hours" is a commitment without a number in it. That's a small thing, and
+          softer than some competitors manage, but it is what the page says and we're not
+          going to pretend it says more.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>The free tier, and why it's metered</h2>
+        <p>
+          FreeConvert's pricing page is specific, so we'll quote it rather than summarise it:
+        </p>
+
+        <figure class="cite">
+          <blockquote>
+            "Free users get 20 conversion minutes per day for both Web and API use."
+          </blockquote>
+          <figcaption>
+            <a href="https://www.freeconvert.com/pricing" rel="noopener nofollow">freeconvert.com pricing</a>
+            <span class="cite__read">Read 15 July 2026</span>
+          </figcaption>
+        </figure>
+
+        <figure class="cite">
+          <blockquote>
+            "This means up to 20 files per day can be converted for free."
+          </blockquote>
+          <figcaption>
+            <a href="https://www.freeconvert.com/pricing" rel="noopener nofollow">freeconvert.com pricing</a>
+            <span class="cite__read">Read 15 July 2026</span>
+          </figcaption>
+        </figure>
+
+        <figure class="cite">
+          <blockquote>
+            "a limit of 5 conversion minutes per file for free usage"
+          </blockquote>
+          <figcaption>
+            <a href="https://www.freeconvert.com/pricing" rel="noopener nofollow">freeconvert.com pricing</a>
+            <span class="cite__read">Read 15 July 2026</span>
+          </figcaption>
+        </figure>
+
+        <p>
+          And a detail that deserves more credit than it usually gets:
+        </p>
+
+        <figure class="cite">
+          <blockquote>
+            "You do not need to create an account to get these benefits on our website."
+          </blockquote>
+          <figcaption>
+            <a href="https://www.freeconvert.com/pricing" rel="noopener nofollow">freeconvert.com pricing</a>
+            <span class="cite__read">Read 15 July 2026</span>
+          </figcaption>
+        </figure>
+
+        <p>
+          <strong>Metering is the rational design here, not a trick.</strong> Every
+          conversion FreeConvert performs costs them CPU time, bandwidth and storage on
+          machines they rent. Their costs scale directly with your files. A free tier with no
+          ceiling would be a bill with no ceiling, so there is a ceiling. Any server-based
+          converter that claims "unlimited free" is either subsidising you from somewhere or
+          being loose with the word.
+        </p>
+        <p>
+          The reason <a href="/#tool">this converter</a> has no daily cap isn't virtue. It's
+          that the conversion happens on your computer, using your CPU and your electricity,
+          so there is no bill that grows with your batch. Different architecture, different
+          economics. We didn't out-generous them; we just don't have their costs.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <aside class="ad wrap" id="ad-in-content" aria-label="Advertisement">
+    <p class="ad__label">Advertisement</p>
+    <div class="ad__box"></div>
+  </aside>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Side by side, verified facts only</h2>
+        <p>
+          Only things we could read on a published page on 15 July 2026. Where something
+          isn't stated, the cell says so rather than guessing. Our own row is marked, because
+          not marking it would be the sly version of the same thing.
+        </p>
+      </div>
+
+      <div class="facts">
+        <table>
+          <caption class="vh">Verified facts about FreeConvert and Safelight, read 15 July 2026</caption>
+          <thead>
+            <tr>
+              <th scope="col">&nbsp;</th>
+              <th scope="col">FreeConvert</th>
+              <th scope="col">Safelight</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Where conversion happens</th>
+              <td>On their servers — "we upload your files over a secure HTTPS connection"</td>
+              <td>In your browser. Nothing is uploaded</td>
+            </tr>
+            <tr>
+              <th scope="row">Stated retention</th>
+              <td>"delete them automatically after a few hours"</td>
+              <td>No retention — the file never leaves your device</td>
+            </tr>
+            <tr>
+              <th scope="row">Free-tier limit</th>
+              <td>"Free users get 20 conversion minutes per day for both Web and API use"; "up to 20 files per day can be converted for free"</td>
+              <td>No daily cap, no file limit — limited by your device's memory</td>
+            </tr>
+            <tr>
+              <th scope="row">Per-file limit</th>
+              <td>"Max file size 1GB"; "a limit of 5 conversion minutes per file for free usage"</td>
+              <td>Not stated — bounded by your device's memory</td>
+            </tr>
+            <tr>
+              <th scope="row">Account needed</th>
+              <td>"You do not need to create an account to get these benefits on our website"</td>
+              <td>No account</td>
+            </tr>
+            <tr>
+              <th scope="row">Works offline</th>
+              <td>No — it's a server converter by design</td>
+              <td>Yes, after the page has loaded</td>
+            </tr>
+            <tr>
+              <th scope="row">Output formats</th>
+              <td>Many, including formats we don't support</td>
+              <td>JPG, PNG, WebP and PDF</td>
+            </tr>
+            <tr data-self="true">
+              <th scope="row">Whose page this is</th>
+              <td>Not ours</td>
+              <td>Ours. Weigh accordingly</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Our bias, and our own downsides</h2>
+        <p>
+          We are a competitor. That's a conflict of interest, and it's why every claim above
+          is a quote with a link rather than a characterisation. Here's the list a fair rival
+          would want printed:
+        </p>
+        <ul>
+          <li>
+            <strong>Our JPGs are ~168% the size of your HEICs.</strong> So are theirs. Every
+            HEIC-to-JPG converter does this — it's the codecs, not the tool.
+          </li>
+          <li>
+            <strong>We drop EXIF metadata</strong> — dates, camera, GPS. Rotation is applied
+            so photos come out upright, but the rest doesn't survive.
+          </li>
+          <li>
+            <strong>JPG, PNG, WebP and PDF only.</strong> FreeConvert converts far more
+            formats than we do — video, exotic image types, and more. If you need one of
+            those, they're the right tool and we're not.
+          </li>
+          <li>
+            <strong>Very large zips hit browser memory limits.</strong> The app warns first,
+            but their server doesn't have that problem.
+          </li>
+          <li>
+            <strong>A ~1.4 MB decoder downloads once</strong> on first use.
+          </li>
+          <li>
+            <strong>We're a small independent project</strong>, not an audited company.
+          </li>
+        </ul>
+        <p>
+          To check any of this: press <code>F12</code>, open the <strong>Network</strong> tab
+          and convert a photo — on their site you'll watch the upload go out, on ours you'll
+          watch nothing happen. Or turn off Wi-Fi and try both. The
+          <a href="/guides/heic-to-jpg-without-uploading/">ten-second version of the test</a>
+          works on any converter, including this one.
+        </p>
+      </div>
+
+      <div class="cta">
+        <div class="cta__text">
+          <p class="cta__title">No cap, no account, no upload</p>
+          <p class="cta__sub">
+            Drop in a few hundred iPhone photos. There's no daily allowance to spend, because
+            there's no server whose bill grows with your batch.
+          </p>
+        </div>
+        <a class="btn btn--primary" href="/#tool">Open the converter</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Questions people actually ask</h2>
+      </div>
+      <dl class="faq prose">
+        <dt>Does FreeConvert upload my files?</dt>
+        <dd>
+          Yes, and it says so on the page: "we upload your files over a secure HTTPS
+          connection". That's a server-side converter, which is how most of them work. It
+          isn't a problem in itself — it just means a copy of your photo exists somewhere
+          else for a while.
+        </dd>
+
+        <dt>How long do they keep my files?</dt>
+        <dd>
+          The HEIC page says they "delete them automatically after a few hours". A published
+          commitment, if a less precise one than a stated number of hours. Like every
+          retention promise, it can't be verified from outside.
+        </dd>
+
+        <dt>Is it really free?</dt>
+        <dd>
+          Free and metered: 20 conversion minutes per day, which their pricing page says
+          works out to up to 20 files per day, with a limit of 5 conversion minutes per file.
+          No account required. That's a real free tier with real edges.
+        </dd>
+
+        <dt>Why is there a limit at all?</dt>
+        <dd>
+          Because their costs scale per file. Bandwidth, CPU and storage all cost money on
+          every conversion, so a free tier has to have a ceiling somewhere. It's the rational
+          design of a server-based free tier, not a dark pattern.
+        </dd>
+
+        <dt>Should I use them or a local converter?</dt>
+        <dd>
+          If you need a format we don't do — video or anything exotic — use them, without
+          hesitation. If you're converting iPhone photos, especially ones you'd rather not
+          copy onto a stranger's machine, convert on your own device. That's the only claim
+          we're making, and it's architectural, not moral.
+        </dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Keep reading</h2>
+        <ul>
+          <li><a href="/compare/is-cloudconvert-safe/">Is CloudConvert safe?</a> — a cloud converter whose stated practices are notably strong.</li>
+          <li><a href="/compare/heictojpg-alternative/">Alternatives to heictojpg.com</a> — the honest roundup, ours and everyone else's.</li>
+          <li><a href="/guides/heic-to-jpg-free-unlimited/">Free and unlimited, without the asterisk</a> — why local converters have no cap.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p>
+      <strong>Safelight</strong> — HEIC to JPG that never uploads your photos.
+      Built on <a class="prose" href="https://github.com/strukturag/libheif" rel="noopener">libheif</a> (<a class="prose" href="/vendor/LICENSE.libheif-js.txt" rel="license">LGPL-3.0</a>).
+    </p>
+    <nav class="foot__nav" aria-label="Footer">
+      <a href="/">Converter</a>
+      <a href="/guides/">Guides</a>
+      <a href="/compare/">Comparisons</a>
+      <a href="/privacy/">Privacy</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

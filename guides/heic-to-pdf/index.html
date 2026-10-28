@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>HEIC to PDF Free — One Per Photo or Combined, No Upload</title>
+<meta name="description" content="Turn iPhone HEIC photos into PDFs in your browser — one PDF per photo, or every photo combined into a single PDF. Free, no upload, no account, works offline.">
+
+<!-- ==================== SITE ORIGIN ====================
+     The canonical domain appears in this block and NOWHERE else in this file.
+     Moving domains = edit the hrefs below, plus the same block in every other page.
+     The full list of files carrying an origin is in README.md ("Moving domains").
+     ===================================================== -->
+<link rel="canonical" href="https://heic.kostelinha.com/guides/heic-to-pdf/">
+<meta property="og:url" content="https://heic.kostelinha.com/guides/heic-to-pdf/">
+<meta property="og:image" content="https://heic.kostelinha.com/assets/og.png">
+<meta name="twitter:image" content="https://heic.kostelinha.com/assets/og.png">
+<!-- JSON-LD urls are inside the script at the end of this head. -->
+<!-- ==================== /SITE ORIGIN ==================== -->
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Safelight">
+<meta property="og:title" content="Convert HEIC to PDF Free — One Per Photo or Combined, No Upload">
+<meta property="og:description" content="Turn iPhone photos into PDFs in your browser — one per photo, or all of them combined into one file. No upload, no account.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Safelight — HEIC to JPG, without the upload.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Convert HEIC to PDF Free — One Per Photo or Combined, No Upload">
+<meta name="twitter:description" content="iPhone photos to PDF in the browser — one per photo or all combined. No upload, no account.">
+<meta name="theme-color" content="#eceef1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131010" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23131010'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23f2913f'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23f2913f' stroke-opacity='.35' stroke-width='1.5'/%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="/css/app.css">
+<link rel="stylesheet" href="/css/pages.css">
+<script type="module" src="/js/pages.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Safelight", "item": "https://heic.kostelinha.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://heic.kostelinha.com/guides/" },
+        { "@type": "ListItem", "position": 3, "name": "HEIC to PDF" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://heic.kostelinha.com/guides/heic-to-pdf/#app",
+      "name": "Safelight HEIC to PDF Converter",
+      "url": "https://heic.kostelinha.com/",
+      "applicationCategory": "MultimediaApplication",
+      "applicationSubCategory": "Image to PDF converter",
+      "operatingSystem": "Any browser: Windows, macOS, iOS, iPadOS, Android, Linux",
+      "browserRequirements": "Requires JavaScript and WebAssembly.",
+      "description": "Converts HEIC photos to PDF entirely inside the browser — one PDF per photo, or every photo combined into a single PDF. Files are never uploaded to a server, so the tool also works offline. Free with no file limit.",
+      "featureList": [
+        "Converts HEIC to PDF",
+        "One PDF per photo, or all photos combined into one PDF",
+        "Runs 100% in the browser — no upload",
+        "Unlimited batch conversion",
+        "Works offline after first load"
+      ],
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "permissions": "none"
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://heic.kostelinha.com/guides/heic-to-pdf/#howto",
+      "name": "Convert HEIC photos to a PDF without uploading them",
+      "description": "Turn iPhone HEIC photos into a PDF entirely on your own device — one PDF each, or all of them in one file.",
+      "totalTime": "PT1M",
+      "tool": { "@type": "HowToTool", "name": "A web browser released after 2020" },
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Drop in your HEIC photos",
+          "text": "Open the converter and drag your photos onto the page, paste them, or pick a whole folder. They are read from disk into the tab and never uploaded.",
+          "url": "https://heic.kostelinha.com/guides/heic-to-pdf/#step-drop"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Choose PDF, and pick one file or one per photo",
+          "text": "Select PDF as the output. Choose whether you want one PDF for each photo, or every photo combined into a single PDF in the order you added them.",
+          "url": "https://heic.kostelinha.com/guides/heic-to-pdf/#step-choose"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Save the PDF",
+          "text": "Download the result. A combined PDF arrives as one file; one-per-photo PDFs download individually or as a zip.",
+          "url": "https://heic.kostelinha.com/guides/heic-to-pdf/#step-save"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://heic.kostelinha.com/guides/heic-to-pdf/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I convert HEIC to PDF without uploading the photos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The conversion runs inside your browser using WebAssembly, so each photo is read from disk into the page, turned into a PDF there, and never sent over the network. It is free, needs no account, has no daily cap, and keeps working with your Wi-Fi switched off. You can confirm it: open DevTools, watch the Network tab, and convert — nothing is sent."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I combine several HEIC photos into one PDF?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. You can make one combined PDF containing every photo, one per page, in the order you added them — useful for submitting a set of documents or photos as a single file. Or you can make a separate PDF for each photo. It is your choice at conversion time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is a photo PDF bigger than the JPG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only slightly. A PDF of a photo essentially wraps a JPG-quality image in a PDF page, so the file is close to the JPG's size plus a small amount of PDF structure. The quality slider works the same way it does for JPG: lower it for smaller PDFs, raise it for larger, near-identical ones."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will the PDF keep my photo's date and location?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The photo is decoded to pixels and placed into the PDF, and the original EXIF metadata — date, camera, GPS — does not come along. Rotation is applied, so photos appear the right way up. If you need the timestamp and location preserved inside the file, this tool is not the one for that job yet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it work on an iPhone or iPad?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, and it is quick there, because Safari can decode HEIC natively and the converter uses the system decoder. That means you can turn photos into a PDF on the same phone that took them, without installing an app or sending anything to a server."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to the guide</a>
+
+<header class="head">
+  <div class="wrap head__in">
+    <a class="brand" href="/">
+      <span class="lamp" aria-hidden="true"></span>
+      Safelight
+      <span class="brand__sub">HEIC&nbsp;→&nbsp;JPG, on your device</span>
+    </a>
+    <nav class="head__nav" aria-label="Sections">
+      <a class="head__link" href="/">Convert</a>
+      <a class="head__link" href="/compress/">Compress</a>
+      <a class="head__link" href="/guides/">Guides</a>
+    </nav>
+    <button type="button" class="room-toggle" id="room-toggle">Lightbox</button>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="wrap pagehead">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/">Safelight</a>
+      <span class="crumbs__sep" aria-hidden="true">/</span>
+      <a href="/guides/">Guides</a>
+      <span class="crumbs__sep" aria-hidden="true">/</span>
+      <span aria-current="page">HEIC to PDF</span>
+    </nav>
+
+    <h1>HEIC to PDF,<br><em>one file or one each</em>.</h1>
+    <p class="pagehead__lede">
+      Sometimes a JPG isn't what the other side wants — a form asks for a PDF, a printer
+      wants one file, an archive needs one thing to file. This turns your iPhone photos into
+      PDFs in the browser: a separate PDF per photo, or every photo bound into a single PDF.
+      Nothing is uploaded, same as the rest of this site.
+    </p>
+    <p class="pagehead__meta">
+      <span>Guide</span>
+      <span>Last checked: July 2026</span>
+      <span>Reading time: 4 min</span>
+    </p>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Why you'd want a photo as a PDF at all</h2>
+        <p>
+          A PDF isn't a better picture than a JPG — it's the same picture in a different
+          envelope, and the envelope is the point. A PDF opens to the same view on every
+          device and prints predictably, which is exactly what you need when a photo has to
+          behave like a <strong>document</strong> rather than an image. The usual reasons
+          people end up here:
+        </p>
+        <ul>
+          <li>
+            <strong>Submitting something.</strong> A landlord, a government form, a school
+            portal or an expense tool asks you to "upload a PDF" — and what you have is a
+            photo of a signed page, a receipt or an ID.
+          </li>
+          <li>
+            <strong>Printing.</strong> A PDF prints at a known page size without a photo
+            printer's cropping and re-scaling surprises.
+          </li>
+          <li>
+            <strong>Archiving.</strong> One PDF is tidier to file and email than a folder of
+            loose image files, and it stays readable for decades.
+          </li>
+          <li>
+            <strong>Sending a set as one thing.</strong> Six photos of a contract are far
+            easier for the recipient as a single six-page PDF than as six attachments.
+          </li>
+        </ul>
+      </div>
+
+      <div class="cta">
+        <div class="cta__text">
+          <p class="cta__title">Turn HEIC photos into a PDF now</p>
+          <p class="cta__sub">
+            Free, no account, no daily cap. Choose PDF, then pick one file per photo or one
+            combined PDF. Your photos never leave the page — check the Network tab and see.
+          </p>
+        </div>
+        <a class="btn btn--primary" href="/#tool">Open the converter</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>One PDF per photo, or all of them in one</h2>
+        <p>
+          There are two things people mean by "HEIC to PDF", and this does both. Pick
+          whichever matches the job:
+        </p>
+      </div>
+
+      <ol class="steps">
+        <li id="step-drop">
+          <h3>Add your photos</h3>
+          <p>
+            Drag your HEICs onto the page, paste them, or choose a whole folder. There's no
+            file limit and no daily cap — a set of a few hundred is fine. If you're pulling
+            them off an iPhone first, our
+            <a href="/guides/batch-convert-heic-to-jpg/">batch guide</a> covers getting the
+            real HEIC files across rather than auto-converted copies.
+          </p>
+        </li>
+        <li id="step-choose">
+          <h3>Choose PDF, then one file or one each</h3>
+          <p>
+            Select PDF as the output format. Then decide:
+          </p>
+          <p>
+            <strong>One combined PDF</strong> puts every photo on its own page, in the order
+            you added them, and gives you a single file back. This is what a form or a
+            printer usually wants — reorder the photos before you convert and the pages
+            follow.
+          </p>
+          <p>
+            <strong>One PDF per photo</strong> gives you a separate file for each, which is
+            what you want when each photo is its own document — one receipt, one PDF.
+          </p>
+        </li>
+        <li id="step-save">
+          <h3>Save</h3>
+          <p>
+            A combined PDF downloads as one file. One-per-photo PDFs come down individually,
+            or as a single zip for a big batch. Turn your connection back on whenever you
+            like — the work already happened on your machine.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <aside class="ad wrap" id="ad-in-content" aria-label="Advertisement">
+    <p class="ad__label">Advertisement</p>
+    <div class="ad__box"></div>
+  </aside>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>The same no-upload promise, and the same way to check it</h2>
+        <p>
+          Turning a photo into a PDF is the kind of job people most often have a reason to
+          keep private — it's usually a document, an ID, a receipt or a signed page, not a
+          holiday snap. So it matters that this works the way the rest of the site does: the
+          PDF is built <strong>inside your browser</strong>, and your photo is never sent
+          anywhere.
+        </p>
+        <p>
+          You don't have to take that on trust. Press <code>F12</code>, open the
+          <strong>Network</strong> tab, and make a PDF — nothing goes out. Or turn off your
+          Wi-Fi and do it anyway; it works exactly the same, because after the page has
+          loaded there's nothing left for it to talk to. Most "photo to PDF" websites upload
+          your files to a server to build the PDF there. This one has no server to upload to.
+          The <a href="/guides/heic-to-jpg-without-uploading/">without-uploading guide</a>
+          walks through both checks in detail.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>The honest caveats</h2>
+        <p>
+          The parts nobody mentions, because a page that only listed upsides would be doing
+          the thing this site exists to avoid:
+        </p>
+        <ul>
+          <li>
+            <strong>A photo PDF is roughly the size of the JPG inside it.</strong> A PDF page
+            wraps a JPG-quality image plus a little document structure, so expect a file
+            close to what the same photo would be as a JPG — which is itself larger than the
+            HEIC you started with. The quality slider still works: lower it for smaller PDFs.
+          </li>
+          <li>
+            <strong>EXIF metadata is dropped.</strong> Date, camera and GPS don't survive the
+            trip into the PDF. Rotation is applied, so pages come out the right way up. If you
+            need the timestamp and location preserved, this isn't the tool yet.
+          </li>
+          <li>
+            <strong>This makes image PDFs, not searchable text.</strong> A photo of a page
+            becomes a picture of that page in a PDF — you can't select or search the words in
+            it. That needs OCR, which is a different job and something a cloud service does
+            better than a browser.
+          </li>
+          <li>
+            <strong>Very large combined PDFs are limited by your device's memory</strong>, not
+            by a plan. That's usually far more generous than a free tier's cap, but a hundred
+            high-resolution photos in one file is real work for a phone.
+          </li>
+          <li>
+            <strong>You download a decoder once.</strong> About 1.4 MB, the first time you
+            convert anything. That's a network request — just not one carrying your photo.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Questions people actually ask</h2>
+      </div>
+      <dl class="faq prose">
+        <dt>Can I combine all my photos into a single PDF?</dt>
+        <dd>
+          Yes. Choose the combined option and every photo becomes a page in one PDF, in the
+          order you added them. Or choose one-per-photo for a separate file each.
+        </dd>
+
+        <dt>Is the PDF much bigger than the photo?</dt>
+        <dd>
+          Not much. It's close to the JPG's size plus a small amount of PDF structure. Drag
+          the quality slider down if you need a smaller file to email or upload.
+        </dd>
+
+        <dt>Does it upload my documents?</dt>
+        <dd>
+          No. The PDF is built in your browser and your files never reach a server — which
+          is the whole reason to use this for a document rather than a random upload site.
+          Check it in the Network tab, or convert with Wi-Fi off.
+        </dd>
+
+        <dt>Can I make the PDF's text selectable or searchable?</dt>
+        <dd>
+          No. This produces an image PDF — a picture of your photo on a page. Selectable text
+          needs OCR, which this tool doesn't do; a cloud OCR service is the right tool for
+          that.
+        </dd>
+
+        <dt>Does it work on iPhone, iPad, Android and Windows?</dt>
+        <dd>
+          Yes, in any recent browser. On iPhone and iPad it's especially fast, because Safari
+          decodes HEIC natively — so you can turn photos into a PDF on the phone that took
+          them, with no app to install.
+        </dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Keep reading</h2>
+        <ul>
+          <li><a href="/guides/heic-to-jpg-without-uploading/">HEIC to JPG without uploading</a> — the two ten-second tests that prove a converter isn't uploading.</li>
+          <li><a href="/guides/batch-convert-heic-to-jpg/">Batch converting hundreds at once</a> — getting the real HEICs off your iPhone, and why there's no cap here.</li>
+          <li><a href="/guides/heic-to-png/">HEIC to PNG</a> — lossless, roughly 12x the size, and when it's actually the right call.</li>
+        </ul>
+      </div>
+
+      <div class="cta">
+        <div class="cta__text">
+          <p class="cta__title">Ready when you are</p>
+          <p class="cta__sub">
+            Drop in your photos, choose PDF, and pick one file or one each. Nothing uploads,
+            nothing is capped, and the wire tap on the front page counts the bytes leaving —
+            live, while you work.
+          </p>
+        </div>
+        <a class="btn btn--primary" href="/#tool">Open the converter</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p>
+      <strong>Safelight</strong> — HEIC to JPG that never uploads your photos.
+      Built on <a class="prose" href="https://github.com/strukturag/libheif" rel="noopener">libheif</a> (<a class="prose" href="/vendor/LICENSE.libheif-js.txt" rel="license">LGPL-3.0</a>).
+    </p>
+    <nav class="foot__nav" aria-label="Footer">
+      <a href="/">Converter</a>
+      <a href="/guides/">Guides</a>
+      <a href="/compare/">Comparisons</a>
+      <a href="/privacy/">Privacy</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

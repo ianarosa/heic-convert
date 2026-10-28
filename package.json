@@ -1,0 +1,31 @@
+{
+  "name": "heic-convert-dev",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "DEV-ONLY tooling for vendoring + testing. The app itself is vanilla JS with no build step and no runtime dependencies — everything it needs is committed under vendor/ and js/. Nothing here is required to serve the site. Note: libheif-js and client-zip are sources to vendor FROM; jszip is not vendored at all — it is only a ZIP READER used by the tests to verify our output with a different library than wrote it.",
+  "scripts": {
+    "test": "node test/verify.mjs && node test/verify.encode.mjs && node test/verify.zip.mjs && node test/verify.pdf.mjs && node test/verify.thumbnails.mjs && node test/verify.pwa.mjs",
+    "test:decode": "node test/verify.mjs",
+    "test:pwa": "node test/verify.pwa.mjs",
+    "icons": "node test/make-icons.mjs",
+    "test:encode": "node test/verify.encode.mjs",
+    "test:zip": "node test/verify.zip.mjs",
+    "test:pdf": "node test/verify.pdf.mjs",
+    "test:svg": "node test/verify.svg.mjs",
+    "test:thumbnails": "node test/verify.thumbnails.mjs",
+    "test:node": "node test/verify.node.mjs",
+    "serve": "node test/server.mjs",
+    "vendor": "npm run vendor:libheif && npm run vendor:client-zip && npm run vendor:pdf-lib",
+    "vendor:libheif": "node -e \"fs.copyFileSync('node_modules/libheif-js/libheif-wasm/libheif-bundle.mjs','vendor/libheif-bundle.mjs');fs.copyFileSync('node_modules/libheif-js/LICENSE','vendor/LICENSE.libheif-js.txt');console.log('vendored libheif')\"",
+    "vendor:client-zip": "node test/vendor-client-zip.mjs",
+    "vendor:pdf-lib": "node test/vendor-pdf-lib.mjs"
+  },
+  "devDependencies": {
+    "client-zip": "^2.5.0",
+    "jszip": "^3.10.1",
+    "libheif-js": "^1.19.8",
+    "pdf-lib": "^1.17.1",
+    "puppeteer-core": "^23.0.0"
+  }
+}

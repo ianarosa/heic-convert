@@ -1,0 +1,40 @@
+# ads.txt — Authorized Digital Sellers
+# Spec: https://iabtechlab.com/ads-txt/
+#
+# ─────────────────────────────────────────────────────────────────────────────
+# OWNER: THIS FILE IS A PLACEHOLDER AND IS NOT VALID AS IT STANDS.
+#
+# Every line below is commented out, so right now this file authorises nobody.
+# That is deliberate and it is safe: an ads.txt containing no valid records is
+# treated the same as having no ads.txt at all. It will NOT cost you revenue
+# today, because no ads are being served yet (AD_CLIENT is null in js/config.js).
+#
+# WHAT YOU MUST DO, on the day your AdSense account is approved:
+#
+#   1. Sign in to Google AdSense.
+#   2. Go to  Account → Settings → Account information.  Copy your publisher ID.
+#      It looks like  pub-0000000000000000  (16 digits).
+#   3. Uncomment the google.com line below and replace pub-0000000000000000
+#      with YOUR publisher ID. Keep everything else on that line byte-for-byte.
+#   4. Deploy, then open https://YOUR-DOMAIN/ads.txt in a browser and confirm you
+#      see the line as plain text.
+#   5. AdSense will show an "ads.txt file missing" / "unauthorized" warning in the
+#      dashboard until it recrawls. That takes up to about 24 hours. Don't panic.
+#
+# AdSense itself will also show you the exact line to paste, in the warning it
+# raises on your dashboard. If that line differs from the template below, TRUST
+# ADSENSE'S VERSION, not this comment — the spec's canonical field values are
+# theirs to change, not ours.
+#
+# DO NOT invent or guess a publisher ID. A wrong ID here authorises someone else
+# to sell ads on your domain, which is the exact fraud ads.txt exists to prevent.
+#
+# FORMAT:  <ad system domain>, <publisher id>, <DIRECT|RESELLER>, <cert authority id>
+#   DIRECT   = you contract with this ad system directly (this is you, with AdSense).
+#   RESELLER = a third party is authorised to sell on your behalf.
+#   The last field is the ad system's TAG-ID. f08c47fec0942fa0 is Google's, and it
+#   is a fixed public constant — it is the same for every publisher, so the fact
+#   that it is filled in below is correct and is not a leaked secret.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0

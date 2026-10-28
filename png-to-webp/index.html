@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>PNG to WebP — Free Converter, No Upload</title>
+<meta name="description" content="Convert PNG to WebP in your browser — nothing uploads. WebP is much smaller than PNG and keeps transparency, but opens in modern software only. Free, unlimited.">
+
+<!-- ==================== SITE ORIGIN ====================
+     The canonical domain appears in this block and NOWHERE else in this file.
+     Moving domains = edit the hrefs below, plus the same block in every other page.
+     The full list of files carrying an origin is in README.md ("Moving domains").
+     ===================================================== -->
+<link rel="canonical" href="https://heic.kostelinha.com/png-to-webp/">
+<meta property="og:url" content="https://heic.kostelinha.com/png-to-webp/">
+<meta property="og:image" content="https://heic.kostelinha.com/assets/compress-og.png">
+<meta name="twitter:image" content="https://heic.kostelinha.com/assets/compress-og.png">
+<!-- JSON-LD urls are inside the script at the end of this head. -->
+<!-- ==================== /SITE ORIGIN ==================== -->
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Safelight">
+<meta property="og:title" content="PNG to WebP — Free Converter, No Upload">
+<meta property="og:description" content="PNG to WebP in your browser. Much smaller than PNG, transparency kept, for modern software. Nothing uploads.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Safelight — convert images, without the upload.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PNG to WebP — Free Converter, No Upload">
+<meta name="twitter:description" content="PNG to WebP in your browser. Smaller, transparency kept, nothing uploaded.">
+<meta name="theme-color" content="#eceef1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131010" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23131010'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23f2913f'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23f2913f' stroke-opacity='.35' stroke-width='1.5'/%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="/css/app.css">
+<link rel="stylesheet" href="/css/pages.css">
+<script type="module" src="/js/pages.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Safelight", "item": "https://heic.kostelinha.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Convert images", "item": "https://heic.kostelinha.com/compress/" },
+        { "@type": "ListItem", "position": 3, "name": "PNG to WebP" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://heic.kostelinha.com/png-to-webp/#app",
+      "name": "Safelight PNG to WebP Converter",
+      "url": "https://heic.kostelinha.com/png-to-webp/",
+      "applicationCategory": "MultimediaApplication",
+      "applicationSubCategory": "Image converter",
+      "operatingSystem": "Any browser: Windows, macOS, iOS, iPadOS, Android, Linux",
+      "browserRequirements": "Requires JavaScript.",
+      "description": "Converts PNG images to WebP entirely inside the browser, usually far smaller while keeping transparency. Nothing is uploaded. Free with no file limit.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "permissions": "none"
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://heic.kostelinha.com/png-to-webp/#howto",
+      "name": "How to convert PNG to WebP without uploading",
+      "totalTime": "PT30S",
+      "step": [
+        { "@type": "HowToStep", "position": 1, "name": "Open the converter", "text": "Open the Safelight converter with WebP already selected under Save as." },
+        { "@type": "HowToStep", "position": 2, "name": "Add your PNG files", "text": "Drop your PNG files onto the page, paste them, or choose a whole folder. Nothing is uploaded." },
+        { "@type": "HowToStep", "position": 3, "name": "Save the WebP files", "text": "Each PNG is re-encoded to WebP on your device, transparency intact. Save one by one or as a zip." }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://heic.kostelinha.com/png-to-webp/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much smaller is WebP than PNG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For a photograph or a rich graphic, often dramatically smaller, because PNG is lossless and WebP compresses photographically. For an already-tiny flat icon the saving is modest. The tool measures the real bytes for your file, and keeps your original if a re-encode would be larger."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does PNG transparency carry over to WebP?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. WebP supports an alpha channel just as PNG does, so a transparent PNG stays transparent as a WebP. You get the smaller file without losing the cut-out."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the downside of WebP?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Reach. WebP opens in current browsers and modern image apps, but some older software still cannot read it. Pick it for the web and modern tools, not for a file bound for ancient software."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is converting PNG to WebP lossy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It can be. At the default quality WebP re-encodes photographically, which discards a little detail you will not see at normal sizes. For flat graphics you can push the quality slider up to stay effectively pristine."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it free and private?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The conversion runs inside your browser, so the PNG is read from disk into the page and never uploaded. No account, no daily cap, and it works with your Wi-Fi off."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to the content</a>
+
+<header class="head">
+  <div class="wrap head__in">
+    <a class="brand" href="/">
+      <span class="lamp" aria-hidden="true"></span>
+      Safelight
+      <span class="brand__sub">Convert&nbsp;images, on your device</span>
+    </a>
+    <nav class="head__nav" aria-label="Safelight tools">
+      <a class="head__link" href="/">Convert</a>
+      <a class="head__link" href="/compress/">Compress</a>
+      <a class="head__link" href="/guides/">Guides</a>
+    </nav>
+    <button type="button" class="room-toggle" id="room-toggle">Lightbox</button>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="wrap pagehead">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/">Safelight</a>
+      <span class="crumbs__sep" aria-hidden="true">/</span>
+      <a href="/compress/">Convert images</a>
+      <span class="crumbs__sep" aria-hidden="true">/</span>
+      <span aria-current="page">PNG to WebP</span>
+    </nav>
+
+    <h1>PNG to WebP,<br><em>far smaller, transparency kept</em>.</h1>
+    <p class="pagehead__lede">
+      PNG is honest but heavy. If your PNG is headed for the web or for storage — and it'll
+      only ever open in modern software — WebP usually shrinks it a lot while keeping the
+      transparency PNG is prized for. This converts your PNGs to WebP in the page, on your
+      machine, with nothing uploaded.
+    </p>
+    <p class="pagehead__meta">
+      <span>Converter</span>
+      <span>Last checked: July 2026</span>
+    </p>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>The short version</h2>
+        <p>
+          WebP is the format that gives you PNG's best trick — <strong>transparency</strong> —
+          without PNG's weight. On a photograph or a detailed graphic, a WebP is typically
+          much smaller than the same image as PNG, which is exactly why the web runs on it.
+          The cut-out background survives; the file just gets lighter.
+        </p>
+        <p>
+          Two things to keep in mind. WebP opens in <strong>modern software only</strong> —
+          current browsers and recent apps, not every dusty tool. And at the default quality
+          it's <strong>lossy</strong>, so it's ideal for photos and web imagery; for a flat
+          graphic you want pixel-exact, push the quality slider up or keep the PNG.
+        </p>
+      </div>
+
+      <div class="cta">
+        <div class="cta__text">
+          <p class="cta__title">Convert PNG to WebP now</p>
+          <p class="cta__sub">
+            Opens with WebP already chosen under "Save as". Free, no account, no daily cap.
+            Nothing uploads — the ledger shows the exact bytes saved per file.
+          </p>
+        </div>
+        <a class="btn btn--primary" href="/?to=webp">Open the converter</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Convert a PNG to WebP in three steps</h2>
+        <ol>
+          <li><strong>Open the converter.</strong> The button above lands on the tool with WebP already selected under "Save as".</li>
+          <li><strong>Add your PNGs.</strong> Drop, paste, or choose a folder. Read into the tab, never uploaded.</li>
+          <li><strong>Save the WebP files.</strong> Each is re-encoded on your device, transparency intact — save individually or as one zip.</li>
+        </ol>
+
+        <h2>When PNG to WebP is the win</h2>
+        <ul>
+          <li>
+            <strong>PNGs on a website.</strong> Heavy PNG graphics slow pages down. WebP
+            keeps the look and the transparency while cutting the bytes — often sharply.
+          </li>
+          <li>
+            <strong>A folder of screenshots or exports.</strong> Design tools spit out big
+            PNGs. Batch them to WebP and reclaim a lot of disk, transparency preserved.
+          </li>
+          <li>
+            <strong>Cut-outs and stickers for modern apps.</strong> You keep the see-through
+            background and shed the weight — the best of both, as long as the target is recent.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <aside class="ad wrap" id="ad-in-content" aria-label="Advertisement">
+    <p class="ad__label">Advertisement</p>
+    <div class="ad__box"></div>
+  </aside>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>The honest caveats</h2>
+        <ul>
+          <li>
+            <strong>Modern software only.</strong> That's the real cost. If the file has to
+            open on something older, keep the PNG or <a href="/webp-to-jpg/">use JPG</a> for
+            that copy. For today's browsers and apps, WebP is safe.
+          </li>
+          <li>
+            <strong>Default WebP is lossy.</strong> A photograph loses a little detail you
+            won't see. For a flat graphic that must stay pixel-exact, raise the quality slider
+            or keep the lossless PNG.
+          </li>
+          <li>
+            <strong>Transparency is kept</strong> — this is the whole reason to pick WebP over
+            JPG here. The alpha channel comes across intact.
+          </li>
+          <li>
+            <strong>Nothing uploads, and you can check it.</strong> Watch the Network tab, or
+            switch off your Wi-Fi and convert anyway. EXIF metadata is dropped in the
+            re-encode; rotation is applied.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Questions people actually ask</h2>
+      </div>
+      <dl class="faq prose">
+        <dt>How much will I save?</dt>
+        <dd>
+          It depends on the image, so no fixed number — but for photos and rich graphics WebP
+          is usually far smaller than PNG. The tool measures the real saving for your file,
+          and keeps your original if a re-encode would be bigger.
+        </dd>
+
+        <dt>Will the transparency survive?</dt>
+        <dd>
+          Yes. WebP supports an alpha channel like PNG, so a transparent PNG stays transparent
+          as a WebP.
+        </dd>
+
+        <dt>Who might not be able to open a WebP?</dt>
+        <dd>
+          Some older desktop software and a few upload forms. Current browsers and modern apps
+          are fine. If reach matters more than size, keep the PNG.
+        </dd>
+
+        <dt>Is PNG to WebP free, with no limit?</dt>
+        <dd>
+          Yes — no account, no daily cap, no file limit. It runs on your device, so a folder
+          at once is normal.
+        </dd>
+
+        <dt>Are my files uploaded?</dt>
+        <dd>
+          No. Turn off your Wi-Fi and convert one; it works, because the whole thing runs in
+          this page.
+        </dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Convert between other formats</h2>
+      </div>
+      <ul class="cards">
+        <li>
+          <a class="card-link" href="/webp-to-png/">
+            <p class="card-link__kick">Converter</p>
+            <p class="card-link__title">WebP to PNG</p>
+            <p class="card-link__sub">Go the other way — lossless PNG for editors that want it.</p>
+          </a>
+        </li>
+        <li>
+          <a class="card-link" href="/jpg-to-webp/">
+            <p class="card-link__kick">Converter</p>
+            <p class="card-link__title">JPG to WebP</p>
+            <p class="card-link__sub">Squeeze a JPG smaller again for the web, modern software only.</p>
+          </a>
+        </li>
+        <li>
+          <a class="card-link" href="/png-to-jpg/">
+            <p class="card-link__kick">Converter</p>
+            <p class="card-link__title">PNG to JPG</p>
+            <p class="card-link__sub">Shrink a heavy PNG photo into a JPG that opens anywhere.</p>
+          </a>
+        </li>
+        <li>
+          <a class="card-link" href="/webp-to-jpg/">
+            <p class="card-link__kick">Converter</p>
+            <p class="card-link__title">WebP to JPG</p>
+            <p class="card-link__sub">For software that can't open WebP yet — JPG opens on everything.</p>
+          </a>
+        </li>
+        <li>
+          <a class="card-link" href="/jpg-to-png/">
+            <p class="card-link__kick">Converter</p>
+            <p class="card-link__title">JPG to PNG</p>
+            <p class="card-link__sub">When a tool demands PNG — honest about what it can't restore.</p>
+          </a>
+        </li>
+      </ul>
+
+      <div class="cta">
+        <div class="cta__text">
+          <p class="cta__title">Ready when you are</p>
+          <p class="cta__sub">
+            Convert one PNG and watch the ledger report the real saving for your file. Free,
+            unlimited, and nothing leaves your device.
+          </p>
+        </div>
+        <a class="btn btn--primary" href="/?to=webp">Open the converter</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p>
+      <strong>Safelight</strong> — image conversion that never uploads your files.
+      Built on <a class="prose" href="https://github.com/strukturag/libheif" rel="noopener">libheif</a> (<a class="prose" href="/vendor/LICENSE.libheif-js.txt" rel="license">LGPL-3.0</a>).
+    </p>
+    <nav class="foot__nav" aria-label="Convert between formats">
+      <a href="/png-to-jpg/">PNG to JPG</a>
+      <a href="/webp-to-jpg/">WebP to JPG</a>
+      <a href="/jpg-to-webp/">JPG to WebP</a>
+      <a href="/webp-to-png/">WebP to PNG</a>
+      <a href="/png-to-webp/">PNG to WebP</a>
+      <a href="/jpg-to-png/">JPG to PNG</a>
+      <a href="/png-to-svg/">PNG to SVG</a>
+      <a href="/jpg-to-svg/">JPG to SVG</a>
+      <a href="/webp-to-svg/">WebP to SVG</a>
+    </nav>
+    <nav class="foot__nav" aria-label="Footer">
+      <a href="/">Convert</a>
+      <a href="/compress/">Compress</a>
+      <a href="/guides/">Guides</a>
+      <a href="/privacy/">Privacy</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,18 @@
+# Safelight — https://heic.kostelinha.com
+#
+# Everything here is public and crawlable. There is no user content to protect,
+# because the site never receives any: photos are converted in the browser and
+# never reach a server. There is nothing here to disallow.
+
+User-agent: *
+Allow: /
+
+# Dev-only directories. Not deployed by the Cloudflare Pages build (see README.md,
+# "Deploying"), but disallowed anyway in case a future deploy stops excluding them —
+# a crawler indexing the test harness would waste crawl budget on nothing.
+Disallow: /test/
+Disallow: /node_modules/
+
+# SITE ORIGIN: the sitemap URL below is absolute (robots.txt requires it).
+# Moving domains means editing this line too — see README.md, "Moving domains".
+Sitemap: https://heic.kostelinha.com/sitemap.xml

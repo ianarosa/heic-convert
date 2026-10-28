@@ -1,0 +1,571 @@
+/* ============================================================================
+   Safelight — content pages (guides, comparisons, privacy, 404)
+   ============================================================================
+
+   This file is an EXTENSION of css/app.css, never a replacement. Load both, in
+   order:
+
+       <link rel="stylesheet" href="/css/app.css">
+       <link rel="stylesheet" href="/css/pages.css">
+
+   Everything here is built from the tokens app.css already defines (--safelight,
+   --ink, --rule, --measure, --step-*, --s-*). It declares NO colours of its own and
+   NO fonts of its own, so the darkroom/lightbox schemes and the sans/mono split keep
+   working with nothing extra to maintain. If you find yourself typing a hex code in
+   this file, the token you want already exists.
+
+   THE MONO RULE, INHERITED: mono means "you can check this". On these pages that is
+   load-bearing for the source citations — a quote from a competitor's terms of
+   service is checkable, so it is mono, and it carries a link to the document it
+   came from. Prose about it is sans. Don't mix them up.
+   ============================================================================ */
+
+/* ── Two leaks of the UA's link blue ─────────────────────────────────────────
+   This design system contains no blue. Both of these let Chrome's default
+   `-webkit-link` colour through, and both are easy to miss because they only bite
+   on markup index.html happens never to use.
+
+   1. `<a class="btn">`. app.css's reset gives `color: inherit` to button/input/select
+      — but NOT to <a>. index.html only ever puts .btn on a real <button>, so it never
+      surfaced there. Content pages use <a class="btn"> for the CTAs, and any button
+      that isn't .btn--primary (which sets its own colour) came out blue.
+
+   2. `<a class="prose">`. `.prose a` is a DESCENDANT selector, so it cannot match an
+      anchor that IS the .prose element. The footer's libheif link is exactly that, and
+      renders blue as a result — including on index.html, which doesn't load this file.
+      Fixing it there means giving that link a class the descendant rule can reach; it
+      is the owner's file, so it is flagged in README rather than edited here.
+
+   Caught by looking at the 404 screenshot, not by any assertion. */
+
+a.btn {
+  color: var(--ink);
+}
+
+a.btn--primary {
+  color: var(--safelight-ink);
+}
+
+a.prose {
+  color: var(--ink);
+  text-decoration-color: var(--safelight);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+/* ── Page header: breadcrumb + title ─────────────────────────────────────────
+   Guides get a plain masthead rather than the app's hero: there is no instrument to
+   put beside the claim here, and a fake hero on a text page is the exact "templated
+   AI landing page" look the product doesn't wear. */
+
+.pagehead {
+  padding-block: var(--s-7) var(--s-6);
+}
+
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--muted);
+  margin-bottom: var(--s-5);
+}
+
+.crumbs a {
+  color: var(--muted);
+  text-decoration-color: var(--rule-2);
+  text-underline-offset: 3px;
+}
+
+.crumbs a:hover {
+  color: var(--ink);
+  text-decoration-color: var(--safelight);
+}
+
+.crumbs__sep {
+  color: var(--rule-2);
+}
+
+.pagehead h1 {
+  font-size: var(--step-3);
+  line-height: 1.05;
+  letter-spacing: -0.032em;
+  font-weight: 680;
+  margin: 0;
+  max-width: 22ch;
+  text-wrap: balance;
+}
+
+.pagehead h1 em {
+  font-style: normal;
+  color: var(--safelight);
+}
+
+.pagehead__lede {
+  max-width: 54ch;
+  margin-top: var(--s-4);
+  font-size: var(--step-1);
+  line-height: 1.45;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+
+/* The date line. A guide that claims facts about other companies has to say when it
+   last looked, or the reader can't weigh it. */
+.pagehead__meta {
+  margin-top: var(--s-5);
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-5);
+}
+
+/* ── Prose extras ────────────────────────────────────────────────────────────
+   app.css styles .prose for h2/h3/p/a/code. Content pages also need lists, block
+   quotes and numbered steps. */
+
+.prose ul,
+.prose ol {
+  margin-top: var(--s-4);
+  padding-left: var(--s-5);
+  display: grid;
+  gap: var(--s-2);
+}
+
+.prose ul {
+  list-style: disc;
+}
+
+.prose ol {
+  list-style: decimal;
+}
+
+.prose li::marker {
+  color: var(--muted);
+}
+
+.prose li {
+  padding-left: var(--s-1);
+}
+
+.prose h2 {
+  margin-top: var(--s-7);
+}
+
+.prose h2:first-child {
+  margin-top: 0;
+}
+
+.prose dl {
+  margin-top: var(--s-4);
+}
+
+/* Numbered how-to steps. The number is the ornament — nothing else on the page is
+   allowed to be one. */
+.steps {
+  counter-reset: step;
+  display: grid;
+  gap: var(--s-5);
+  margin-top: var(--s-5);
+  padding: 0;
+  list-style: none;
+  max-width: var(--measure);
+}
+
+.steps > li {
+  counter-increment: step;
+  position: relative;
+  padding-left: var(--s-7);
+  padding-bottom: var(--s-5);
+  border-bottom: 1px solid var(--rule);
+}
+
+.steps > li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.steps > li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--rule-2);
+  border-radius: 50%;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  font-weight: 600;
+  color: var(--safelight);
+  font-variant-numeric: tabular-nums;
+}
+
+.steps h3 {
+  margin: 0 0 var(--s-2);
+  font-size: var(--step-1);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.steps p + p {
+  margin-top: var(--s-3);
+}
+
+/* ── SIGNATURE: the citation ─────────────────────────────────────────────────
+   These pages make factual claims about named companies. The rule the whole brand
+   rests on is "don't trust us, check" — so a claim about someone else's product is
+   worthless unless the reader can go read the source themselves.
+
+   Every quote is therefore presented the same way: the words verbatim, in mono
+   because mono is the checkable voice, with the document it came from and the date
+   we read it attached. No paraphrase, no ellipsis doing quiet work, no adjectives.
+   The facts are damning enough on their own where they are damning at all, and
+   where they aren't, the same treatment says so honestly. ------------------ */
+
+.cite {
+  margin: var(--s-5) 0 0;
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--safelight);
+  border-radius: var(--r-2);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.cite blockquote {
+  margin: 0;
+  padding: var(--s-4);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.cite figcaption {
+  padding: var(--s-3) var(--s-4);
+  border-top: 1px solid var(--rule);
+  background: var(--surface-2);
+  font-size: var(--step--1);
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-3);
+  align-items: baseline;
+}
+
+.cite figcaption a {
+  color: var(--ink-2);
+  text-decoration-color: var(--safelight);
+  text-underline-offset: 3px;
+}
+
+.cite__read {
+  font-family: var(--font-mono);
+  color: var(--muted);
+  margin-left: auto;
+}
+
+/* ── The verdict box ─────────────────────────────────────────────────────────
+   Trust pages answer a yes/no question ("is X safe?"). Burying the answer to farm
+   scroll depth is the genre's worst habit, so the answer goes at the top, in one
+   sentence, before the reasoning. */
+
+.verdict {
+  margin: var(--s-6) 0 0;
+  padding: var(--s-5);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-3);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  max-width: var(--measure);
+}
+
+.verdict__q {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: var(--s-3);
+}
+
+.verdict__a {
+  font-size: var(--step-1);
+  line-height: 1.45;
+  color: var(--ink);
+  font-weight: 550;
+  text-wrap: pretty;
+}
+
+.verdict__a strong {
+  color: var(--safelight);
+  font-weight: 680;
+}
+
+.verdict p + p {
+  margin-top: var(--s-3);
+}
+
+.verdict__note {
+  margin-top: var(--s-4);
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--rule);
+  font-size: var(--step--1);
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* ── Fact table ──────────────────────────────────────────────────────────────
+   Where a comparison is genuinely a table, it is a table: element, semantics and
+   all. Mono throughout, because every cell is a checkable claim. */
+
+.facts {
+  margin-top: var(--s-5);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-3);
+  overflow-x: auto;
+}
+
+.facts table {
+  width: 100%;
+  min-width: 34rem;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  text-align: left;
+}
+
+.facts th,
+.facts td {
+  padding: var(--s-3) var(--s-4);
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+
+.facts thead th {
+  background: var(--surface-2);
+  color: var(--muted);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  white-space: nowrap;
+}
+
+.facts tbody th {
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.facts tbody tr:last-child th,
+.facts tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.facts td {
+  color: var(--ink-2);
+}
+
+/* The row describing this product. Marked, because not marking it would be the sly
+   version of the same thing. */
+.facts tr[data-self='true'] th,
+.facts tr[data-self='true'] td {
+  background: var(--safelight-wash);
+}
+
+.facts tr[data-self='true'] th {
+  color: var(--safelight);
+}
+
+/* ── CTA band ────────────────────────────────────────────────────────────────
+   One per page, at the point where the reader now knows enough to want the tool.
+   It is a card, not a full-bleed gradient banner. */
+
+.cta {
+  margin-top: var(--s-7);
+  padding: var(--s-5);
+  border: 1px solid var(--rule-2);
+  border-radius: var(--r-3);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-4) var(--s-5);
+  justify-content: space-between;
+}
+
+.cta__text {
+  max-width: 46ch;
+}
+
+.cta__title {
+  font-size: var(--step-1);
+  font-weight: 620;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+.cta__sub {
+  margin-top: var(--s-2);
+  font-size: var(--step--1);
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.cta .btn {
+  flex: none;
+}
+
+/* ── Guide index (hub cards) ─────────────────────────────────────────────── */
+
+.cards {
+  display: grid;
+  gap: var(--s-4);
+  margin-top: var(--s-5);
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 54em) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.cards li {
+  padding: 0;
+}
+
+.cards li::marker {
+  content: none;
+}
+
+.card-link {
+  display: block;
+  height: 100%;
+  padding: var(--s-5);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-3);
+  text-decoration: none;
+  color: var(--ink);
+  transition: border-color 0.12s, transform 0.06s, box-shadow 0.12s;
+}
+
+.card-link:hover {
+  border-color: var(--rule-2);
+  box-shadow: var(--shadow);
+}
+
+.card-link:active {
+  transform: translateY(1px);
+}
+
+.card-link__title {
+  font-size: var(--step-1);
+  font-weight: 620;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+.card-link__sub {
+  margin-top: var(--s-2);
+  font-size: var(--step--1);
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+/* The tiny mono kicker above a card title, e.g. "GUIDE" / "COMPARISON". */
+.card-link__kick {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--safelight);
+  margin-bottom: var(--s-2);
+}
+
+/* ── Nav links in the header ─────────────────────────────────────────────────
+   index.html's header has brand + toggle only. Content pages need a way back to the
+   tool, so they add one link between them, styled as quietly as the toggle. */
+
+.head__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  margin-left: auto;
+  margin-right: var(--s-3);
+}
+
+.head__link {
+  padding: var(--s-2) var(--s-3);
+  border-radius: var(--r-2);
+  color: var(--muted);
+  text-decoration: none;
+  font-size: var(--step--1);
+}
+
+.head__link:hover {
+  color: var(--ink);
+  background: var(--surface-2);
+}
+
+@media (max-width: 34em) {
+  .head__nav {
+    display: none;
+  }
+}
+
+/* Footer nav (.foot__nav) styling moved to css/app.css so the tool pages,
+   which load only app.css, share the exact same footer nav. */
+
+/* ── 404 ─────────────────────────────────────────────────────────────────── */
+
+.lost {
+  padding-block: var(--s-9);
+  text-align: center;
+}
+
+.lost__code {
+  font-family: var(--font-mono);
+  font-size: var(--step-1);
+  letter-spacing: 0.2em;
+  color: var(--safelight);
+  margin-bottom: var(--s-4);
+}
+
+.lost h1 {
+  font-size: var(--step-3);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 680;
+  margin: 0 auto;
+  max-width: 18ch;
+  text-wrap: balance;
+}
+
+.lost__lede {
+  max-width: 48ch;
+  margin: var(--s-4) auto 0;
+  color: var(--ink-2);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.lost__acts {
+  margin-top: var(--s-6);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  justify-content: center;
+}

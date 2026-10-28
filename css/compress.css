@@ -1,0 +1,184 @@
+/* ============================================================================
+   Safelight — image compressor (/compress/)
+   ============================================================================
+
+   An EXTENSION of css/app.css, exactly like css/pages.css. Load all three, in
+   order:
+
+       <link rel="stylesheet" href="/css/app.css">
+       <link rel="stylesheet" href="/css/pages.css">
+       <link rel="stylesheet" href="/css/compress.css">
+
+   It declares NO colours and NO fonts of its own — every value below is a token
+   app.css already defines (--verify, --safelight, --ink, --rule, --step-*, --s-*).
+   The darkroom/lightbox schemes and the sans/mono split keep working with nothing
+   extra to maintain. If you find yourself typing a hex code here, the token you
+   want already exists.
+
+   WHAT'S DIFFERENT FROM THE HEIC TOOL: the sibling's ledger is a confession —
+   files come out BIGGER, and it says so. Here the ledger is the point of the
+   product: files come out SMALLER, and the reclaim readout below makes that the
+   loudest thing on the tool. The one honesty inversion is the "kept original"
+   state: when re-compressing would enlarge a file, we hand back the original and
+   say so, in --muted, rather than a fake saving.
+
+   THE MONO RULE, INHERITED: mono means "you can check this". Every byte count and
+   every percentage in the reclaim readout and the rows is mono, because every one
+   of them is a number the user can verify against the file on disk.
+   ============================================================================ */
+
+/* ── SIGNATURE: the reclaim readout ──────────────────────────────────────────
+   The tool's whole promise is smaller files. So the running total of what's been
+   reclaimed is the biggest, greenest thing in the queue — sitting where the HEIC
+   tool puts its grim "+68%, why bigger?" ledger. It only ever shows a real,
+   measured saving; before anything finishes, and for a batch that genuinely
+   didn't shrink, it goes quiet rather than inventing a number. */
+
+.reclaim {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--s-2) var(--s-5);
+  padding: var(--s-4) var(--s-4);
+  border-bottom: 1px solid var(--rule);
+  background: var(--verify-wash);
+  font-family: var(--font-mono);
+}
+
+.reclaim__figure {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+}
+
+.reclaim__label {
+  font-size: var(--step--1);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.reclaim__big {
+  font-size: var(--step-2);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--verify);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Input → output, always beside the saving so the saving can't be read out of
+   context. Same voice as the sibling's size ledger. */
+.reclaim__io {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--s-2) var(--s-3);
+  color: var(--muted);
+  font-size: var(--step--1);
+}
+
+.reclaim__io b {
+  color: var(--ink);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Nothing has finished, or the batch as a whole didn't get smaller. Don't wear
+   the green in that case — it would be claiming a saving that isn't there. */
+.reclaim[data-state='idle'],
+.reclaim[data-state='none'] {
+  background: var(--surface-2);
+}
+
+.reclaim[data-state='idle'] .reclaim__big,
+.reclaim[data-state='none'] .reclaim__big {
+  color: var(--ink-2);
+}
+
+/* ── Per-row savings + the kept-original state ───────────────────────────────
+   The rows reuse app.css's .row / .row__sizes wholesale. Two additions:
+   a green saving badge, and the muted treatment for a file we left alone. */
+
+.row__save {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  font-variant-numeric: tabular-nums;
+  margin-left: var(--s-2);
+}
+
+.row__save[data-dir='down'] {
+  color: var(--verify);
+}
+
+/* A file that got bigger on re-encode is never handed back bigger — but if the
+   user forced a format that enlarged it, the badge tells the truth in warn. */
+.row__save[data-dir='up'] {
+  color: var(--warn);
+}
+
+/* Kept original: a real, honest non-event. The dot stops being "done green" and
+   the row reads as settled-but-untouched. */
+.row[data-kept='true'] .row__dot {
+  background: var(--muted);
+}
+
+.row[data-kept='true'] .row__meta {
+  color: var(--muted);
+}
+
+/* ── The drop-zone motif ─────────────────────────────────────────────────────
+   The HEIC tool draws slide mounts. This one draws the act of compression: a
+   frame with two arrows squeezing inward. Decorative — the text says everything. */
+
+.drop__squeeze {
+  width: 104px;
+  height: 60px;
+  color: var(--rule-2);
+  margin-bottom: var(--s-1);
+  transition: color 0.15s, transform 0.2s;
+}
+
+.drop[data-drag='true'] .drop__squeeze {
+  color: var(--safelight);
+  transform: translateY(-3px);
+}
+
+/* ── A short "how it comes out smaller" strip under the hero content ──────────
+   Three plain facts, mono kickers, no icons. Sits in the prose flow, so it needs
+   only spacing — colours and type are inherited. */
+
+.facets {
+  display: grid;
+  gap: var(--s-5);
+  margin-top: var(--s-5);
+}
+
+@media (min-width: 46em) {
+  .facets {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--s-6);
+  }
+}
+
+.facet__kick {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--safelight);
+  margin-bottom: var(--s-2);
+}
+
+.facet h3 {
+  font-size: var(--step-1);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0 0 var(--s-2);
+}
+
+.facet p {
+  color: var(--ink-2);
+  font-size: var(--step--1);
+  line-height: 1.55;
+}

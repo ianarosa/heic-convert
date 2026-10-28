@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>PNG to SVG — Free Vector Tracer, No Upload</title>
+<meta name="description" content="Trace PNG to SVG in your browser — nothing uploads. Turns logos, icons and flat graphics into real vector shapes that scale to any size. Photos trace poorly.">
+
+<!-- ==================== SITE ORIGIN ====================
+     The canonical domain appears in this block and NOWHERE else in this file.
+     Moving domains = edit the hrefs below, plus the same block in every other page.
+     The full list of files carrying an origin is in README.md ("Moving domains").
+     ===================================================== -->
+<link rel="canonical" href="https://heic.kostelinha.com/png-to-svg/">
+<meta property="og:url" content="https://heic.kostelinha.com/png-to-svg/">
+<meta property="og:image" content="https://heic.kostelinha.com/assets/og.png">
+<meta name="twitter:image" content="https://heic.kostelinha.com/assets/og.png">
+<!-- JSON-LD urls are inside the script at the end of this head. -->
+<!-- ==================== /SITE ORIGIN ==================== -->
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Safelight">
+<meta property="og:title" content="PNG to SVG — Free Vector Tracer, No Upload">
+<meta property="og:description" content="Trace a PNG logo or icon into a real, scalable SVG, in your browser. Nothing uploads. Photos trace poorly — flat graphics shine.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Safelight — convert images, without the upload.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PNG to SVG — Free Vector Tracer, No Upload">
+<meta name="twitter:description" content="Trace a PNG logo or icon into a scalable SVG, in your browser. Nothing uploaded.">
+<meta name="theme-color" content="#eceef1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131010" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23131010'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23f2913f'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23f2913f' stroke-opacity='.35' stroke-width='1.5'/%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="/css/app.css">
+<link rel="stylesheet" href="/css/pages.css">
+<script type="module" src="/js/pages.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Safelight", "item": "https://heic.kostelinha.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Convert images", "item": "https://heic.kostelinha.com/" },
+        { "@type": "ListItem", "position": 3, "name": "PNG to SVG" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://heic.kostelinha.com/png-to-svg/#app",
+      "name": "Safelight PNG to SVG Tracer",
+      "url": "https://heic.kostelinha.com/png-to-svg/",
+      "applicationCategory": "MultimediaApplication",
+      "applicationSubCategory": "Vector tracer",
+      "operatingSystem": "Any browser: Windows, macOS, iOS, iPadOS, Android, Linux",
+      "browserRequirements": "Requires JavaScript.",
+      "description": "Traces a PNG into a real vector SVG entirely inside the browser. Ideal for logos, icons and flat graphics; photographs trace poorly. Nothing is uploaded. Free with no file limit.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isAccessibleForFree": true,
+      "permissions": "none"
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://heic.kostelinha.com/png-to-svg/#howto",
+      "name": "How to convert PNG to SVG without uploading",
+      "totalTime": "PT30S",
+      "step": [
+        { "@type": "HowToStep", "position": 1, "name": "Open the converter", "text": "Open the Safelight converter with SVG already selected under Save as." },
+        { "@type": "HowToStep", "position": 2, "name": "Add your PNG", "text": "Drop your PNG logo, icon or flat graphic onto the page, paste it, or choose a folder. Nothing is uploaded." },
+        { "@type": "HowToStep", "position": 3, "name": "Save the SVG", "text": "The image is traced into vector shapes on your device. Save the .svg — it now scales to any size without blurring." }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://heic.kostelinha.com/png-to-svg/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does this really make a vector SVG, or just wrap the PNG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It genuinely traces the image into vector paths — real <path> shapes, not the PNG embedded inside an <image> tag. That is why the result scales cleanly to any size. The tracing runs in your browser; nothing is uploaded."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What kind of PNG traces well?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Flat, sharp-edged art: logos, icons, symbols, simple illustrations, UI screenshots and line art. Images with a small number of solid colours trace into small, clean SVGs. The fewer colours and the crisper the edges, the better the result."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I convert a PNG photo to SVG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can, but you probably shouldn't. Tracing follows colour regions, and a photograph is millions of tiny gradients, so it comes out as a large, blurry, posterised file — often bigger than the PNG and worse looking. The converter warns you when the input looks like a photo. For photos, keep JPG, PNG or WebP."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is transparency kept when tracing PNG to SVG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Transparent regions are traced as their own areas rather than filled, so a logo on a transparent background stays usable as an SVG. Very soft, feathered edges trace less cleanly than hard ones."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it free and private?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The tracer is pure JavaScript running in your browser — no upload, no account, no daily cap — and it keeps working with your Wi-Fi off."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to the content</a>
+
+<header class="head">
+  <div class="wrap head__in">
+    <a class="brand" href="/">
+      <span class="lamp" aria-hidden="true"></span>
+      Safelight
+      <span class="brand__sub">Convert&nbsp;images, on your device</span>
+    </a>
+    <nav class="head__nav" aria-label="Safelight tools">
+      <a class="head__link" href="/">Convert</a>
+      <a class="head__link" href="/compress/">Compress</a>
+      <a class="head__link" href="/guides/">Guides</a>
+    </nav>
+    <button type="button" class="room-toggle" id="room-toggle">Lightbox</button>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="wrap pagehead">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/">Safelight</a>
+      <span class="crumbs__sep" aria-hidden="true">/</span>
+      <a href="/">Convert images</a>
+      <span class="crumbs__sep" aria-hidden="true">/</span>
+      <span aria-current="page">PNG to SVG</span>
+    </nav>
+
+    <h1>PNG to SVG,<br><em>a real trace, not a wrapper</em>.</h1>
+    <p class="pagehead__lede">
+      This turns a PNG into genuine vector shapes — a true SVG that scales to any size with no
+      blur — by tracing the image in your browser. It's the right tool for a logo, an icon or
+      flat artwork. It is the wrong tool for a photograph, and this page is honest about which
+      one you have. Nothing is uploaded.
+    </p>
+    <p class="pagehead__meta">
+      <span>Vector tracer</span>
+      <span>Last checked: July 2026</span>
+    </p>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>The short version</h2>
+        <p>
+          Tracing (vectorizing) looks at your PNG and rebuilds it out of
+          <strong>paths</strong> — outlined shapes filled with solid colour — instead of a
+          grid of pixels. The payoff is that the result is <strong>resolution-independent</strong>:
+          the same SVG is razor-sharp on a business card and on a billboard, and it's usually
+          tiny when the source is a simple graphic.
+        </p>
+        <p>
+          That only works when the picture is <strong>made of shapes</strong> to begin with:
+          logos, icons, symbols, line art, a screenshot of an interface. Hand it a
+          <strong>photograph</strong> and there are no clean shapes to find — just millions of
+          gradients — so the trace comes out blurry, posterised and often larger than the PNG
+          you started with. If that's your case, don't; keep the PNG or use JPG.
+        </p>
+      </div>
+
+      <div class="cta">
+        <div class="cta__text">
+          <p class="cta__title">Trace PNG to SVG now</p>
+          <p class="cta__sub">
+            Opens with SVG already chosen under "Save as". Free, no account, no daily cap.
+            Nothing uploads — the tracing runs on your machine, and it warns you if your image
+            looks like a photo.
+          </p>
+        </div>
+        <a class="btn btn--primary" href="/?to=svg">Open the converter</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Trace a PNG to SVG in three steps</h2>
+        <ol>
+          <li><strong>Open the converter.</strong> The button above lands on the tool with SVG already selected under "Save as".</li>
+          <li><strong>Add your PNG.</strong> Drop, paste, or choose a folder. It's read into the tab, never uploaded.</li>
+          <li><strong>Save the SVG.</strong> The image is traced into vector paths on your device — save the <code>.svg</code> and it scales to any size.</li>
+        </ol>
+
+        <h2>What traces beautifully</h2>
+        <ul>
+          <li><strong>Logos and wordmarks.</strong> A flat logo exported as PNG becomes a crisp, scalable SVG you can drop into print, a favicon, or a huge banner.</li>
+          <li><strong>Icons and symbols.</strong> Simple, few-colour shapes are exactly what tracing is built for — small files, clean edges.</li>
+          <li><strong>Line art and diagrams.</strong> Sharp outlines survive the trip; you get editable vector paths back.</li>
+          <li><strong>UI screenshots of graphics.</strong> Flat interface elements with solid fills trace well.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <aside class="ad wrap" id="ad-in-content" aria-label="Advertisement">
+    <p class="ad__label">Advertisement</p>
+    <div class="ad__box"></div>
+  </aside>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>The honest caveats</h2>
+        <ul>
+          <li>
+            <strong>Photos don't vectorize.</strong> This is the big one. A photograph has no
+            clean shapes to trace, so the SVG is blurry, posterised and often heavier than the
+            PNG. The converter flags it when your input looks like a photo — believe the flag.
+            For photos, JPG or WebP is the honest answer.
+          </li>
+          <li>
+            <strong>Tracing is approximate.</strong> Even on flat art it's a re-drawing, not a
+            perfect copy — very fine detail and soft, feathered edges get simplified. For a
+            clean logo that's exactly what you want; for something intricate, check the result.
+          </li>
+          <li>
+            <strong>Detail vs size is a real trade.</strong> The quality slider controls how
+            many colours the trace follows. Higher follows more detail and makes a bigger file;
+            lower posterises to fewer colours and a smaller one. Nudge it to taste.
+          </li>
+          <li>
+            <strong>Nothing uploads, and you can check it.</strong> The tracer is pure
+            JavaScript on your machine. Press <code>F12</code>, open <strong>Network</strong>,
+            trace a PNG: no request. Or cut your Wi-Fi and trace anyway — it still works.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Questions people actually ask</h2>
+      </div>
+      <dl class="faq prose">
+        <dt>Is this a real vector, or a PNG hidden in an SVG?</dt>
+        <dd>
+          A real vector. The output is genuine <code>&lt;path&gt;</code> shapes, which is why
+          it scales without blurring. It is not the PNG wrapped in an <code>&lt;image&gt;</code>
+          tag.
+        </dd>
+
+        <dt>My logo has a transparent background — does that survive?</dt>
+        <dd>
+          Yes. Transparent regions are traced as their own areas rather than filled, so the SVG
+          stays usable on any background. Hard edges trace more cleanly than soft, feathered ones.
+        </dd>
+
+        <dt>Why did my traced photo come out huge and blurry?</dt>
+        <dd>
+          Because it's a photo. Tracing needs flat shapes; a photograph is continuous gradients,
+          so the tracer approximates it with thousands of paths — big file, soft result. Keep the
+          PNG, or <a href="/png-to-jpg/">convert it to JPG</a> instead.
+        </dd>
+
+        <dt>Can I edit the SVG afterwards?</dt>
+        <dd>
+          Yes — it's standard SVG, so it opens in Illustrator, Inkscape, Figma or a text editor,
+          with the traced paths editable like any vector.
+        </dd>
+
+        <dt>Is PNG to SVG free, with no limit?</dt>
+        <dd>
+          Yes — no account, no daily cap, no file limit. It runs on your device, so the only
+          ceiling is your machine.
+        </dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Convert between other formats</h2>
+      </div>
+      <ul class="cards">
+        <li>
+          <a class="card-link" href="/jpg-to-svg/">
+            <p class="card-link__kick">Vector tracer</p>
+            <p class="card-link__title">JPG to SVG</p>
+            <p class="card-link__sub">Great for a JPG logo or screenshot — but most JPGs are photos, which trace poorly.</p>
+          </a>
+        </li>
+        <li>
+          <a class="card-link" href="/webp-to-svg/">
+            <p class="card-link__kick">Vector tracer</p>
+            <p class="card-link__title">WebP to SVG</p>
+            <p class="card-link__sub">Trace a WebP graphic or icon into scalable vector shapes.</p>
+          </a>
+        </li>
+        <li>
+          <a class="card-link" href="/png-to-jpg/">
+            <p class="card-link__kick">Converter</p>
+            <p class="card-link__title">PNG to JPG</p>
+            <p class="card-link__sub">For a PNG photo — a smaller file that opens anywhere.</p>
+          </a>
+        </li>
+        <li>
+          <a class="card-link" href="/png-to-webp/">
+            <p class="card-link__kick">Converter</p>
+            <p class="card-link__title">PNG to WebP</p>
+            <p class="card-link__sub">Far smaller than PNG and keeps transparency — modern software.</p>
+          </a>
+        </li>
+        <li>
+          <a class="card-link" href="/webp-to-jpg/">
+            <p class="card-link__kick">Converter</p>
+            <p class="card-link__title">WebP to JPG</p>
+            <p class="card-link__sub">For software that can't open WebP yet — JPG opens on everything.</p>
+          </a>
+        </li>
+      </ul>
+
+      <div class="cta">
+        <div class="cta__text">
+          <p class="cta__title">Ready when you are</p>
+          <p class="cta__sub">
+            Trace one logo and see the vector come back. Free, unlimited, and nothing leaves
+            your device.
+          </p>
+        </div>
+        <a class="btn btn--primary" href="/?to=svg">Open the converter</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p>
+      <strong>Safelight</strong> — image conversion that never uploads your files.
+      Built on <a class="prose" href="https://github.com/strukturag/libheif" rel="noopener">libheif</a> (<a class="prose" href="/vendor/LICENSE.libheif-js.txt" rel="license">LGPL-3.0</a>)
+      and <a class="prose" href="https://github.com/jankovicsandras/imagetracerjs" rel="noopener">ImageTracer.js</a> (<a class="prose" href="/vendor/LICENSE.imagetracer.txt" rel="license">public domain</a>) for vector tracing.
+    </p>
+    <nav class="foot__nav" aria-label="Convert between formats">
+      <a href="/png-to-jpg/">PNG to JPG</a>
+      <a href="/webp-to-jpg/">WebP to JPG</a>
+      <a href="/jpg-to-webp/">JPG to WebP</a>
+      <a href="/webp-to-png/">WebP to PNG</a>
+      <a href="/png-to-webp/">PNG to WebP</a>
+      <a href="/jpg-to-png/">JPG to PNG</a>
+      <a href="/png-to-svg/">PNG to SVG</a>
+      <a href="/jpg-to-svg/">JPG to SVG</a>
+      <a href="/webp-to-svg/">WebP to SVG</a>
+    </nav>
+    <nav class="foot__nav" aria-label="Footer">
+      <a href="/">Convert</a>
+      <a href="/compress/">Compress</a>
+      <a href="/guides/">Guides</a>
+      <a href="/privacy/">Privacy</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

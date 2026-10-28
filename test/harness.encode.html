@@ -1,0 +1,48 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>encode.js + queue.js verification harness</title>
+<!--
+  Loaded by test/verify.encode.mjs under headless Chrome. Exposes encode.js / queue.js on
+  window so the test driver can call them. Not part of the app.
+
+  JSZip is loaded here as an INDEPENDENT ZIP READER for verification only — it is NOT what
+  the app uses to write zips (that's the vendored client-zip, which is write-only). Reading
+  our output back with a different library than wrote it is deliberate: it catches malformed
+  archives that a round-trip through the same library would happily accept.
+
+  It's pulled straight from node_modules (the test server's root is the project root), so
+  it's a devDependency and never ships. It's a UMD bundle, hence a classic <script> tag ->
+  window.JSZip, not an import.
+-->
+<script src="/node_modules/jszip/dist/jszip.min.js"></script>
+<body>
+<script type="module">
+  import * as encode from '../js/encode.js';
+  import * as queue from '../js/queue.js';
+
+  window.__encode = encode;
+  window.__queue = queue;
+  window.__JSZip = window.JSZip; // set by the classic script above
+
+  // Handy helpers the driver reuses across tests.
+  window.__readSample = async () => {
+    const blob = await (await fetch('/test/sample.heic')).blob();
+    return new File([blob], 'IMG_1234.HEIC', { type: 'image/heic', lastModified: Date.now() });
+  };
+  window.__magic = async (blob, n = 4) =>
+    Array.from(new Uint8Array(await blob.slice(0, n).arrayBuffer()));
+
+  // Synthetic "converted item" — lets the zip tests reach sizes that would take hundreds of
+  // real decodes to produce. Shape matches what the queue actually produces.
+  window.__fakeItem = (i, bytes, chunk) => ({
+    status: 'done',
+    name: `IMG_${String(i).padStart(4, '0')}.HEIC`,
+    outputName: `IMG_${String(i).padStart(4, '0')}.jpg`,
+    blob: new Blob([chunk], { type: 'image/jpeg' }),
+    outputSize: bytes,
+    file: { lastModified: Date.now() },
+  });
+
+  window.__ready = true;
+</script>
+</body>

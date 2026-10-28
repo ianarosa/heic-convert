@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Free Unlimited HEIC to JPG — No Cap, No Signup, No Watermark</title>
+<meta name="description" content="Why free HEIC converters cap you at a few files a day, why a converter running on your own device doesn't need to, and where the real limits actually are.">
+
+<!-- ==================== SITE ORIGIN ====================
+     The canonical domain appears in this block and NOWHERE else in this file.
+     Moving domains = edit the hrefs below, plus the same block in every other page.
+     The full list of files carrying an origin is in README.md ("Moving domains").
+     ===================================================== -->
+<link rel="canonical" href="https://heic.kostelinha.com/guides/heic-to-jpg-free-unlimited/">
+<meta property="og:url" content="https://heic.kostelinha.com/guides/heic-to-jpg-free-unlimited/">
+<meta property="og:image" content="https://heic.kostelinha.com/assets/og.png">
+<meta name="twitter:image" content="https://heic.kostelinha.com/assets/og.png">
+<!-- JSON-LD urls are inside the script at the end of this head. -->
+<!-- ==================== /SITE ORIGIN ==================== -->
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Safelight">
+<meta property="og:title" content="Free Unlimited HEIC to JPG — No Cap, No Signup, No Watermark">
+<meta property="og:description" content="Why free online converters have daily caps, why a local one doesn't need one, and where the real limits are.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Safelight — HEIC to JPG, without the upload.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Unlimited HEIC to JPG — No Cap, No Signup, No Watermark">
+<meta name="twitter:description" content="Why free converters cap you, why a local one doesn't, and where the real limits are.">
+<meta name="theme-color" content="#eceef1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131010" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23131010'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23f2913f'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23f2913f' stroke-opacity='.35' stroke-width='1.5'/%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="/css/app.css">
+<link rel="stylesheet" href="/css/pages.css">
+<script type="module" src="/js/pages.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Safelight", "item": "https://heic.kostelinha.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://heic.kostelinha.com/guides/" },
+        { "@type": "ListItem", "position": 3, "name": "Free unlimited HEIC to JPG" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://heic.kostelinha.com/guides/heic-to-jpg-free-unlimited/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why do free HEIC converters limit how many files I can convert?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because a server-based converter pays a real cost for every file you send: bandwidth up, CPU time to decode the HEVC, storage while the file waits, bandwidth back down. That cost scales with your batch, so an uncapped free tier would scale their bill with your camera roll. A cap is the rational design of a free tier funded by paid plans, not an act of greed. A converter that runs inside your browser has no such marginal cost, because the work happens on hardware you already own — so it can honestly offer no cap."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there really no limit on this HEIC converter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There is no daily cap, no account, no watermark and no file count. The real limit is your own device's memory. Hundreds of files at once is normal on a desktop; an older phone will manage less. Very large batches are also more reliable saved file by file than as one zip, because a browser caps how much data a single zip can hold in memory. The app warns you before you reach that point."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "If it is free and unlimited, how is it paid for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "By ads. There are ad slots on the page and they are labelled as advertisements. Since your files never leave your device, there is nothing else here to monetise — no uploads to mine, no account to sell, no usage data to resell. The honest version of a free tool tells you where the money comes from, and this is where it comes from."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the actual downsides of a free unlimited converter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Four, stated plainly. Your JPGs come out around 168% the size of the HEIC originals at the default quality of 0.85, which is true of every HEIC to JPG converter. EXIF metadata such as dates, camera model and GPS is dropped, though rotation is applied. Very large batches are limited by your device's memory rather than by a plan. And the decoder is a 1.4 MB download on first use, once."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to the guide</a>
+
+<header class="head">
+  <div class="wrap head__in">
+    <a class="brand" href="/">
+      <span class="lamp" aria-hidden="true"></span>
+      Safelight
+      <span class="brand__sub">HEIC&nbsp;→&nbsp;JPG, on your device</span>
+    </a>
+    <nav class="head__nav" aria-label="Sections">
+      <a class="head__link" href="/">Convert</a>
+      <a class="head__link" href="/compress/">Compress</a>
+      <a class="head__link" href="/guides/">Guides</a>
+    </nav>
+    <button type="button" class="room-toggle" id="room-toggle">Lightbox</button>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="wrap pagehead">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/">Safelight</a>
+      <span class="crumbs__sep" aria-hidden="true">/</span>
+      <a href="/guides/">Guides</a>
+      <span class="crumbs__sep" aria-hidden="true">/</span>
+      <span aria-current="page">Free and unlimited</span>
+    </nav>
+
+    <h1>Free, unlimited,<br><em>and here's why that's possible</em>.</h1>
+    <p class="pagehead__lede">
+      You hit a daily limit on a free converter and assumed you were being squeezed toward
+      a paid plan. Mostly you weren't. The cap exists because someone is paying for a
+      server, and it goes away when nobody is. That's the whole trick, and it's worth
+      understanding before you trust anyone's "unlimited".
+    </p>
+    <p class="pagehead__meta">
+      <span>Guide</span>
+      <span>Last checked: July 2026</span>
+      <span>Reading time: 5 min</span>
+    </p>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>The cap isn't greed. It's arithmetic.</h2>
+        <p>
+          When you drop a photo on a typical online converter, the file is uploaded to a
+          machine that company rents. That machine decodes the HEVC, re-encodes a JPG,
+          stores the result until you fetch it, and sends it back. Every one of those steps
+          costs money, per file, forever. Your batch of 400 photos is a line item on
+          somebody's invoice.
+        </p>
+        <p>
+          Given that, "unlimited and free" would be a promise to let strangers spend
+          unbounded amounts of their money. Nobody sane offers it. So they cap the free
+          tier, sell a paid one to the people who need more, and the free tier exists as a
+          sample. That's a coherent business, honestly run, and the caps aren't a trap —
+          they're the price of the architecture.
+        </p>
+        <p>
+          FreeConvert, for instance, publishes its free tier plainly on its pricing page:
+        </p>
+
+        <figure class="cite">
+          <blockquote>
+            "Free users get 20 conversion minutes per day for both Web and API use."
+            <br><br>
+            "This means up to 20 files per day can be converted for free."
+            <br><br>
+            "a limit of 5 conversion minutes per file for free usage."
+          </blockquote>
+          <figcaption>
+            <a href="https://www.freeconvert.com/pricing" rel="noopener nofollow">FreeConvert pricing page</a>
+            <span class="cite__read">Read 15 July 2026</span>
+          </figcaption>
+        </figure>
+
+        <p>
+          That's a reasonable free tier, and we'd say so on any day of the week. Twenty
+          files a day, for nothing, from a company paying for real hardware, with the limit
+          written down where you can read it before you start rather than discovered at file
+          twenty-one. The complaint isn't that the cap is unfair. It's that a cap of twenty
+          is no use at all when you have a camera roll of eight hundred — and no amount of
+          goodwill changes that, because the constraint is physics and accounting, not
+          attitude.
+        </p>
+        <p>
+          The same page describes the mechanics without embarrassment:
+        </p>
+
+        <figure class="cite">
+          <blockquote>
+            "we upload your files over a secure HTTPS connection"
+          </blockquote>
+          <figcaption>
+            <a href="https://www.freeconvert.com/heic-to-jpg" rel="noopener nofollow">FreeConvert HEIC to JPG</a>
+            <span class="cite__read">Read 15 July 2026</span>
+          </figcaption>
+        </figure>
+
+        <p>
+          That's the architecture, stated accurately, and their HEIC page also lists a max
+          file size of 1 GB — which is generous, and only possible because a server has the
+          room. Uploading is a legitimate way to build a converter; it's how most of them
+          work. It just means someone else's computer touches your photo, and someone else's
+          bill grows with your batch. Both of those follow from the same decision.
+        </p>
+      </div>
+
+      <div class="cta">
+        <div class="cta__text">
+          <p class="cta__title">No cap, no account, no watermark</p>
+          <p class="cta__sub">
+            The conversion runs on your machine, so there's no invoice to defend and nothing
+            to meter. Drop in eight hundred photos if you have eight hundred photos.
+          </p>
+        </div>
+        <a class="btn btn--primary" href="/#tool">Open the converter</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Why a local converter can honestly say "no limit"</h2>
+        <p>
+          Your browser can decode and re-encode images itself. The standard open-source HEIC
+          decoder, <a href="https://github.com/strukturag/libheif" rel="noopener">libheif</a>,
+          compiles to WebAssembly — real compiled code running at near-native speed inside a
+          tab. So the page downloads the decoder once, about 1.4 MB, and after that does
+          every conversion on your own CPU.
+        </p>
+        <p>
+          Which means the marginal cost of your five-hundredth photo, to whoever wrote the
+          page, is <strong>zero</strong>. Not "low". Zero. There's no server in the loop to
+          bill anyone. Metering it would be inventing a limit for the pleasure of enforcing
+          it, so there's no cap, no account, and no watermark — not out of generosity, but
+          because there's nothing there to charge for.
+        </p>
+        <p>
+          The privacy consequence is a side effect rather than the point: photos that never
+          go anywhere can't be stored, mined, or covered by a terms-of-service clause. And
+          you can verify the whole claim in ten seconds by turning off your Wi-Fi and
+          converting anyway — <a href="/guides/heic-to-jpg-without-uploading/">that test is
+          on its own page</a>, and it works on any converter, including this one.
+        </p>
+      </div>
+
+      <div class="facts">
+        <table>
+          <caption class="vh">Free-tier limits compared</caption>
+          <thead>
+            <tr>
+              <th scope="col">Converter</th>
+              <th scope="col">Free limit</th>
+              <th scope="col">Where the work happens</th>
+              <th scope="col">Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-self="true">
+              <th scope="row">Safelight</th>
+              <td>No daily cap, no account, no file count. Limited by your device's memory.</td>
+              <td>Your browser</td>
+              <td>This page</td>
+            </tr>
+            <tr>
+              <th scope="row">FreeConvert</th>
+              <td>"Free users get 20 conversion minutes per day for both Web and API use." / "up to 20 files per day" / "a limit of 5 conversion minutes per file"</td>
+              <td>Their servers — "we upload your files over a secure HTTPS connection"</td>
+              <td><a href="https://www.freeconvert.com/pricing" rel="noopener nofollow">Pricing page</a>, read 15 July 2026</td>
+            </tr>
+            <tr>
+              <th scope="row">Other server-based converters</th>
+              <td>Typically a daily or quota cap of some kind. See their pricing page.</td>
+              <td>Their servers</td>
+              <td>See their pricing page</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="prose">
+        <p>
+          We've left the third row vague on purpose. We only put numbers in this table that
+          we have read on the source's own page and can link you to, and a table that
+          invents plausible-looking figures for companies we didn't check would be exactly
+          the genre of writing this site exists to be an alternative to.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <aside class="ad wrap" id="ad-in-content" aria-label="Advertisement">
+    <p class="ad__label">Advertisement</p>
+    <div class="ad__box"></div>
+  </aside>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>So where <em>are</em> the limits here?</h2>
+        <p>
+          "Unlimited" with no asterisks would be its own kind of marketing. There are four
+          real constraints, and none of them is a plan you can upgrade:
+        </p>
+        <ul>
+          <li>
+            <strong>Your device's memory.</strong> Hundreds of photos at once on a desktop
+            is unremarkable. A phone with 3 GB of RAM is still a phone with 3 GB of RAM, and
+            iOS is quick to reclaim memory from a tab, so work in smaller groups there. This
+            is usually far more generous than a free tier — but it is a ceiling, and it's
+            yours.
+          </li>
+          <li>
+            <strong>Big zips.</strong> Building a zip means holding the archive and the
+            source files in memory at the same time, and browsers cap how much a single blob
+            can hold. Very large batches are more reliable saved individually; the app warns
+            you before you hit the wall rather than after.
+          </li>
+          <li>
+            <strong>EXIF is dropped.</strong> Dates, camera model, GPS. The photo is decoded
+            to pixels and re-encoded, and the metadata doesn't survive the trip. Rotation
+            <em>is</em> applied, so nothing lands sideways. If your archive needs its
+            timestamps, this isn't the tool for that job yet.
+          </li>
+          <li>
+            <strong>Your files get bigger.</strong> About <strong>168%</strong> of the HEIC
+            at the default quality of 0.85 — 2 MB in, roughly 3.4 MB out. WebP saves about
+            8% and is still larger than the HEIC; PNG is lossless and roughly twelve times
+            the size. Every HEIC-to-JPG converter does this, uploading or not: it's the
+            codecs, not the tool. Drop the quality toward 0.6 to land near the original size,
+            with loss you'll be able to see.
+          </li>
+        </ul>
+        <p>
+          Two more worth stating: the decoder is a 1.4 MB download on first use, once — a
+          network request that doesn't contain your photo. And the output formats are JPG,
+          PNG, WebP and PDF (see the <a href="/guides/heic-to-pdf/">HEIC to PDF guide</a>).
+          Video and other exotic formats aren't here — if you need those you need a cloud
+          tool, and we'd rather say that than waste your afternoon.
+        </p>
+      </div>
+
+      <div class="prose">
+        <h2>How this is paid for</h2>
+        <p>
+          By ads. There are ad slots on this page and on the converter, marked
+          "Advertisement", and that's the entire revenue model. It's worth saying plainly,
+          because "free and unlimited" ought to prompt the question — and the honest answer
+          to "what's the catch" is more convincing than a claim that there isn't one.
+        </p>
+        <p>
+          What there isn't: no account to create, no email to hand over, no upsell to a Pro
+          tier, no watermark, and no data to sell, because your files never reach us in the
+          first place. That last one isn't a virtue we're claiming so much as a shape the
+          architecture forced. There's genuinely nothing here to monetise except the space
+          around the tool.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Questions people actually ask</h2>
+      </div>
+      <dl class="faq prose">
+        <dt>Why do free HEIC converters have daily limits?</dt>
+        <dd>
+          Because every file costs them bandwidth, CPU and storage on a server they rent, so
+          their bill scales with your batch. Capping the free tier is the rational design of
+          that business, not greed. A converter running in your browser has no per-file cost
+          to anyone, so it doesn't need a cap.
+        </dd>
+
+        <dt>Is this really unlimited, with no signup?</dt>
+        <dd>
+          No daily cap, no account, no watermark, no file count. The genuine limit is your
+          device's memory — hundreds of files at once is normal, and very large batches save
+          more reliably one at a time than as a single zip.
+        </dd>
+
+        <dt>What's the catch?</dt>
+        <dd>
+          Ads, marked as ads. Plus the four honest limits above: device memory, big-zip
+          memory, EXIF being dropped, and JPGs coming out around 168% the size of your
+          HEICs.
+        </dd>
+
+        <dt>Is there a watermark on the converted files?</dt>
+        <dd>
+          No. The conversion happens in your browser with an open-source decoder; there's no
+          step at which anything could be stamped onto your photo, and no free tier to
+          differentiate from a paid one.
+        </dd>
+
+        <dt>Do I need to install anything or make an account?</dt>
+        <dd>
+          Neither. No install, no admin rights, no email. That matters most on a work laptop
+          where you can't install software and wouldn't want to sign up for anything with a
+          work address anyway.
+        </dd>
+
+        <dt>Can I convert to PDF as well?</dt>
+        <dd>
+          Yes — JPG, PNG, WebP and PDF, with the same no-upload, no-cap terms. You can make
+          one PDF per photo or combine a batch into a single PDF; the
+          <a href="/guides/heic-to-pdf/">HEIC to PDF guide</a> walks through it.
+        </dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Keep reading</h2>
+        <ul>
+          <li><a href="/guides/batch-convert-heic-to-jpg/">Batch converting hundreds at once</a> — folder drops, zip limits, and the size maths.</li>
+          <li><a href="/guides/heic-to-jpg-without-uploading/">Converting without uploading</a> — the ten-second test that proves any converter.</li>
+          <li><a href="/compare/is-freeconvert-safe/">Is FreeConvert safe?</a> — the fair, sourced answer.</li>
+        </ul>
+      </div>
+
+      <div class="cta">
+        <div class="cta__text">
+          <p class="cta__title">Nothing to sign up for</p>
+          <p class="cta__sub">
+            No cap, no watermark, no account. The only ceiling is your own hardware, which
+            is at least a limit you can look at.
+          </p>
+        </div>
+        <a class="btn btn--primary" href="/#tool">Open the converter</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p>
+      <strong>Safelight</strong> — HEIC to JPG that never uploads your photos.
+      Built on <a class="prose" href="https://github.com/strukturag/libheif" rel="noopener">libheif</a> (<a class="prose" href="/vendor/LICENSE.libheif-js.txt" rel="license">LGPL-3.0</a>).
+    </p>
+    <nav class="foot__nav" aria-label="Footer">
+      <a href="/">Converter</a>
+      <a href="/guides/">Guides</a>
+      <a href="/compare/">Comparisons</a>
+      <a href="/privacy/">Privacy</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

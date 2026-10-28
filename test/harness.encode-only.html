@@ -1,0 +1,19 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>encode.js (encodeBitmap only) — static-graph probe</title>
+<!--
+  Imports ONLY js/encode.js, nothing else. Used by verify.pdf.mjs to prove that an
+  encodeBitmap-only consumer (like the /compress/ tool) does NOT pull js/decode.js into its
+  static module graph — decode.js must only load lazily, inside combineFilesToPdf().
+
+  Deliberately does NOT import queue.js (whose static `import ... from './decode.js'` is
+  correct and unrelated). Not part of the app.
+-->
+<body>
+<script type="module">
+  import { encodeBitmap, outputFilename } from '../js/encode.js';
+  window.__encodeBitmap = encodeBitmap;
+  window.__outputFilename = outputFilename;
+  window.__ready = true;
+</script>
+</body>

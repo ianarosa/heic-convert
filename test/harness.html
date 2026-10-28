@@ -1,0 +1,14 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>decode.js verification harness</title>
+<!--
+  Loaded by test/verify.mjs under headless Chrome. Exposes the decode.js API on
+  window.__decode so the test driver can call it. Not part of the app.
+-->
+<body>
+<script type="module">
+  import * as decode from '../js/decode.js';
+  window.__decode = decode;
+  window.__ready = true;
+</script>
+</body>

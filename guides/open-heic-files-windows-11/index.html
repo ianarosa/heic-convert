@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>How to Open HEIC Files on Windows 11 — Four Real Options</title>
+<meta name="description" content="Windows 11 won't open your HEIC photos because HEVC is patented and Microsoft ships the decoder separately. Four honest fixes, with the trade-offs of each.">
+
+<!-- ==================== SITE ORIGIN ====================
+     The canonical domain appears in this block and NOWHERE else in this file.
+     Moving domains = edit the hrefs below, plus the same block in every other page.
+     The full list of files carrying an origin is in README.md ("Moving domains").
+     ===================================================== -->
+<link rel="canonical" href="https://heic.kostelinha.com/guides/open-heic-files-windows-11/">
+<meta property="og:url" content="https://heic.kostelinha.com/guides/open-heic-files-windows-11/">
+<meta property="og:image" content="https://heic.kostelinha.com/assets/og.png">
+<meta name="twitter:image" content="https://heic.kostelinha.com/assets/og.png">
+<!-- JSON-LD urls are inside the script at the end of this head. -->
+<!-- ==================== /SITE ORIGIN ==================== -->
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Safelight">
+<meta property="og:title" content="How to Open HEIC Files on Windows 11 — Four Real Options">
+<meta property="og:description" content="Windows won't open HEIC because HEVC is patented and the decoder ships separately. Four fixes, with the honest trade-off attached to each one.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Safelight — HEIC to JPG, without the upload.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Open HEIC Files on Windows 11 — Four Real Options">
+<meta name="twitter:description" content="Why Windows shows a blank icon for your iPhone photos, and the four ways to fix it.">
+<meta name="theme-color" content="#eceef1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131010" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23131010'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23f2913f'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23f2913f' stroke-opacity='.35' stroke-width='1.5'/%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="/css/app.css">
+<link rel="stylesheet" href="/css/pages.css">
+<script type="module" src="/js/pages.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Safelight", "item": "https://heic.kostelinha.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://heic.kostelinha.com/guides/" },
+        { "@type": "ListItem", "position": 3, "name": "Open HEIC files on Windows 11" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://heic.kostelinha.com/guides/open-heic-files-windows-11/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why can't I open HEIC on Windows 11?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because Windows ships without an HEVC decoder. A HEIC file is a HEIF container holding a photo compressed with HEVC, and HEVC is covered by patents that require licence payments per machine. Microsoft chose not to bundle it and sells HEVC Video Extensions through the Microsoft Store instead. Nothing is wrong with your file or your computer: Windows simply cannot decode the picture inside it, so Photos and File Explorer show a blank icon."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the HEVC extension free on Windows 11?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends which listing you can install. The Microsoft Store carries a paid listing called HEVC Video Extensions, and a separate listing called HEVC Video Extensions from Device Manufacturer which is free but is intended for devices whose manufacturer has already licensed the codec, so it is not installable by everyone. Check the Store on your own machine to see what it offers you and at what price, rather than trusting a number written on a web page."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will converting HEIC to JPG lose quality?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A little. JPG is lossy and the photo is re-encoded once, but at the default quality of 0.85 the difference is not visible at normal viewing sizes. The bigger surprise is the file size: JPG output runs around 168% of the HEIC you started with, because JPG's 1992 compression needs more bytes than HEVC to describe the same picture. Raise the quality toward 1.0 for a near-identical file that is larger still, or choose PNG for a lossless copy at roughly twelve times the size."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I stop my iPhone making HEIC files?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Go to Settings, then Camera, then Formats, and choose Most Compatible. The camera then shoots JPG instead of HEIC. Two caveats: it only affects photos taken from that point on, so your existing library stays HEIC, and JPG needs roughly twice the storage for the same picture, so you are trading about half your storage efficiency for compatibility."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to the guide</a>
+
+<header class="head">
+  <div class="wrap head__in">
+    <a class="brand" href="/">
+      <span class="lamp" aria-hidden="true"></span>
+      Safelight
+      <span class="brand__sub">HEIC&nbsp;→&nbsp;JPG, on your device</span>
+    </a>
+    <nav class="head__nav" aria-label="Sections">
+      <a class="head__link" href="/">Convert</a>
+      <a class="head__link" href="/compress/">Compress</a>
+      <a class="head__link" href="/guides/">Guides</a>
+    </nav>
+    <button type="button" class="room-toggle" id="room-toggle">Lightbox</button>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="wrap pagehead">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/">Safelight</a>
+      <span class="crumbs__sep" aria-hidden="true">/</span>
+      <a href="/guides/">Guides</a>
+      <span class="crumbs__sep" aria-hidden="true">/</span>
+      <span aria-current="page">HEIC on Windows 11</span>
+    </nav>
+
+    <h1>Windows 11 won't open your photos.<br><em>It's not your fault</em>.</h1>
+    <p class="pagehead__lede">
+      You copied photos off an iPhone and Windows handed you a folder of blank icons.
+      Nothing is broken, nothing is corrupt, and you haven't done anything wrong. The
+      reason is a patent licence, and there are four ways out of it — each with a real cost
+      attached.
+    </p>
+    <p class="pagehead__meta">
+      <span>Guide</span>
+      <span>Last checked: July 2026</span>
+      <span>Reading time: 6 min</span>
+    </p>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>The short version</h2>
+        <p>
+          A HEIC file is a HEIF container with a photo inside it compressed using
+          <strong>HEVC</strong> — the same codec as 4K video. HEVC is patented, and shipping
+          a decoder means paying licence fees on every machine it lands on. Microsoft
+          decided not to pay that on your behalf: Windows arrives without HEVC support and
+          sells the <em>HEVC Video Extensions</em> through the Microsoft Store instead.
+        </p>
+        <p>
+          So Photos opens, thinks about it, and shows you nothing. File Explorer gives you a
+          blank thumbnail. Your file is completely fine — the machine reading it simply
+          doesn't have the key. iPhones have shot HEIC by default since iOS 11 in 2017,
+          which is why this has been quietly annoying people for years.
+        </p>
+        <p>
+          Four things you can do about it, in the order most people should consider them.
+        </p>
+      </div>
+
+      <div class="cta">
+        <div class="cta__text">
+          <p class="cta__title">If you just want to see the photos, now</p>
+          <p class="cta__sub">
+            Convert them to JPG in your browser. Nothing is installed, nothing is uploaded,
+            nothing is capped — and JPG opens on every machine you'll ever touch.
+          </p>
+        </div>
+        <a class="btn btn--primary" href="/#tool">Open the converter</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>The four options</h2>
+        <p>
+          None of these is universally right. They fix different problems, and two of them
+          fix a problem you might not actually have.
+        </p>
+      </div>
+
+      <ol class="steps">
+        <li id="opt-extension">
+          <h3>Buy the HEVC Video Extensions from the Microsoft Store</h3>
+          <p>
+            This teaches Windows itself to read HEIC, so Photos, File Explorer thumbnails
+            and most Windows apps just start working. It's the cleanest fix if you deal with
+            HEICs constantly and want your own machine to behave.
+          </p>
+          <p>
+            Be careful here, because the Store has <strong>two similarly-named
+            listings</strong> and most articles about this conflate them. One is
+            <strong>HEVC Video Extensions</strong>, which is paid. The other is
+            <strong>HEVC Video Extensions from Device Manufacturer</strong>, which is free
+            but is meant for devices whose manufacturer already licensed the codec — it is
+            not something every user can simply install, and its availability has changed
+            over time. Search the Store on your own machine and see what it actually offers
+            you and at what price. We're not going to quote a figure that might be wrong on
+            your account, in your region, this month.
+          </p>
+          <p>
+            The trade-off: it fixes <em>your</em> PC. The colleague you email the photo to
+            still sees a blank icon.
+          </p>
+        </li>
+        <li id="opt-convert">
+          <h3>Convert the photos to JPG</h3>
+          <p>
+            JPG is thirty years old and there is nothing left in working order that can't
+            read it. Converting fixes viewing, sharing, uploading, printing and archiving in
+            one move, and it needs no install and no admin rights — which matters on a work
+            laptop where you can't install anything anyway.
+          </p>
+          <p>
+            The trade-off is size, and it's real: JPG output runs about
+            <strong>168%</strong> of the HEIC at the default quality of 0.85. A 2 MB photo
+            lands around 3.4 MB. Every HEIC-to-JPG converter does this, including the ones
+            that upload your photos to a server to do it, because it's the codecs and not
+            the tool. There's also a quality cost, though at 0.85 you won't see it at normal
+            viewing sizes.
+          </p>
+          <p>
+            <a href="/#tool">This converter</a> runs in your browser, so your photos aren't
+            uploaded anywhere — worth caring about when the folder in question holds
+            documents, whiteboards or your kids. There's <a href="/guides/heic-to-jpg-without-uploading/">a
+            ten-second test</a> on another page that proves it rather than asking you to
+            believe it.
+          </p>
+        </li>
+        <li id="opt-camera">
+          <h3>Tell the iPhone to shoot JPG instead</h3>
+          <p>
+            <strong>Settings &rarr; Camera &rarr; Formats &rarr; Most Compatible.</strong>
+            From then on the camera records JPG, and this problem never happens to you again
+            with a new photo.
+          </p>
+          <p>
+            Two honest caveats. It applies <em>only to photos taken from now on</em> — the
+            thousands already on your phone stay HEIC, so this fixes the future and none of
+            the present. And you're giving up roughly half your storage efficiency: HEVC
+            stores the same picture at the same quality in about half the bytes of JPG,
+            which is the entire reason Apple switched. On a 64 GB phone that's a genuine
+            sacrifice; on a 512 GB phone you'll likely never notice.
+          </p>
+        </li>
+        <li id="opt-viewer">
+          <h3>Install a viewer that brings its own decoder</h3>
+          <p>
+            Image viewers in the IrfanView / XnView class bundle their own decoding, so they
+            open HEIC on a Windows box that otherwise can't, without the Store being
+            involved. If you mostly want to <em>look</em> at the photos, this works, and
+            most such viewers will batch-convert too.
+          </p>
+          <p>
+            The trade-off: this fixes viewing on the machine where you installed it. It
+            doesn't fix File Explorer thumbnails, it doesn't fix the website that rejects
+            your upload, and it doesn't fix the person you're sending the photo to. It also
+            requires installing software, which is exactly the thing a locked-down work PC
+            won't let you do.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <aside class="ad wrap" id="ad-in-content" aria-label="Advertisement">
+    <p class="ad__label">Advertisement</p>
+    <div class="ad__box"></div>
+  </aside>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Which one do you actually want?</h2>
+        <p>
+          Split it by what you're trying to do, because "open HEIC on Windows" is usually
+          two different problems wearing one coat.
+        </p>
+        <ul>
+          <li>
+            <strong>You need to look at your own photos on your own PC, often.</strong> The
+            Store extension, if it's available to you at a price you like. Failing that, a
+            viewer that bundles a decoder.
+          </li>
+          <li>
+            <strong>You need to send, upload, print or keep them.</strong> Convert to JPG.
+            No amount of fixing your machine fixes the recipient's machine, and a decoder
+            you have to buy per computer is not a format you want a family archive to depend
+            on.
+          </li>
+          <li>
+            <strong>You're on a work laptop with no admin rights.</strong> Convert to JPG in
+            the browser. It's the only option here that installs nothing.
+          </li>
+          <li>
+            <strong>You're tired of this happening.</strong> Set the phone to Most
+            Compatible for future photos, and convert the backlog once.
+          </li>
+        </ul>
+      </div>
+
+      <div class="prose">
+        <h2>Things that look like fixes and aren't</h2>
+        <ul>
+          <li>
+            <strong>Renaming <code>.heic</code> to <code>.jpg</code>.</strong> This does
+            nothing. The extension is a label; the bytes inside are still HEVC. Windows will
+            now fail to open it while looking confident about it.
+          </li>
+          <li>
+            <strong>Waiting for a Windows update.</strong> The blocker is a licence, not a
+            bug. There's nothing queued to fix.
+          </li>
+          <li>
+            <strong>Assuming the file is corrupt.</strong> It isn't. Mail it to any iPhone
+            and it'll open instantly, which is a decent two-minute sanity check if you're
+            genuinely unsure.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Questions people actually ask</h2>
+      </div>
+      <dl class="faq prose">
+        <dt>Why can't I open HEIC on Windows 11?</dt>
+        <dd>
+          Windows ships without an HEVC decoder, because HEVC is patented and licensing it
+          costs money per machine. Microsoft sells the HEVC Video Extensions separately in
+          the Store instead. Your file is fine; the machine lacks the codec.
+        </dd>
+
+        <dt>Is the HEVC extension free?</dt>
+        <dd>
+          There are two listings, and this is where the confusion comes from. "HEVC Video
+          Extensions" is paid. "HEVC Video Extensions from Device Manufacturer" is free but
+          intended for devices whose maker already licensed the codec, so it isn't
+          installable by everyone. Availability has shifted over the years — check the Store
+          on your own machine rather than trusting a price quoted on a page like this one.
+        </dd>
+
+        <dt>Will converting to JPG lose quality?</dt>
+        <dd>
+          Slightly. JPG is lossy and the photo is re-encoded once, but at the default 0.85
+          you won't see it at normal viewing sizes. The size goes the other way: expect
+          around 168% of the original. Push toward 1.0 for near-identical and larger, or PNG
+          for lossless at roughly twelve times the size.
+        </dd>
+
+        <dt>How do I stop my iPhone making HEIC files?</dt>
+        <dd>
+          Settings &rarr; Camera &rarr; Formats &rarr; Most Compatible. It only affects
+          photos taken after you change it, and it costs you roughly half your storage
+          efficiency, because JPG needs about twice the bytes for the same picture.
+        </dd>
+
+        <dt>Does Windows 10 have the same problem?</dt>
+        <dd>
+          Yes — this is about the HEVC licence, not about which version of Windows you run.
+          The same four options apply.
+        </dd>
+
+        <dt>Can I convert a whole folder of them at once?</dt>
+        <dd>
+          Yes. There's no file limit and no daily cap here, so a few hundred at a time is
+          normal — the <a href="/guides/batch-convert-heic-to-jpg/">batch guide</a> covers
+          getting them off the phone and the size arithmetic on a big folder.
+        </dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Keep reading</h2>
+        <ul>
+          <li><a href="/guides/batch-convert-heic-to-jpg/">Batch converting a whole camera roll</a> — folder drops, zip limits, and the size maths.</li>
+          <li><a href="/guides/heic-to-jpg-without-uploading/">Converting without uploading</a> — and the ten-second test that proves any converter.</li>
+          <li><a href="/guides/heic-to-jpg-free-unlimited/">Why free converters have daily caps</a> — the costs behind the limit.</li>
+        </ul>
+      </div>
+
+      <div class="cta">
+        <div class="cta__text">
+          <p class="cta__title">Turn the blank icons into photos</p>
+          <p class="cta__sub">
+            No install, no admin rights, no account, no cap. The files stay on your machine,
+            which you can verify by switching off your Wi-Fi and converting anyway.
+          </p>
+        </div>
+        <a class="btn btn--primary" href="/#tool">Open the converter</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p>
+      <strong>Safelight</strong> — HEIC to JPG that never uploads your photos.
+      Built on <a class="prose" href="https://github.com/strukturag/libheif" rel="noopener">libheif</a> (<a class="prose" href="/vendor/LICENSE.libheif-js.txt" rel="license">LGPL-3.0</a>).
+    </p>
+    <nav class="foot__nav" aria-label="Footer">
+      <a href="/">Converter</a>
+      <a href="/guides/">Guides</a>
+      <a href="/compare/">Comparisons</a>
+      <a href="/privacy/">Privacy</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
